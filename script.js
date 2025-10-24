@@ -75,7 +75,7 @@ async function loadChapter(chapter, li, courseTitle) {
   const div = document.createElement('div');
   div.className = 'chapter';
   div.innerHTML = `<h3>${chapter.title}</h3>`;
-  
+
   if (chapter.theoryPath) {
     const t = await fetch(chapter.theoryPath).then(r => r.text());
     const theory = document.createElement('div');
@@ -158,6 +158,13 @@ async function loadChapter(chapter, li, courseTitle) {
         wrapper.classList.remove("active");
         updateHighlight();
       });
+      function syncScroll() {
+        const pre = wrapper.querySelector(".code-highlight");
+        pre.scrollTop = input.scrollTop;
+        pre.scrollLeft = input.scrollLeft;
+      }
+      input.addEventListener("scroll", syncScroll);
+      
 
       input.addEventListener("input", updateHighlight);
       input.addEventListener("click", updateHighlight);
