@@ -40,7 +40,6 @@ async function openCourse(course) {
   coursesList.innerHTML = '';
   contentArea.innerHTML = '';
 
-  // Build sidebar
   course.chapters.forEach(ch => {
     const li = document.createElement('li');
     li.textContent = ch.title;
@@ -48,7 +47,6 @@ async function openCourse(course) {
     coursesList.appendChild(li);
   });
 
-  // Determine which chapter to open
   const savedChapterTitle = localStorage.getItem(`lastChapter_${course.title}`);
   let targetChapter = null;
   let targetLi = null;
@@ -65,7 +63,6 @@ async function openCourse(course) {
 
   if (targetChapter && targetLi) await loadChapter(targetChapter, targetLi, course.title);
 
-  // Store last course opened
   localStorage.setItem('lastCourseTitle', course.title);
 }
 
@@ -117,10 +114,16 @@ async function loadChapter(chapter, li, courseTitle) {
       const qDiv = document.createElement('div');
       qDiv.className = 'code-question';
       qDiv.innerHTML = `
-        <p>${i + 1}. ${q.question}</p>
-        <textarea class="code-input language-pl1"></textarea>
-        <button class="show-btn">Show Solution</button>
-        <pre class="hidden"><code class="language-pl1">${q.answer}</code></pre>`;
+      <p>${i + 1}. ${q.question}</p>
+        <div class="code-window-bar">
+         <div class="code-window-btn red"></div>
+         <div class="code-window-btn yellow"></div>
+         <div class="code-window-btn green"></div>
+        </div>
+         <textarea class="code-input language-pl1"></textarea>
+         <button class="show-btn">Show Solution</button>
+         <pre class="hidden"><code class="language-pl1">${q.answer}</code></pre>`;
+
       const btn = qDiv.querySelector('.show-btn');
       const ans = qDiv.querySelector('pre');
       btn.onclick = () => {
