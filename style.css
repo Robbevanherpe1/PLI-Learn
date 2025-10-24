@@ -171,6 +171,8 @@ pre[class*='language-'] {
   text-align: left;
 }
 .code-window-bar {
+  position: relative;
+  top: 7px;
   background: #2d2d2d;
   display: flex;
   align-items: center;
