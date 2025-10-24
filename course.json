@@ -2,6 +2,7 @@
     "courses": [
       {
         "title": "PL/I Basics",
+        "banner":"images/history.png",
         "description": "Learn PL/I syntax, structure, and control flow.",
         "chapters": [
           {
