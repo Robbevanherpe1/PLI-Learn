@@ -1,0 +1,2 @@
+PL/I (Programming Language One) is a powerful procedural language designed for scientific, engineering, and business applications.
+This chapter introduces PL/I syntax and structure, preparing you for more advanced examples.
