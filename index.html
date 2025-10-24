@@ -4,32 +4,58 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PL/I Learning Dashboard</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link id="prismTheme" rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
 <link rel="stylesheet" href="style.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="layout">
-    <aside class="sidebar">
-        <h2>📘 PL/I Courses</h2>
-        <ul id="coursesList"></ul>
-    </aside>
+  <aside class="sidebar">
+    <h2>📘 Courses</h2>
+    <ul id="coursesList"></ul>
+  </aside>
 
-    <main class="main">
-        <div id="homeScreen" class="home-screen">
-            <h1>Welcome to the PL/I Learning Platform</h1>
-            <p>Master PL/I programming concepts at your own pace. Select a course on the left to begin.</p>
+  <main class="main">
+    <div class="topbar">
+      <h1 class="logo">PL/I Learning</h1>
+      <!-- Uiverse (Galahhad) switch -->
+      <label class="theme-switch">
+        <input type="checkbox" class="theme-switch__checkbox" id="themeToggle">
+        <div class="theme-switch__container">
+          <div class="theme-switch__clouds"></div>
+          <div class="theme-switch__stars-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 55" fill="none">
+              <path fill="currentColor"
+                d="M135.831 3.00688C135.055 3.85027 134.111 4.29946 133 4.35447C134.111 4.40947 135.055 4.85867 135.831 5.71123C136.607 6.55462 136.996 7.56303 136.996 8.72727C136.996 7.95722 137.172 7.25134 137.525 6.59129C137.886 5.93124 138.372 5.39954 138.98 5.00535C139.598 4.60199 140.268 4.39114 141 4.35447C139.88 4.2903 138.936 3.85027 138.16 3.00688C137.384 2.16348 136.996 1.16425 136.996 0C136.996 1.16425 136.607 2.16348 135.831 3.00688Z" />
+            </svg>
+          </div>
+          <div class="theme-switch__circle-container">
+            <div class="theme-switch__sun-moon-container">
+              <div class="theme-switch__moon">
+                <div class="theme-switch__spot"></div>
+                <div class="theme-switch__spot"></div>
+                <div class="theme-switch__spot"></div>
+              </div>
+            </div>
+          </div>
         </div>
+      </label>
+    </div>
 
-        <div id="courseScreen" class="course-screen hidden">
-            <button id="backBtn" class="back-btn">← Back to Courses</button>
-            <header>
-                <h1 id="courseTitle"></h1>
-                <p id="courseDesc"></p>
-            </header>
-            <section id="contentArea"></section>
-        </div>
-    </main>
+    <div id="homeScreen" class="home-screen">
+      <p>Select a course on the left to begin.</p>
+    </div>
+
+    <div id="courseScreen" class="course-screen hidden">
+      <button id="backBtn" class="back-btn">← Back to Courses</button>
+      <header>
+        <h2 id="courseTitle"></h2>
+        <p id="courseDesc"></p>
+      </header>
+      <section id="contentArea"></section>
+    </div>
+  </main>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
