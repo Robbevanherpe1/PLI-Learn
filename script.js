@@ -75,7 +75,7 @@ async function loadChapter(chapter, li, courseTitle) {
   const div = document.createElement('div');
   div.className = 'chapter';
   div.innerHTML = `<h3>${chapter.title}</h3>`;
-
+  
   if (chapter.theoryPath) {
     const t = await fetch(chapter.theoryPath).then(r => r.text());
     const theory = document.createElement('div');
@@ -110,29 +110,65 @@ async function loadChapter(chapter, li, courseTitle) {
     const codeQs = await fetch(chapter.codePath).then(r => r.json());
     const codeContainer = document.createElement('div');
     codeContainer.innerHTML = `<h4>Code Exercises</h4>`;
+
     codeQs.forEach((q, i) => {
       const qDiv = document.createElement('div');
       qDiv.className = 'code-question';
       qDiv.innerHTML = `
-      <p>${i + 1}. ${q.question}</p>
+        <p>${i + 1}. ${q.question}</p>
         <div class="code-window-bar">
-         <div class="code-window-btn red"></div>
-         <div class="code-window-btn yellow"></div>
-         <div class="code-window-btn green"></div>
+          <div class="code-window-btn red"></div>
+          <div class="code-window-btn yellow"></div>
+          <div class="code-window-btn green"></div>
         </div>
-         <textarea class="code-input language-pl1"></textarea>
-         <button class="show-btn">Show Solution</button>
-         <pre class="hidden"><code class="language-pl1">${q.answer}</code></pre>`;
+        <div class="code-editor-wrap">
+          <pre class="code-highlight"><code class="language-pl1"></code></pre>
+          <textarea class="code-input"></textarea>
+        </div>
+        <button class="show-btn">Show Solution</button>
+        <pre class="hidden"><code class="language-pl1">${q.answer}</code></pre>`;
 
       const btn = qDiv.querySelector('.show-btn');
-      const ans = qDiv.querySelector('pre');
+      const ans = qDiv.querySelectorAll('pre')[1];
       btn.onclick = () => {
         ans.classList.toggle('hidden');
         Prism.highlightAll();
         btn.textContent = ans.classList.contains('hidden') ? 'Show Solution' : 'Hide Solution';
       };
+
+      const wrapper = qDiv.querySelector(".code-editor-wrap");
+      const input = wrapper.querySelector(".code-input");
+      const code = wrapper.querySelector(".code-highlight code");
+
+      function updateHighlight() {
+        const val = input.value;
+        const pos = input.selectionStart;
+        const before = val.slice(0, pos);
+        const after = val.slice(pos);
+        const highlightedBefore = Prism.highlight(before, Prism.languages.pl1, "pl1");
+        const highlightedAfter = Prism.highlight(after, Prism.languages.pl1, "pl1");
+        code.innerHTML = highlightedBefore + '<span class="fake-caret"></span>' + highlightedAfter;
+      }
+
+      input.addEventListener("focus", () => {
+        wrapper.classList.add("active");
+        updateHighlight();
+      });
+      input.addEventListener("blur", () => {
+        wrapper.classList.remove("active");
+        updateHighlight();
+      });
+
+      input.addEventListener("input", updateHighlight);
+      input.addEventListener("click", updateHighlight);
+      input.addEventListener("keyup", updateHighlight);
+
+      updateHighlight();
+
+
       codeContainer.appendChild(qDiv);
     });
+
     div.appendChild(codeContainer);
   }
 
@@ -152,4 +188,14 @@ themeToggle.onchange = () => {
 
 loadCourses();
 
-Prism.languages.pl1 = { comment: /\/\*[\s\S]*?\*\//, string: /'(?:[^']|'')*'/, keyword: /\b(?:DECLARE|DO|END|IF|THEN|ELSE|SELECT|WHEN|OTHERWISE|CALL|RETURN|PUT|GET|ON|GO TO|PROCEDURE|BEGIN|FINISH|ALLOCATE|FREE|BY|TO|FROM|UNTIL|WHILE|REPEAT|INPUT|OUTPUT|OPEN|CLOSE|READ|WRITE|SKIP|LIST)\b/i, number: /\b\d+(?:\.\d+)?\b/, operator: /[-+*/=<>]/, punctuation: /[;:,()]/, variable: /\b[A-Z_][A-Z0-9_]*\b/i }; Prism.highlightAllUnder(document);
+Prism.languages.pl1 = {
+  comment: /\/\*[\s\S]*?\*\//,
+  string: /'(?:[^']|'')*'/,
+  keyword: /\b(?:DECLARE|DO|END|IF|THEN|ELSE|SELECT|WHEN|OTHERWISE|CALL|RETURN|PUT|GET|ON|GO TO|PROCEDURE|BEGIN|FINISH|ALLOCATE|FREE|BY|TO|FROM|UNTIL|WHILE|REPEAT|INPUT|OUTPUT|OPEN|CLOSE|READ|WRITE|SKIP|LIST)\b/i,
+  number: /\b\d+(?:\.\d+)?\b/,
+  operator: /[-+*/=<>]/,
+  punctuation: /[;:,()]/,
+  variable: /\b[A-Z_][A-Z0-9_]*\b/i
+};
+
+Prism.highlightAllUnder(document);
