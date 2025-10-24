@@ -23,65 +23,8 @@
     background: var(--bg);
     color: var(--text);
     transition: background 0.4s, color 0.4s;
-    display: flex;
     min-height: 100vh;
-  }
-  
-  /* Layout */
-  .layout {
-    display: flex;
-    flex: 1;
-  }
-  
-  /* Sidebar and Topbar unified */
-  .sidebar,
-  .topbar {
-    background: var(--panel);
-    transition: background 0.4s;
-  }
-  
-  /* Sidebar */
-  .sidebar {
-    width: 250px;
-    border-right: 1px solid var(--border);
-    padding: 25px 20px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 2px 0 5px var(--shadow);
-  }
-  .sidebar h2 {
-    margin-bottom: 20px;
-    color: var(--accent);
-    font-size: 1.15em;
-    font-weight: 600;
-  }
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .sidebar li {
-    padding: 12px 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-bottom: 8px;
-    transition: background 0.25s, color 0.25s, transform 0.1s;
-  }
-  .sidebar li:hover {
-    background: rgba(59, 130, 246, 0.15);
-    transform: translateX(3px);
-  }
-  .sidebar li.active {
-    background: var(--accent);
-    color: #fff;
-    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.4);
-  }
-  
-  /* Main */
-  .main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+    overflow-x: hidden;
   }
   
   /* Topbar */
@@ -89,6 +32,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: var(--panel);
     border-bottom: 1px solid var(--border);
     padding: 15px 25px;
     box-shadow: 0 2px 6px var(--shadow);
@@ -99,43 +43,101 @@
     font-weight: 700;
   }
   
-  /* Home screen */
+  /* Home Screen */
   .home-screen {
     text-align: center;
-    margin-top: 20vh;
+    padding: 40px 50px;
+  }
+  .home-title {
+    margin-bottom: 30px;
+    color: var(--accent);
+    font-size: 1.6em;
+  }
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    justify-items: center;
+  }
+  .course-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 320px;
+    box-shadow: 0 3px 8px var(--shadow);
+    cursor: pointer;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .course-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 15px rgba(59,130,246,0.3);
+  }
+  .course-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+  .course-info {
+    padding: 15px;
+    text-align: left;
+  }
+  .course-info h3 {
+    margin: 0 0 10px;
+    color: var(--accent);
     font-size: 1.2em;
+  }
+  .course-info p {
+    margin: 0;
     color: var(--text);
+    opacity: 0.85;
+    font-size: 0.95em;
+    line-height: 1.4;
   }
   
-  /* Course screen */
-  .back-btn {
+  /* Course View Layout */
+  .course-view {
+    display: flex;
+  }
+  .sidebar {
+    width: 250px;
+    background: var(--panel);
+    border-right: 1px solid var(--border);
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar h2 {
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .sidebar ul { list-style: none; padding: 0; margin: 0; }
+  .sidebar li {
+    padding: 12px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 8px;
+    transition: background 0.25s, color 0.25s;
+  }
+  .sidebar li:hover { background: rgba(59,130,246,0.2); }
+  .sidebar li.active {
     background: var(--accent);
     color: #fff;
-    border: none;
-    border-radius: 6px;
-    padding: 8px 14px;
-    cursor: pointer;
-    margin: 20px 0;
-    font-weight: 600;
-    box-shadow: 0 2px 5px rgba(59, 130, 246, 0.3);
-    transition: transform 0.2s;
-  }
-  .back-btn:hover {
-    transform: translateY(-2px);
   }
   
-  /* Chapter Cards */
+  .content-area {
+    flex: 1;
+    padding: 25px 40px;
+  }
+  
   .chapter {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 22px;
-    margin-bottom: 20px;
+    padding: 25px;
+    margin-bottom: 25px;
     box-shadow: 0 3px 6px var(--shadow);
-    transition: background 0.3s, box-shadow 0.3s;
-  }
-  .chapter:hover {
-    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.2);
   }
   .chapter h3 {
     border-left: 4px solid var(--accent);
@@ -143,58 +145,25 @@
     margin-bottom: 10px;
     color: var(--accent);
   }
-  .chapter h4 {
-    color: var(--accent);
-    margin-top: 15px;
-  }
-  .chapter img {
-    max-width: 100%;
-    border-radius: 6px;
-    margin: 10px 0;
-  }
+  .chapter h4 { color: var(--accent); margin-top: 15px; }
   
-  /* Code Exercises & MCQs */
-  .code-input {
-    width: 100%;
-    min-height: 140px;
-    background: var(--bg);
-    color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 10px;
-  }
-  .show-btn {
+  .back-btn {
     background: var(--accent);
     color: #fff;
     border: none;
     border-radius: 6px;
-    padding: 7px 12px;
-    margin-top: 10px;
+    padding: 8px 14px;
     cursor: pointer;
+    margin-bottom: 20px;
     font-weight: 600;
-    box-shadow: 0 2px 5px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 2px 5px rgba(59,130,246,0.3);
     transition: transform 0.2s;
   }
-  .show-btn:hover {
-    transform: translateY(-1px);
-  }
-  .hidden {
-    display: none;
-  }
+  .back-btn:hover { transform: translateY(-2px); }
   
-  .mcq label {
-    display: block;
-    padding: 5px 0;
-  }
-  .mcq label.correct {
-    color: #22c55e;
-    font-weight: 600;
-  }
-  .mcq label.wrong {
-    color: #ef4444;
-    font-weight: 600;
-  }
+  .hidden { display: none; }
   
+  /* Prism styling */
   pre[class*="language-"] {
     border-radius: 6px;
     box-shadow: 0 2px 5px var(--shadow);
