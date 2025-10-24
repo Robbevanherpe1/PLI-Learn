@@ -18,15 +18,15 @@
           }
         ]
       },{
-        "title": "PL/I Basics 2",
-        "banner":"images/basic1.png",
+        "title": "Getting Started with PL/1",
+        "banner":"images/gettingstarted.png",
         "description": "Learn PL/I syntax, structure, and control flow.",
         "chapters": [
           {
             "title": "Chapter 1: Introduction",
-            "theoryPath": "content/chapters/1/theory.txt",
-            "mcqPath": "content/chapters/1/mcq.json",
-            "codePath": "content/chapters/1/code.json"
+            "theoryPath": "start/chapters/1/theory.txt",
+            "mcqPath": "start/chapters/1/mcq.json",
+            "codePath": "start/chapters/1/code.json"
           },
           {
             "title": "Chapter 2: Variables and Flow",

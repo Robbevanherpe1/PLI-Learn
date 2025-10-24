@@ -1,6 +1,6 @@
 [
     {
-      "question": "Write a PL/I loop that prints numbers 1 to 5.",
+      "question": "Write a PL/I loop that prints numbers 1 to 5.Write a PL/I loop that prints numbers 1 to 5.",
       "answer": "DCL I FIXED BINARY;\nDO I = 1 TO 5;\n   PUT SKIP LIST(I);\nEND;"
     },
     {
