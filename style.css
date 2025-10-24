@@ -1,52 +1,135 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', sans-serif; background: #f5f7fa; color: #1a1a1a; }
+body { font-family: 'Inter', sans-serif; background: #f3f4f6; color: #111827; }
 
 .layout { display: flex; min-height: 100vh; }
 
 .sidebar {
-    width: 260px; background: #1f2937; color: #f9fafb; padding: 25px;
-    display: flex; flex-direction: column;
+    width: 260px;
+    background: #1f2937;
+    color: #f9fafb;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
 }
 .sidebar h2 { font-size: 1.2em; margin-bottom: 20px; font-weight: 600; }
 .sidebar ul { list-style: none; }
 .sidebar li {
-    background: #374151; margin-bottom: 10px; padding: 10px 15px;
-    border-radius: 6px; cursor: pointer; transition: background .2s;
+    background: #374151;
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
 }
-.sidebar li:hover, .sidebar li.active { background: #2563eb; }
+.sidebar li:hover, .sidebar li.active {
+    background: #2563eb;
+    transform: scale(1.02);
+}
 
-.main { flex: 1; display: flex; flex-direction: column; padding: 30px; overflow-y: auto; }
-header { margin-bottom: 20px; }
-header h1 { font-size: 1.6em; margin-bottom: 10px; }
-header p { color: #4b5563; }
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.home-screen {
+    margin: auto;
+    text-align: center;
+    max-width: 600px;
+}
+.home-screen h1 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #1e3a8a;
+}
+.home-screen p { color: #4b5563; font-size: 1.05em; }
+
+.course-screen header { margin-bottom: 20px; }
+.course-screen h1 { font-size: 1.8em; margin-bottom: 8px; color: #1e3a8a; }
+.course-screen p { color: #4b5563; }
+
+.back-btn {
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.back-btn:hover { background: #1d4ed8; }
 
 .chapter {
-    background: #ffffff; border-radius: 8px; padding: 20px; margin-bottom: 25px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
-.chapter h3 { font-size: 1.2em; margin-bottom: 15px; color: #111827; }
-.chapter h4 { font-size: 1em; margin-top: 15px; color: #2563eb; }
+.chapter h3 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    color: #111827;
+    border-left: 4px solid #2563eb;
+    padding-left: 10px;
+}
+.chapter h4 { margin-top: 20px; color: #2563eb; }
+
+.chapter p, .chapter li { margin-bottom: 10px; line-height: 1.6; }
+
+.chapter img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin: 15px 0;
+}
+
+pre[class*="language-"] {
+    background: #1e1e1e;
+    border-radius: 8px;
+    margin-top: 15px;
+    padding: 10px;
+}
 
 .mcq { margin-bottom: 15px; }
 .mcq p { font-weight: 600; margin-bottom: 8px; }
-.mcq label { display: block; padding: 6px; border-radius: 5px; }
+.mcq label {
+    display: block;
+    padding: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 .mcq label.correct { background: #bbf7d0; }
 .mcq label.wrong { background: #fecaca; }
 
 .code-question { margin-top: 20px; }
 .code-input {
-    width: 100%; min-height: 150px; font-family: monospace;
-    background: #1e1e1e; color: #f9fafb; border: 1px solid #ddd;
-    border-radius: 5px; padding: 10px; resize: vertical;
+    width: 100%;
+    min-height: 150px;
+    font-family: monospace;
+    background: #1e1e1e;
+    color: #f9fafb;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    resize: vertical;
 }
 .hidden { display: none; }
 .show-btn {
-    background: #2563eb; color: white; border: none; padding: 8px 14px;
-    margin-top: 10px; border-radius: 5px; cursor: pointer;
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 .show-btn:hover { background: #1d4ed8; }
 
-pre[class*="language-"] { margin: 0; border-radius: 6px; }
 @media(max-width: 800px) {
     .layout { flex-direction: column; }
     .sidebar { width: 100%; flex-direction: row; overflow-x: auto; }

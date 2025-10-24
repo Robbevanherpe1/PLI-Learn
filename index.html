@@ -6,22 +6,32 @@
 <title>PL/I Learning Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="layout">
     <aside class="sidebar">
-        <h2>PL/I Courses</h2>
+        <h2>📘 PL/I Courses</h2>
         <ul id="coursesList"></ul>
     </aside>
+
     <main class="main">
-        <header>
-            <h1 id="courseTitle">Welcome to PL/I Learning</h1>
-            <p id="courseDesc">Select a course to begin learning PL/I programming concepts.</p>
-        </header>
-        <section id="contentArea"></section>
+        <div id="homeScreen" class="home-screen">
+            <h1>Welcome to the PL/I Learning Platform</h1>
+            <p>Master PL/I programming concepts at your own pace. Select a course on the left to begin.</p>
+        </div>
+
+        <div id="courseScreen" class="course-screen hidden">
+            <button id="backBtn" class="back-btn">← Back to Courses</button>
+            <header>
+                <h1 id="courseTitle"></h1>
+                <p id="courseDesc"></p>
+            </header>
+            <section id="contentArea"></section>
+        </div>
     </main>
 </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-pl1.min.js"></script>
 <script src="script.js"></script>

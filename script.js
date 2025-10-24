@@ -1,5 +1,8 @@
-let coursesList = document.getElementById('coursesList');
-let contentArea = document.getElementById('contentArea');
+const coursesList = document.getElementById('coursesList');
+const homeScreen = document.getElementById('homeScreen');
+const courseScreen = document.getElementById('courseScreen');
+const contentArea = document.getElementById('contentArea');
+const backBtn = document.getElementById('backBtn');
 
 async function loadCourses() {
     const res = await fetch('course.json');
@@ -8,12 +11,18 @@ async function loadCourses() {
     data.courses.forEach(course => {
         const li = document.createElement('li');
         li.textContent = course.title;
-        li.onclick = () => loadCourse(course);
+        li.onclick = () => loadCourse(course, li);
         coursesList.appendChild(li);
     });
 }
 
-async function loadCourse(course) {
+async function loadCourse(course, li) {
+    document.querySelectorAll('.sidebar li').forEach(el => el.classList.remove('active'));
+    li.classList.add('active');
+
+    homeScreen.classList.add('hidden');
+    courseScreen.classList.remove('hidden');
+
     document.getElementById('courseTitle').textContent = course.title;
     document.getElementById('courseDesc').textContent = course.description;
     contentArea.innerHTML = '';
@@ -28,7 +37,6 @@ async function loadCourse(course) {
             const t = await fetch(ch.theoryPath).then(r => r.text());
             const theory = document.createElement('div');
             theory.innerHTML = `<h4>Theory</h4>${t}`;
-            Prism.highlightAll();
             chDiv.appendChild(theory);
         }
 
@@ -82,5 +90,12 @@ async function loadCourse(course) {
     }
     Prism.highlightAll();
 }
+
+backBtn.onclick = () => {
+    document.querySelectorAll('.sidebar li').forEach(el => el.classList.remove('active'));
+    homeScreen.classList.remove('hidden');
+    courseScreen.classList.add('hidden');
+    contentArea.innerHTML = '';
+};
 
 loadCourses();
