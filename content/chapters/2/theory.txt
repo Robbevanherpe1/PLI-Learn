@@ -1,0 +1,9 @@
+<p>PL/I loops can be visualized as follows:</p>
+<img src="images/loop-diagram.png" alt="Loop Diagram" style="max-width:100%;border-radius:6px;">
+<pre><code class="language-pl1">
+DCL I FIXED BINARY;
+DO I = 1 TO 5;
+   PUT SKIP LIST(I);
+END;
+</code></pre>
+<p>Each iteration executes statements in sequence.</p>

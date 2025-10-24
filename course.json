@@ -13,8 +13,23 @@
           {
             "title": "Chapter 2: Variables and Flow",
             "theoryPath": "content/chapters/2/theory.txt",
-            "mcqPath": "content/chapters/2/mcq.json",
-            "codePath": "content/chapters/2/code.json"
+            "mcqPath": "content/chapters/2/mcq.json"
+          }
+        ]
+      },{
+        "title": "PL/I Basics 2",
+        "description": "Learn PL/I syntax, structure, and control flow.",
+        "chapters": [
+          {
+            "title": "Chapter 1: Introduction",
+            "theoryPath": "content/chapters/1/theory.txt",
+            "mcqPath": "content/chapters/1/mcq.json",
+            "codePath": "content/chapters/1/code.json"
+          },
+          {
+            "title": "Chapter 2: Variables and Flow",
+            "theoryPath": "content/chapters/2/theory.txt",
+            "mcqPath": "content/chapters/2/mcq.json"
           }
         ]
       }
