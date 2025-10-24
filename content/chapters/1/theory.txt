@@ -1,9 +1,71 @@
-<p>PL/I loops can be visualized as follows:</p>
-<img src="images/loop-diagram.png" alt="Loop Diagram" style="max-width:100%;border-radius:6px;">
-<pre><code class="language-pl1">
-DCL I FIXED BINARY;
-DO I = 1 TO 5;
-   PUT SKIP LIST(I);
-END;
-</code></pre>
-<p>Each iteration executes statements in sequence.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>About the PL/I Programming Language</title>
+    <style>
+
+        #textinfo{
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color:rgba(255, 255, 255, 0.72);
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #0056b3;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 1em;
+        }
+        h2 {
+            margin-top: 1.5em;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        code {
+            background-color: #e9ecef;
+            color: #c7254e;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="textinfo">
+        <h1>The PL/I Programming Language</h1>
+
+        <h2>History and Evolution</h2>
+        <p>PL/I was developed in the 1960s by IBM to support both scientific and business applications. As one of the first truly multi-purpose programming languages, it combined the strengths of <code>FORTRAN</code> and <code>COBOL</code>, which were dominant in scientific and business computing respectively. Over the years, PL/I has evolved, adapting to meet the requirements of modern computational systems, especially in large enterprises that maintain legacy systems.</p>
+        <p>IBM has continually updated PL/I to keep up with advancements in hardware and software, especially for mainframe systems. These updates include enhanced support for structured programming, error handling, and complex data types, making PL/I a comprehensive language that is particularly effective on IBM’s <code>z/OS</code> and other mainframe operating systems.</p>
+
+        <h2>Importance in Modern Systems</h2>
+        <p>PL/I’s relevance persists due to its efficiency in managing large-scale, data-heavy operations typical of financial institutions, healthcare systems, and governmental data processing centers. Its robust syntax and ability to perform multitasking make it especially suitable for IBM mainframes, where it handles transaction processing, batch processing, and other critical workloads seamlessly.</p>
+        <p>With its built-in concurrency controls and system-level access, PL/I enables systems to perform parallel processing, a feature crucial in environments demanding high availability and stability. Modern enterprises continue to rely on PL/I’s extensive error handling and debugging capabilities, which reduce downtime and improve system reliability.</p>
+
+        <h2>Applications of PL/I in Various Fields</h2>
+        <p>PL/I is widely used in sectors requiring high-stakes data processing, such as finance, where mainframe applications manage critical banking transactions, insurance data, and trading operations. In healthcare, PL/I supports the back-end operations for patient data management and claims processing systems that demand fault tolerance.</p>
+        <p>The language has also adapted to support modern infrastructures; it plays a role in legacy-to-cloud transformation projects by interfacing with contemporary technologies. PL/I applications are frequently part of hybrid systems, interfacing with languages like <code>Java</code> or <code>C++</code> and supporting complex database transactions in <code>DB2</code> or <code>IMS</code>.</p>
+
+        <h2>Technical Features and Syntax</h2>
+        <p>PL/I includes extensive data types and structures, including fixed and floating-point arithmetic, character strings, and bit strings, allowing it to handle diverse and complex data. Its control structures, such as <code>DO</code>, <code>IF</code>, <code>SELECT</code>, and <code>ON ERROR</code>, provide a high degree of control over program execution.</p>
+        <p>PL/I’s multitasking capability is one of its hallmark features, allowing a single program to run multiple tasks concurrently. This is especially useful in high-performance computing environments, where parallel execution is key to managing vast amounts of data. Additionally, PL/I’s structured exception handling (<code>ON</code>, <code>GO TO</code>, etc.) allows for sophisticated error handling and recovery, a necessity for mission-critical applications.</p>
+
+        <h2>Integration with IBM Mainframe</h2>
+        <p>PL/I is optimized for IBM mainframes, particularly <code>z/OS</code>, enabling direct access to system resources. This allows programs to leverage mainframe capabilities, such as Virtual Storage Access Method (<code>VSAM</code>) for file management, <code>IMS</code> for transaction management, and <code>DB2</code> for database operations.</p>
+        <p>Through tools like IBM’s PL/I Compiler and Debug Tool, developers can write, compile, and troubleshoot PL/I code effectively. Mainframe integration also enables PL/I to participate in IBM’s Transaction Processing Facility (<code>TPF</code>), which supports high-speed transaction processing in telecommunications and airlines.</p>
+    </div>
+
+</body>
+</html>

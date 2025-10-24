@@ -55,7 +55,7 @@
   .courses-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(280px, 320px));
-    gap: 20px;
+    gap: 10px;
     justify-content: center;
     align-items: start;
     padding: 10px 0;
