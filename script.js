@@ -86,7 +86,7 @@ async function loadChapter(chapter, li, courseTitle) {
   if (chapter.mcqPath) {
     const mcqs = await fetch(chapter.mcqPath).then(r => r.json());
     const container = document.createElement('div');
-    container.innerHTML = `<h4>Multiple Choice</h4>`;
+    container.innerHTML = `<h4>Theoretical Exercises</h4>`;
     mcqs.forEach((q, i) => {
       const qDiv = document.createElement('div');
       qDiv.className = 'mcq';
@@ -151,3 +151,5 @@ themeToggle.onchange = () => {
 };
 
 loadCourses();
+
+Prism.languages.pl1 = { comment: /\/\*[\s\S]*?\*\//, string: /'(?:[^']|'')*'/, keyword: /\b(?:DECLARE|DO|END|IF|THEN|ELSE|SELECT|WHEN|OTHERWISE|CALL|RETURN|PUT|GET|ON|GO TO|PROCEDURE|BEGIN|FINISH|ALLOCATE|FREE|BY|TO|FROM|UNTIL|WHILE|REPEAT|INPUT|OUTPUT|OPEN|CLOSE|READ|WRITE|SKIP|LIST)\b/i, number: /\b\d+(?:\.\d+)?\b/, operator: /[-+*/=<>]/, punctuation: /[;:,()]/, variable: /\b[A-Z_][A-Z0-9_]*\b/i }; Prism.highlightAllUnder(document);
