@@ -27,7 +27,8 @@ async function loadCourse(course) {
         if (ch.theoryPath) {
             const t = await fetch(ch.theoryPath).then(r => r.text());
             const theory = document.createElement('div');
-            theory.innerHTML = `<h4>Theory</h4><p>${t}</p>`;
+            theory.innerHTML = `<h4>Theory</h4>${t}`;
+            Prism.highlightAll();
             chDiv.appendChild(theory);
         }
 
