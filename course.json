@@ -1,159 +1,212 @@
 {
-    "courses": [
-      {
-        "title": "PL/I History",
-        "banner":"images/history.png",
-        "description": "Learn about PL/I history and origion of the language.",
-        "chapters": [
-          {
-            "title": "Chapter 1: Introduction",
-            "theoryPath": "history/chapters/1/theory.txt",
-            "mcqPath": "history/chapters/1/mcq.json",
-            "codePath": "history/chapters/1/code.json"
-          },
-          {
-            "title": "Chapter 2: Variables and Flow",
-            "theoryPath": "history/chapters/2/theory.txt",
-            "mcqPath": "history/chapters/2/mcq.json"
-          }
-        ]
-      },{
-        "title": "Getting Started with PL/1",
-        "banner":"images/gettingstarted.png",
-        "description": "Learn PL/I syntax, structure, and control flow.",
-        "chapters": [
-          {
-            "title": "Chapter 1: Introduction",
-            "theoryPath": "start/chapters/1/theory.txt",
-            "mcqPath": "start/chapters/1/mcq.json",
-            "codePath": "start/chapters/1/code.json"
-          },
-          {
-            "title": "Chapter 2: Variables and Flow",
-            "theoryPath": "content/chapters/2/theory.txt",
-            "mcqPath": "content/chapters/2/mcq.json"
-          }
-        ]
-      },{
-        "title": "PL/I Basics 2",
-        "banner":"images/basic1.png",
-        "description": "Learn PL/I syntax, structure, and control flow.",
-        "chapters": [
-          {
-            "title": "Chapter 1: Introduction",
-            "theoryPath": "content/chapters/1/theory.txt",
-            "mcqPath": "content/chapters/1/mcq.json",
-            "codePath": "content/chapters/1/code.json"
-          },
-          {
-            "title": "Chapter 2: Variables and Flow",
-            "theoryPath": "content/chapters/2/theory.txt",
-            "mcqPath": "content/chapters/2/mcq.json"
-          }
-        ]
-      },{
-        "title": "PL/I Basics 2",
-        "banner":"images/basic1.png",
-        "description": "Learn PL/I syntax, structure, and control flow.",
-        "chapters": [
-          {
-            "title": "Chapter 1: Introduction",
-            "theoryPath": "content/chapters/1/theory.txt",
-            "mcqPath": "content/chapters/1/mcq.json",
-            "codePath": "content/chapters/1/code.json"
-          },
-          {
-            "title": "Chapter 2: Variables and Flow",
-            "theoryPath": "content/chapters/2/theory.txt",
-            "mcqPath": "content/chapters/2/mcq.json"
-          }
-        ]
-      },{
-        "title": "PL/I Basics 2",
-        "banner":"images/basic1.png",
-        "description": "Learn PL/I syntax, structure, and control flow.",
-        "chapters": [
-          {
-            "title": "Chapter 1: Introduction",
-            "theoryPath": "content/chapters/1/theory.txt",
-            "mcqPath": "content/chapters/1/mcq.json",
-            "codePath": "content/chapters/1/code.json"
-          },
-          {
-            "title": "Chapter 2: Variables and Flow",
-            "theoryPath": "content/chapters/2/theory.txt",
-            "mcqPath": "content/chapters/2/mcq.json"
-          }
-        ]
-      },{
-        "title": "PL/I Basics 2",
-        "banner":"images/basic1.png",
-        "description": "Learn PL/I syntax, structure, and control flow.",
-        "chapters": [
-          {
-            "title": "Chapter 1: Introduction",
-            "theoryPath": "content/chapters/1/theory.txt",
-            "mcqPath": "content/chapters/1/mcq.json",
-            "codePath": "content/chapters/1/code.json"
-          },
-          {
-            "title": "Chapter 2: Variables and Flow",
-            "theoryPath": "content/chapters/2/theory.txt",
-            "mcqPath": "content/chapters/2/mcq.json"
-          }
-        ]
-      },{
-        "title": "PL/I Basics 2",
-        "banner":"images/basic1.png",
-        "description": "Learn PL/I syntax, structure, and control flow.",
-        "chapters": [
-          {
-            "title": "Chapter 1: Introduction",
-            "theoryPath": "content/chapters/1/theory.txt",
-            "mcqPath": "content/chapters/1/mcq.json",
-            "codePath": "content/chapters/1/code.json"
-          },
-          {
-            "title": "Chapter 2: Variables and Flow",
-            "theoryPath": "content/chapters/2/theory.txt",
-            "mcqPath": "content/chapters/2/mcq.json"
-          }
-        ]
-      },{
-        "title": "PL/I Basics 2",
-        "banner":"images/basic1.png",
-        "description": "Learn PL/I syntax, structure, and control flow.",
-        "chapters": [
-          {
-            "title": "Chapter 1: Introduction",
-            "theoryPath": "content/chapters/1/theory.txt",
-            "mcqPath": "content/chapters/1/mcq.json",
-            "codePath": "content/chapters/1/code.json"
-          },
-          {
-            "title": "Chapter 2: Variables and Flow",
-            "theoryPath": "content/chapters/2/theory.txt",
-            "mcqPath": "content/chapters/2/mcq.json"
-          }
-        ]
-      },{
-        "title": "PL/I Basics 2",
-        "banner":"images/basic1.png",
-        "description": "Learn PL/I syntax, structure, and control flow.",
-        "chapters": [
-          {
-            "title": "Chapter 1: Introduction",
-            "theoryPath": "content/chapters/1/theory.txt",
-            "mcqPath": "content/chapters/1/mcq.json",
-            "codePath": "content/chapters/1/code.json"
-          },
-          {
-            "title": "Chapter 2: Variables and Flow",
-            "theoryPath": "content/chapters/2/theory.txt",
-            "mcqPath": "content/chapters/2/mcq.json"
-          }
-        ]
-      }
-    ]
-  }
-  
+  "courses": [
+    {
+      "title": "PL/I History",
+      "banner":"images/history.png",
+      "description": "Learn about PL/I history and origion of the language.",
+      "chapters": [
+        {
+          "title": "Chapter 1: Theory",
+          "theoryPath": "history/chapters/1/theory.txt"
+        },
+        {
+          "title": "Chapter 1: Exercises",
+          "mcqPath": "history/chapters/1/mcq.json",
+          "codePath": "history/chapters/1/code.json"
+        },
+        {
+          "title": "Chapter 2: Theory",
+          "theoryPath": "history/chapters/2/theory.txt"
+        },
+        {
+          "title": "Chapter 2: Exercises",
+          "mcqPath": "history/chapters/2/mcq.json"
+        }
+      ]
+    },{
+      "title": "Getting Started with PL/1",
+      "banner":"images/gettingstarted.png",
+      "description": "Learn PL/I syntax, structure, and control flow.",
+      "chapters": [
+        {
+          "title": "Chapter 1: Theory",
+          "theoryPath": "start/chapters/1/theory.txt"
+        },
+        {
+          "title": "Chapter 1: Exercises",
+          "mcqPath": "start/chapters/1/mcq.json",
+          "codePath": "start/chapters/1/code.json"
+        },
+        {
+          "title": "Chapter 2: Theory",
+          "theoryPath": "content/chapters/2/theory.txt"
+        },
+        {
+          "title": "Chapter 2: Exercises",
+          "mcqPath": "content/chapters/2/mcq.json"
+        }
+      ]
+    },{
+      "title": "PL/I Basics 2",
+      "banner":"images/basic1.png",
+      "description": "Learn PL/I syntax, structure, and control flow.",
+      "chapters": [
+        {
+          "title": "Chapter 1: Theory",
+          "theoryPath": "content/chapters/1/theory.txt"
+        },
+        {
+          "title": "Chapter 1: Exercises",
+          "mcqPath": "content/chapters/1/mcq.json",
+          "codePath": "content/chapters/1/code.json"
+        },
+        {
+          "title": "Chapter 2: Theory",
+          "theoryPath": "content/chapters/2/theory.txt"
+        },
+        {
+          "title": "Chapter 2: Exercises",
+          "mcqPath": "content/chapters/2/mcq.json"
+        }
+      ]
+    },{
+      "title": "PL/I Basics 2",
+      "banner":"images/basic1.png",
+      "description": "Learn PL/I syntax, structure, and control flow.",
+      "chapters": [
+        {
+          "title": "Chapter 1: Theory",
+          "theoryPath": "content/chapters/1/theory.txt"
+        },
+        {
+          "title": "Chapter 1: Exercises",
+          "mcqPath": "content/chapters/1/mcq.json",
+          "codePath": "content/chapters/1/code.json"
+        },
+        {
+          "title": "Chapter 2: Theory",
+          "theoryPath": "content/chapters/2/theory.txt"
+        },
+        {
+          "title": "Chapter 2: Exercises",
+          "mcqPath": "content/chapters/2/mcq.json"
+        }
+      ]
+    },{
+      "title": "PL/I Basics 2",
+      "banner":"images/basic1.png",
+      "description": "Learn PL/I syntax, structure, and control flow.",
+      "chapters": [
+        {
+          "title": "Chapter 1: Theory",
+          "theoryPath": "content/chapters/1/theory.txt"
+        },
+        {
+          "title": "Chapter 1: Exercises",
+          "mcqPath": "content/chapters/1/mcq.json",
+          "codePath": "content/chapters/1/code.json"
+        },
+        {
+          "title": "Chapter 2: Theory",
+          "theoryPath": "content/chapters/2/theory.txt"
+        },
+        {
+          "title": "Chapter 2: Exercises",
+          "mcqPath": "content/chapters/2/mcq.json"
+        }
+      ]
+    },{
+      "title": "PL/I Basics 2",
+      "banner":"images/basic1.png",
+      "description": "Learn PL/I syntax, structure, and control flow.",
+      "chapters": [
+        {
+          "title": "Chapter 1: Theory",
+          "theoryPath": "content/chapters/1/theory.txt"
+        },
+        {
+          "title": "Chapter 1: Exercises",
+          "mcqPath": "content/chapters/1/mcq.json",
+          "codePath": "content/chapters/1/code.json"
+        },
+        {
+          "title": "Chapter 2: Theory",
+          "theoryPath": "content/chapters/2/theory.txt"
+        },
+        {
+          "title": "Chapter 2: Exercises",
+          "mcqPath": "content/chapters/2/mcq.json"
+        }
+      ]
+    },{
+      "title": "PL/I Basics 2",
+      "banner":"images/basic1.png",
+      "description": "Learn PL/I syntax, structure, and control flow.",
+      "chapters": [
+        {
+          "title": "Chapter 1: Theory",
+          "theoryPath": "content/chapters/1/theory.txt"
+        },
+        {
+          "title": "Chapter 1: Exercises",
+          "mcqPath": "content/chapters/1/mcq.json",
+          "codePath": "content/chapters/1/code.json"
+        },
+        {
+          "title": "Chapter 2: Theory",
+          "theoryPath": "content/chapters/2/theory.txt"
+        },
+        {
+          "title": "Chapter 2: Exercises",
+          "mcqPath": "content/chapters/2/mcq.json"
+        }
+      ]
+    },{
+      "title": "PL/I Basics 2",
+      "banner":"images/basic1.png",
+      "description": "Learn PL/I syntax, structure, and control flow.",
+      "chapters": [
+        {
+          "title": "Chapter 1: Theory",
+          "theoryPath": "content/chapters/1/theory.txt"
+        },
+        {
+          "title": "Chapter 1: Exercises",
+          "mcqPath": "content/chapters/1/mcq.json",
+          "codePath": "content/chapters/1/code.json"
+        },
+        {
+          "title": "Chapter 2: Theory",
+          "theoryPath": "content/chapters/2/theory.txt"
+        },
+        {
+          "title": "Chapter 2: Exercises",
+          "mcqPath": "content/chapters/2/mcq.json"
+        }
+      ]
+    },{
+      "title": "PL/I Basics 2",
+      "banner":"images/basic1.png",
+      "description": "Learn PL/I syntax, structure, and control flow.",
+      "chapters": [
+        {
+          "title": "Chapter 1: Theory",
+          "theoryPath": "content/chapters/1/theory.txt"
+        },
+        {
+          "title": "Chapter 1: Exercises",
+          "mcqPath": "content/chapters/1/mcq.json",
+          "codePath": "content/chapters/1/code.json"
+        },
+        {
+          "title": "Chapter 2: Theory",
+          "theoryPath": "content/chapters/2/theory.txt"
+        },
+        {
+          "title": "Chapter 2: Exercises",
+          "mcqPath": "content/chapters/2/mcq.json"
+        }
+      ]
+    }
+  ]
+}
