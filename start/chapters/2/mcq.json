@@ -1,18 +1,152 @@
 [
-    {
-      "question": "work in progress",
-      "options": [
-        "work in progress",
-        "work in progress",
-        "work in progress",
-        "work in progress"
-      ],
-      "answerIndex": 0
-    },
-    {
-      "question": "work in progress",
-      "options": ["work in progress", "work in progress", "work in progress", "work in progress"],
-      "answerIndex": 2
-    }
-  ]
-  
+  {
+    "question": "What is the purpose of the 'PROC OPTIONS(MAIN);' statement in a PL/I program?",
+    "options": [
+      "It declares a variable for main memory allocation.",
+      "It defines the main entry point of the program.",
+      "It specifies the mainframe system version.",
+      "It initializes system-level parameters."
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which PL/I statement is used to declare variables?",
+    "options": [
+      "SET",
+      "DEFINE",
+      "DCL",
+      "VAR"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "question": "What does the 'PUT SKIP LIST(MSG);' statement do in PL/I?",
+    "options": [
+      "Reads a message from an input file.",
+      "Displays the contents of MSG on a new line in the output.",
+      "Writes MSG to a database table.",
+      "Saves MSG into a PDS member."
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which comment syntax is valid in PL/I?",
+    "options": [
+      "// comment",
+      "/* comment */",
+      "# comment",
+      "-- comment"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "In PL/I, how are statements terminated?",
+    "options": [
+      "With a period (.)",
+      "With a comma (,)",
+      "With a semicolon (;)",
+      "With a colon (:)"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "question": "What does the following declaration do? DCL MSG CHAR(25) INIT('HELLO FROM MAINFRAME');",
+    "options": [
+      "Declares a character variable with a maximum length of 25 and initializes it with text.",
+      "Creates a numeric constant with 25 decimal places.",
+      "Declares a loop counter variable.",
+      "Allocates 25 bytes for an uninitialized integer."
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What is the correct way to end a PL/I procedure?",
+    "options": [
+      "STOP;",
+      "FINISH;",
+      "END;",
+      "EXIT;"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "question": "In the Hello World example, what is the name of the PL/I procedure?",
+    "options": [
+      "MAIN",
+      "HELLO",
+      "PRINT",
+      "DISPLAY"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What is the purpose of the 'SYSLMOD' DD statement in the JCL compilation step?",
+    "options": [
+      "Specifies the source file to compile.",
+      "Defines where the compiled load module should be stored.",
+      "Indicates where error logs should be printed.",
+      "Assigns a spool dataset for output messages."
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "When executing a compiled PL/I program on z/OS, what JCL EXEC statement is used?",
+    "options": [
+      "//STEP1 EXEC PGM=HELLO",
+      "//STEP1 EXEC PROC=HELLO",
+      "//STEP1 RUN PLI=HELLO",
+      "//RUN EXEC PLI=HELLO"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What output will the sample PL/I Hello program produce when executed?",
+    "options": [
+      "HELLO FROM IBM",
+      "HELLO FROM MAINFRAME",
+      "WELCOME TO PL/I",
+      "PROGRAM EXECUTED SUCCESSFULLY"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which of the following statements about PL/I is TRUE?",
+    "options": [
+      "PL/I programs must use uppercase keywords only.",
+      "PL/I is case-insensitive and supports free-form syntax.",
+      "PL/I requires all lines to begin in column 8.",
+      "PL/I does not support string initialization."
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which JCL DD statement identifies the input source for the PL/I compiler?",
+    "options": [
+      "//SYSIN DD DSN=USER.PLI.SOURCE(HELLO),DISP=SHR",
+      "//SYSLMOD DD DSN=USER.LOAD(HELLO),DISP=SHR",
+      "//SYSOUT DD SYSOUT=*",
+      "//SYSUT1 DD UNIT=SYSDA"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What does the INIT keyword do in a PL/I variable declaration?",
+    "options": [
+      "It initializes the variable with a default value.",
+      "It allocates memory dynamically at runtime.",
+      "It defines a constant that cannot be modified.",
+      "It links the variable to another dataset."
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "Which component compiles PL/I programs on IBM z/OS?",
+    "options": [
+      "Enterprise COBOL Compiler",
+      "Enterprise PL/I Compiler",
+      "Rational Developer for System z",
+      "JCL Preprocessor"
+    ],
+    "answerIndex": 1
+  }
+]

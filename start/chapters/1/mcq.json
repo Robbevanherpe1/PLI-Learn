@@ -1,18 +1,102 @@
 [
-    {
-      "question": "work in progress",
-      "options": [
-        "work in progress",
-        "work in progress",
-        "work in progress",
-        "work in progress"
-      ],
-      "answerIndex": 0
-    },
-    {
-      "question": "work in progress",
-      "options": ["work in progress", "work in progress", "work in progress", "work in progress"],
-      "answerIndex": 2
-    }
-  ]
-  
+  {
+    "question": "Which IBM product provides syntax highlighting and PL/I integration for Visual Studio Code?",
+    "options": [
+      "IBM Rational Developer for i",
+      "IBM Z Open Editor",
+      "IBM Cloud Pak for Applications",
+      "IBM Developer Assistant"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What is the purpose of the IBM Enterprise PL/I Compiler?",
+    "options": [
+      "To manage datasets on z/OS",
+      "To compile and optimize PL/I source code into executable modules",
+      "To handle network communications on mainframes",
+      "To edit PL/I programs interactively in ISPF"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which of the following tools allows developers to access mainframe datasets directly from Visual Studio Code?",
+    "options": [
+      "Zowe Explorer",
+      "Rational Team Concert",
+      "Z/OSMF Web Console",
+      "IBM Cloud Shell"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "Which statement correctly defines a PL/I source dataset in a JCL job?",
+    "options": [
+      "//SYSIN DD DSN=USER.PLI.SOURCE(PROGRAM1),DISP=SHR",
+      "//SOURCE DD DSN=PLI.DATASET.CODE,DISP=NEW",
+      "//SYSPL DD DSN=PLICODE(SOURCE),DISP=OLD",
+      "//PLIIN DD DSN=CODE.SOURCE,DISP=MOD"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What is the main advantage of using ISPF for PL/I development?",
+    "options": [
+      "Graphical debugging support",
+      "Direct dataset editing and job submission on z/OS",
+      "Integration with Git repositories",
+      "Automatic syntax completion"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which step is NOT part of configuring Visual Studio Code for PL/I development?",
+    "options": [
+      "Installing Zowe Explorer",
+      "Setting up a Zowe connection profile",
+      "Enabling PL/I plugin in Jenkins",
+      "Installing IBM Z Open Editor"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "question": "In an ISPF workflow, what typically follows the editing of a PL/I program in a dataset?",
+    "options": [
+      "Compiling the program via a JCL job",
+      "Executing the program in CICS directly",
+      "Translating the code into COBOL",
+      "Exporting the dataset to z/VM"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What does the DD statement 'SYSLMOD' define in a PL/I compile JCL job?",
+    "options": [
+      "The input source file",
+      "The location for the compiled load module",
+      "The system print log",
+      "Temporary storage dataset"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which of the following tools is used for automated PL/I builds and CI/CD pipelines?",
+    "options": [
+      "IBM Rational Application Developer",
+      "IBM Dependency Based Build (DBB)",
+      "IBM File Manager",
+      "Z/OS Explorer Classic"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Where are PL/I executable modules typically stored after successful compilation on z/OS?",
+    "options": [
+      "PDS load library",
+      "DB2 database",
+      "CICS region memory",
+      "USS temporary directory"
+    ],
+    "answerIndex": 0
+  }
+]
