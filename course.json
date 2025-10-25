@@ -6,7 +6,7 @@
       "description": "Learn about PL/I history and origion of the language.",
       "chapters": [
         {
-          "title": "Chapter 1: Theory",
+          "title": "Chapter 1: History of PL1",
           "theoryPath": "history/chapters/1/theory.txt"
         },
         {
@@ -21,6 +21,11 @@
         {
           "title": "Chapter 2: Exercises",
           "mcqPath": "history/chapters/2/mcq.json"
+        },
+        {
+          "title": "Module Exam",
+          "mcqPath": "history/chapters/exam/mcq.json",
+          "codePath": "history/chapters/exam/code.json"
         }
       ]
     },{
