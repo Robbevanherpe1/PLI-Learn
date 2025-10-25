@@ -189,6 +189,9 @@ END HELLO;
     Although shown in three logical sections, this is all contained within one JCL job stream.  
     The first section compiles the PL/I source using the <strong>IBM Enterprise PL/I Compiler</strong> (<code>IBMZPLI</code>).
 </p>
+<p>
+Change(<code>USERID.COURSE.PLI</code>) on line 7
+</p>
 
 <pre><code>//PLICNT   JOB ,MSGLEVEL=(2,0),CLASS=7
 //PLI      EXEC PGM=IBMZPLI,
