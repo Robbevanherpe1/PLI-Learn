@@ -2,7 +2,7 @@
   "courses": [
     {
       "title": "PL/I History",
-      "banner":"images/history.png",
+      "banner":"images/green.webp",
       "description": "Learn about PL/I history and origion of the language.",
       "chapters": [
         {
@@ -30,7 +30,7 @@
       ]
     },{
       "title": "Getting Started with PL/1",
-      "banner":"images/gettingstarted.png",
+      "banner":"images/green.webp",
       "description": "Learn PL/I syntax, structure, and control flow.",
       "chapters": [
         {
@@ -53,7 +53,7 @@
       ]
     },{
       "title": "PL/I Basics 2",
-      "banner":"images/basic1.png",
+      "banner":"images/green.webp",
       "description": "Learn PL/I syntax, structure, and control flow.",
       "chapters": [
         {
@@ -76,7 +76,7 @@
       ]
     },{
       "title": "PL/I Basics 2",
-      "banner":"images/basic1.png",
+      "banner":"images/green.webp",
       "description": "Learn PL/I syntax, structure, and control flow.",
       "chapters": [
         {
@@ -99,7 +99,7 @@
       ]
     },{
       "title": "PL/I Basics 2",
-      "banner":"images/basic1.png",
+      "banner":"images/yellow.jpg",
       "description": "Learn PL/I syntax, structure, and control flow.",
       "chapters": [
         {
@@ -122,7 +122,7 @@
       ]
     },{
       "title": "PL/I Basics 2",
-      "banner":"images/basic1.png",
+      "banner":"images/yellow.jpg",
       "description": "Learn PL/I syntax, structure, and control flow.",
       "chapters": [
         {
@@ -145,7 +145,7 @@
       ]
     },{
       "title": "PL/I Basics 2",
-      "banner":"images/basic1.png",
+      "banner":"images/yellow.jpg",
       "description": "Learn PL/I syntax, structure, and control flow.",
       "chapters": [
         {
@@ -168,7 +168,7 @@
       ]
     },{
       "title": "PL/I Basics 2",
-      "banner":"images/basic1.png",
+      "banner":"images/red.png",
       "description": "Learn PL/I syntax, structure, and control flow.",
       "chapters": [
         {
@@ -191,7 +191,7 @@
       ]
     },{
       "title": "PL/I Basics 2",
-      "banner":"images/basic1.png",
+      "banner":"images/red.png",
       "description": "Learn PL/I syntax, structure, and control flow.",
       "chapters": [
         {
