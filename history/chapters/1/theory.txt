@@ -3,43 +3,51 @@
 <head>
     <title>About the PL/I Programming Language</title>
     <style>
-        /* Added for smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
 
-        #textinfo{
+        #textinfo {
             color: #333;
         }
-        
+
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background-color:rgba(255, 255, 255, 0.72);
+            background-color: rgba(255, 255, 255, 0.72);
             padding: 2em;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
+
         h1 {
-            color:rgb(82, 43, 73);
+            color: rgb(82, 43, 73);
             border-bottom: 2px solid #e9ecef;
             padding-bottom: 10px;
+            text-align: center;
+            margin-bottom: 1em;
         }
+
         h2 {
             color: #0056b3;
             border-bottom: 2px solid #e9ecef;
             padding-bottom: 10px;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 1em;
-        }
-        h2 {
             margin-top: 1.5em;
         }
+
         p {
             margin-bottom: 1em;
         }
+
+        ul, ol {
+            text-align: left;
+            margin: 1em 0 1em 2em;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
         code {
             background-color: #e9ecef;
             color: #c7254e;
@@ -49,30 +57,45 @@
         }
 
         .toc {
+            margin-bottom: 2em;
+            text-align: left;
+        }
 
-            margin-bottom: 2em; 
-            text-align: left; 
-        }
         .toc h3 {
-            /* color:rgb(47, 47, 150); */
-            color:rgb(150, 95, 47);
+            color: rgb(150, 95, 47);
         }
+
         .toc ul {
             list-style-type: disc;
             margin-bottom: 0;
         }
+
         .toc li {
             margin-bottom: 8px;
-            font-size: 1em; 
+            font-size: 1em;
         }
+
         .toc a {
             text-decoration: underline;
-            color:rgb(47, 47, 150); 
+            color: rgb(47, 47, 150);
         }
+
         .toc a:hover {
             text-decoration: underline;
         }
 
+        pre {
+            background-color: #f8f9fa;
+            padding: 1em;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        hr {
+            margin-top: 2em;
+            border: none;
+            border-top: 2px solid #eee;
+        }
     </style>
 </head>
 <body>
