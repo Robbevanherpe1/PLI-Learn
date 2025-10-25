@@ -166,6 +166,7 @@ pre[class*='language-'] {
 .code-question {
   width: 120%;
   max-width: 800px;
+  min-width: 795px;
   margin: 25px auto;
   background: var(--card);
   border-radius: 12px;
