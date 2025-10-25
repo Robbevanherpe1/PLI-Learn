@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Work in Progress</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #textinfo {
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.72);
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: rgb(82, 43, 73);
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            text-align: center;
+            margin-bottom: 1em;
+        }
+
+        h2 {
+            color: #0056b3;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            margin-top: 1.5em;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        ul, ol {
+            text-align: left;
+            margin: 1em 0 1em 2em;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background-color: #e9ecef;
+            color: #c7254e;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+
+        .toc {
+            margin-bottom: 2em;
+            text-align: left;
+        }
+
+        .toc h3 {
+            color: rgb(150, 95, 47);
+        }
+
+        .toc ul {
+            list-style-type: disc;
+            margin-bottom: 0;
+        }
+
+        .toc li {
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+
+        .toc a {
+            text-decoration: underline;
+            color: rgb(47, 47, 150);
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            padding: 1em;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        hr {
+            margin-top: 2em;
+            border: none;
+            border-top: 2px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="textinfo">
+    <h1>Setting Up and Coding in PL/I</h1>
+
+    <div class="toc">
+        <h3>Key Topics Covered</h3>
+        <ul>
+            <li><a href="#environment">Development Environment Setup</a></li>
+            <li><a href="#editors">Using VS Code and IBM Z Open Editor</a></li>
+            <li><a href="#ispf">Working with ISPF and z/OS</a></li>
+            <li><a href="#compile">Compiling and Running PL/I Programs</a></li>
+        </ul>
+    </div>
+
+    <h2 id="environment">Development Environment Setup</h2>
+    <p>
+        To develop PL/I applications efficiently, modern environments integrate IBM mainframe development with desktop tools 
+        through <strong>IBM Z Open Development</strong> and <strong>z/OS integration</strong>. PL/I can be coded, built, and debugged 
+        either directly on the mainframe (via <strong>ISPF</strong> on z/OS) or remotely through connected editors such as 
+        <strong>Visual Studio Code</strong> using IBM’s Z Open Editor.<sup>[1][2]</sup>
+    </p>
+
+    <p>The essential components include:</p>
+    <ul>
+        <li><strong>z/OS system</strong> – the mainframe environment where PL/I compiles and executes.</li>
+        <li><strong>IBM Enterprise PL/I Compiler</strong> – provides language support, optimization, and debugging features.</li>
+        <li><strong>z/OS Language Environment (LE)</strong> – enables PL/I programs to run alongside COBOL and C applications.</li>
+        <li><strong>IBM Debug Tool or z/OS Debugger</strong> – for runtime analysis and error tracking.</li>
+    </ul>
+
+    <h2 id="editors">Using VS Code and IBM Z Open Editor</h2>
+    <p>
+        <strong>IBM Z Open Editor</strong> is a Visual Studio Code extension that supports syntax highlighting, 
+        code completion, and integration for PL/I, COBOL, and JCL files. It allows developers to edit PL/I programs 
+        locally and then deploy or compile them on a connected z/OS system using <strong>IBM Dependency Based Build (DBB)</strong> 
+        or <strong>z/OSMF</strong>.<sup>[3][4]</sup>
+    </p>
+
+    <p>Steps to configure VS Code for PL/I development:</p>
+    <ol>
+        <li>Install <strong>Visual Studio Code</strong> (latest version).</li>
+        <li>Install the <strong>IBM Z Open Editor</strong> extension from the VS Code Marketplace.</li>
+        <li>Install <strong>Zowe Explorer</strong> to connect to z/OS datasets and USS directories.</li>
+        <li>Set up a Zowe profile with mainframe credentials and host information.</li>
+        <li>Open a PL/I file (<code>.pli</code> or <code>.pl1</code>) and use syntax-aware features for editing.</li>
+    </ol>
+
+    <p>
+        The combination of <strong>Z Open Editor</strong> and <strong>Zowe Explorer</strong> provides a hybrid experience — 
+        developers can use local modern tooling while interacting with mainframe files and jobs in real-time.
+    </p>
+
+    <h2 id="ispf">Working with ISPF and z/OS</h2>
+    <p>
+        The <strong>Interactive System Productivity Facility (ISPF)</strong> is the traditional mainframe interface 
+        used to create, edit, compile, and execute PL/I programs on z/OS. It operates through terminal access using 
+        <code>TSO/ISPF</code> commands.<sup>[2][5]</sup>
+    </p>
+
+    <p>ISPF provides:</p>
+    <ul>
+        <li><strong>Dataset management</strong> – create, edit, and browse PDS members containing PL/I code.</li>
+        <li><strong>Job submission</strong> – execute JCL jobs that compile and link PL/I programs.</li>
+        <li><strong>Error logs</strong> – view compile and runtime errors in spool files.</li>
+    </ul>
+
+    <p>A simple ISPF workflow for PL/I development:</p>
+    <ol>
+        <li>Log into the z/OS mainframe and open ISPF panels.</li>
+        <li>Edit source code in the designated PDS (e.g., <code>USER.PLI.SOURCE(PROGRAM1)</code>).</li>
+        <li>Submit a JCL job referencing the Enterprise PL/I compiler:</li>
+    </ol>
+
+    <pre><code>//COMPILE JOB (ACCT),'PL/I COMPILE',CLASS=A,MSGCLASS=X,NOTIFY=&SYSUID
+//STEP1    EXEC PGM=IBMZPLI,PARM='LIST,XREF'
+//SYSIN    DD  DSN=USER.PLI.SOURCE(PROGRAM1),DISP=SHR
+//SYSLMOD  DD  DSN=USER.LOAD(PROGRAM1),DISP=SHR
+//SYSOUT   DD  SYSOUT=*
+//SYSPRINT DD  SYSOUT=*
+//SYSADATA DD  SYSOUT=*
+//SYSUT1   DD  UNIT=SYSDA,SPACE=(CYL,(1,1))
+</code></pre>
+
+    <p>
+        After successful compilation, the load module is created and can be executed through JCL or within 
+        a transaction monitor such as <code>CICS</code> or <code>IMS</code>.
+    </p>
+
+    <h2 id="compile">Compiling and Running PL/I Programs</h2>
+    <p>
+        PL/I programs are compiled using the <strong>Enterprise PL/I compiler</strong>, either directly on z/OS or 
+        remotely through a CI/CD pipeline. Compilation produces a load module stored in a <strong>PDS load library</strong>.
+    </p>
+
+    <p>Execution can occur through:</p>
+    <ul>
+        <li><strong>Batch JCL jobs</strong> – for scheduled data processing.</li>
+        <li><strong>Online systems (CICS, IMS)</strong> – for transaction-based applications.</li>
+        <li><strong>z/OS UNIX shell</strong> – using PL/I programs integrated with UNIX System Services.</li>
+    </ul>
+
+    <p>
+        Modern environments can automate this process using <strong>IBM Dependency Based Build (DBB)</strong> or 
+        <strong>Jenkins pipelines</strong> integrated with Git-based repositories for source control.<sup>[3][4]</sup>
+    </p>
+
+    <hr>
+    <h3>References</h3>
+    <ol>
+        <li>IBM (2021). <em>Enterprise PL/I for z/OS, Version 6.1 Documentation.</em> IBM DeveloperWorks. <a href="https://www.ibm.com/docs/en/pli/latest">[Link]</a></li>
+        <li>IBM Redbooks (2016). <em>Introduction to the New Mainframe: IBM Z/VSE Basics.</em> IBM Redbooks. <a href="https://books.google.com/books?id=cJWpCwAAQBAJ">[Link]</a></li>
+        <li>IBM (2023). <em>IBM Z Open Editor for Visual Studio Code.</em> <a href="https://marketplace.visualstudio.com/items?itemName=IBM.zopeneditor">[Link]</a></li>
+        <li>IBM (2023). <em>Zowe Explorer for VS Code.</em> <a href="https://marketplace.visualstudio.com/items?itemName=Zowe.vscode-extension-for-zowe">[Link]</a></li>
+        <li>IBM (2020). <em>Using ISPF for Application Development.</em> IBM z/OS Basic Skills Handbook. <a href="https://www.ibm.com/docs/en/zos/2.5.0?topic=development-using-ispf">[Link]</a></li>
+    </ol>
+</div>
+
+</body>
+</html>

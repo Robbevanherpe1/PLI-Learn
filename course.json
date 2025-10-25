@@ -32,21 +32,26 @@
       "description": "Learn PL/I syntax, structure, and control flow.",
       "chapters": [
         {
-          "title": "Chapter 1: Theory",
-          "theoryPath": "filler/chapters/1/theory.txt"
+          "title": "Chapter 1: Setting up enviroment",
+          "theoryPath": "start/chapters/1/theory.txt"
         },
         {
           "title": "Chapter 1: Exercises",
-          "mcqPath": "filler/chapters/1/mcq.json",
-          "codePath": "filler/chapters/1/code.json"
+          "mcqPath": "start/chapters/1/mcq.json"
         },
         {
-          "title": "Chapter 2: Theory",
-          "theoryPath": "filler/chapters/1/theory.txt"
+          "title": "Chapter 2: PL/I structure and Flow",
+          "theoryPath": "start/chapters/2/theory.txt"
         },
         {
           "title": "Chapter 2: Exercises",
-          "mcqPath": "filler/chapters/1/mcq.json"
+          "mcqPath": "start/chapters/2/mcq.json",
+          "codePath": "start/chapters/2/code.json"
+        },
+        {
+          "title": "Module Exam",
+          "mcqPath": "start/chapters/exam/mcq.json",
+          "codePath": "start/chapters/exam/code.json"
         }
       ]
     },{
