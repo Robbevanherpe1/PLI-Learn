@@ -78,7 +78,7 @@
 <body>
 
     <div class="container" id="textinfo">
-    <h1>The PL/I Programming Language</h1>
+    <h1>The Relevance Of PL/I Today</h1>
 
     <div class="toc">
         <h3>Key Topics Covered</h3>
