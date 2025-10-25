@@ -1,7 +1,7 @@
 /* style.css */
 :root {
-  --bg: #121416;
-  --panel: #121416;
+  --bg: #16181b;
+  --panel: #16181b;
   --card: #494c50;
   --text: #e2e8f0;
   --accent: #73cffa;
@@ -15,7 +15,7 @@ body.light {
   --text: #0f172a;
   --accent: #2563eb;
   --border: #cbd5e100;
-  --shadow: rgba(0, 0, 0, 0);
+  --shadow: rgba(0, 0, 0, 0.4);
 }
 body {
   margin: 0;
