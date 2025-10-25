@@ -40,28 +40,65 @@ async function openCourse(course) {
   coursesList.innerHTML = '';
   contentArea.innerHTML = '';
 
+  const grouped = {};
   course.chapters.forEach(ch => {
-    const li = document.createElement('li');
-    li.textContent = ch.title;
-    li.onclick = () => loadChapter(ch, li, course.title);
-    coursesList.appendChild(li);
+    const m = ch.title.match(/Chapter (\d+)/);
+    if (m) {
+      const n = m[1];
+      if (!grouped[n]) grouped[n] = [];
+      grouped[n].push(ch);
+    }
   });
 
-  const savedChapterTitle = localStorage.getItem(`lastChapter_${course.title}`);
-  let targetChapter = null;
-  let targetLi = null;
+  Object.keys(grouped).forEach(num => {
+    const chapterLi = document.createElement('li');
+    chapterLi.className = 'chapter-dropdown';
+    chapterLi.textContent = `Chapter ${num}`;
 
-  if (savedChapterTitle) {
-    targetChapter = course.chapters.find(ch => ch.title === savedChapterTitle);
-    targetLi = [...coursesList.children].find(li => li.textContent === savedChapterTitle);
+    const inner = document.createElement('ul');
+    inner.className = 'chapter-sub hidden';
+
+    grouped[num].forEach(ch => {
+      const subLi = document.createElement('li');
+      subLi.textContent = ch.title.includes('Exercise') ? 'Exercises' : 'Theory';
+      subLi.onclick = () => loadChapter(ch, subLi, course.title);
+      inner.appendChild(subLi);
+    });
+
+    chapterLi.onclick = e => {
+      if (e.target === chapterLi) inner.classList.toggle('hidden');
+    };
+    chapterLi.appendChild(inner);
+    coursesList.appendChild(chapterLi);
+  });
+
+  const exam = course.chapters.find(ch => ch.title.includes('Exam'));
+  if (exam) {
+    const examLi = document.createElement('li');
+    examLi.textContent = 'Module Exam';
+    examLi.onclick = () => loadChapter(exam, examLi, course.title);
+    coursesList.appendChild(examLi);
   }
 
-  if (!targetChapter) {
-    targetChapter = course.chapters[0];
-    targetLi = coursesList.children[0];
+  const saved = localStorage.getItem(`lastChapter_${course.title}`);
+  let target = null, targetLi = null;
+  if (saved) {
+    for (const li of coursesList.querySelectorAll('li')) {
+      if (li.textContent.trim() === saved) {
+        targetLi = li;
+        break;
+      }
+    }
   }
-
-  if (targetChapter && targetLi) await loadChapter(targetChapter, targetLi, course.title);
+  if (!targetLi) {
+    const first = course.chapters[0];
+    target = first;
+    const li = coursesList.querySelector('li');
+    if (li) await loadChapter(first, li, course.title);
+  } else {
+    target = course.chapters.find(ch => ch.title === saved);
+    await loadChapter(target, targetLi, course.title);
+  }
 
   localStorage.setItem('lastCourseTitle', course.title);
 }
@@ -69,7 +106,6 @@ async function openCourse(course) {
 async function loadChapter(chapter, li, courseTitle) {
   document.querySelectorAll('.sidebar li').forEach(e => e.classList.remove('active'));
   li.classList.add('active');
-
   localStorage.setItem(`lastChapter_${courseTitle}`, chapter.title);
 
   const div = document.createElement('div');
@@ -110,7 +146,6 @@ async function loadChapter(chapter, li, courseTitle) {
     const codeQs = await fetch(chapter.codePath).then(r => r.json());
     const codeContainer = document.createElement('div');
     codeContainer.innerHTML = `<h4>Code Exercises</h4>`;
-
     codeQs.forEach((q, i) => {
       const qDiv = document.createElement('div');
       qDiv.className = 'code-question';
@@ -127,7 +162,6 @@ async function loadChapter(chapter, li, courseTitle) {
         </div>
         <button class="show-btn">Show Solution</button>
         <pre class="hidden"><code class="language-pl1">${q.answer}</code></pre>`;
-
       const btn = qDiv.querySelector('.show-btn');
       const ans = qDiv.querySelectorAll('pre')[1];
       btn.onclick = () => {
@@ -135,11 +169,9 @@ async function loadChapter(chapter, li, courseTitle) {
         Prism.highlightAll();
         btn.textContent = ans.classList.contains('hidden') ? 'Show Solution' : 'Hide Solution';
       };
-
       const wrapper = qDiv.querySelector(".code-editor-wrap");
       const input = wrapper.querySelector(".code-input");
       const code = wrapper.querySelector(".code-highlight code");
-
       function updateHighlight() {
         const val = input.value;
         const pos = input.selectionStart;
@@ -149,7 +181,6 @@ async function loadChapter(chapter, li, courseTitle) {
         const highlightedAfter = Prism.highlight(after, Prism.languages.pl1, "pl1");
         code.innerHTML = highlightedBefore + '<span class="fake-caret"></span>' + highlightedAfter;
       }
-
       input.addEventListener("focus", () => {
         wrapper.classList.add("active");
         updateHighlight();
@@ -164,18 +195,12 @@ async function loadChapter(chapter, li, courseTitle) {
         pre.scrollLeft = input.scrollLeft;
       }
       input.addEventListener("scroll", syncScroll);
-      
-
       input.addEventListener("input", updateHighlight);
       input.addEventListener("click", updateHighlight);
       input.addEventListener("keyup", updateHighlight);
-
       updateHighlight();
-
-
       codeContainer.appendChild(qDiv);
     });
-
     div.appendChild(codeContainer);
   }
 

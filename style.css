@@ -163,6 +163,31 @@ pre[class*='language-'] {
   border-radius: 6px;
   box-shadow: 0 2px 5px var(--shadow);
 }
+
+.chapter-dropdown {
+  font-weight: 600;
+  cursor: pointer;
+}
+.chapter-dropdown ul {
+  list-style: none;
+  margin-left: 15px;
+  margin-top: 5px;
+  padding-left: 10px;
+  border-left: 2px solid var(--accent);
+}
+.chapter-sub.hidden {
+  display: none;
+}
+.chapter-sub li {
+  font-weight: 400;
+  padding: 6px 8px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}
+.chapter-sub li:hover {
+  background: rgba(59, 130, 246, 0.2);
+}
+
 .code-question {
   width: 120%;
   max-width: 800px;
