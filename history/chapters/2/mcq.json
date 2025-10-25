@@ -1,18 +1,102 @@
 [
-    {
-      "question": "Which statement declares a fixed binary variable in PL/I?",
-      "options": [
-        "DCL I FIXED BINARY;",
-        "LET I = 10;",
-        "INT I;",
-        "DECLARE I AS INTEGER;"
-      ],
-      "answerIndex": 0
-    },
-    {
-      "question": "Which keyword begins a loop in PL/I?",
-      "options": ["FOR", "LOOP", "DO", "REPEAT"],
-      "answerIndex": 2
-    }
-  ]
-  
+  {
+    "question": "Which of the following best explains PL/I’s ongoing importance in modern enterprise systems?",
+    "options": [
+      "Its compatibility with mobile operating systems",
+      "Its strong integration with IBM mainframes and high-volume transaction environments",
+      "Its popularity for web development and user interfaces",
+      "Its use in embedded microcontrollers"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which IBM product continues to provide modern support and updates for PL/I?",
+    "options": [
+      "IBM Cloud Pak for Data",
+      "Enterprise PL/I for z/OS",
+      "Rational Team Concert",
+      "WebSphere Application Server"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which of the following sectors most commonly relies on PL/I today?",
+    "options": [
+      "E-commerce and entertainment",
+      "Finance, insurance, and government",
+      "Mobile application development",
+      "Video game design"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which capability allows PL/I systems to maintain uptime and reliability for mission-critical tasks?",
+    "options": [
+      "Dynamic garbage collection",
+      "Exception handling and condition management",
+      "Automatic UI rendering",
+      "Integrated graphical processing"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "How does PL/I contribute to hybrid cloud and modernization strategies?",
+    "options": [
+      "It can be compiled directly into web browsers",
+      "It integrates with Java, C++, and APIs through IBM’s modernization tools",
+      "It replaces legacy systems with microservices automatically",
+      "It converts COBOL applications into REST APIs without code changes"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What kind of workloads are PL/I applications primarily used for today?",
+    "options": [
+      "Scientific simulations on supercomputers",
+      "Low-level operating system kernels",
+      "Batch and transaction processing on mainframes",
+      "Web-based user interfaces"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "question": "In healthcare systems, what is a common use of PL/I?",
+    "options": [
+      "Managing patient data and claims processing",
+      "Developing wearable health applications",
+      "Running AI diagnostics on mobile devices",
+      "Rendering 3D medical images"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What major advantage does PL/I’s multitasking provide?",
+    "options": [
+      "It enables concurrent execution of tasks for parallel transaction handling",
+      "It automatically scales across distributed networks",
+      "It manages user authentication securely",
+      "It simplifies web-based programming"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "Which of the following best describes IBM’s modernization approach for PL/I?",
+    "options": [
+      "Rewriting all code in new languages",
+      "Providing updated compilers and interoperability with cloud APIs",
+      "Phasing out PL/I support entirely",
+      "Migrating PL/I programs to Linux without recompilation"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What key feature allows PL/I to communicate effectively with other languages in a modern environment?",
+    "options": [
+      "Native GUI libraries",
+      "Language Environment (LE) interoperability",
+      "Object-oriented class inheritance",
+      "Dynamic bytecode compilation"
+    ],
+    "answerIndex": 1
+  }
+]

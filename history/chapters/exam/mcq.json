@@ -1,18 +1,87 @@
 [
-    {
-      "question": "Which statement declares a fixed binary variable in PL/I?",
-      "options": [
-        "DCL I FIXED BINARY;",
-        "LET I = 10;",
-        "INT I;",
-        "DECLARE I AS INTEGER;"
-      ],
-      "answerIndex": 0
-    },
-    {
-      "question": "Which keyword begins a loop in PL/I?",
-      "options": ["FOR", "LOOP", "DO", "REPEAT"],
-      "answerIndex": 2
-    }
-  ]
-  
+  {
+    "question": "What was IBM’s main goal in developing PL/I during the 1960s?",
+    "options": [
+      "To create a purely scientific language for engineering applications",
+      "To combine business and scientific programming into a single, unified language",
+      "To replace COBOL entirely with a simpler syntax",
+      "To make programming accessible to non-technical users"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which two programming languages most influenced the design of PL/I?",
+    "options": [
+      "FORTRAN and COBOL",
+      "ALGOL and Pascal",
+      "C and LISP",
+      "Ada and BASIC"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "Which IBM platform is most closely associated with modern PL/I usage?",
+    "options": ["Unix", "Windows Server", "z/OS", "AIX"],
+    "answerIndex": 2
+  },
+  {
+    "question": "Which PL/I feature allows developers to handle runtime errors gracefully?",
+    "options": ["TRY-CATCH", "ON condition handling", "EXCEPT-RESUME", "IF-ERROR"],
+    "answerIndex": 1
+  },
+  {
+    "question": "What kind of workloads are PL/I programs most commonly used for today?",
+    "options": [
+      "Video game rendering",
+      "Batch and transaction processing on mainframes",
+      "Machine learning model training",
+      "Embedded firmware development"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which sector continues to rely heavily on PL/I for mission-critical systems?",
+    "options": [
+      "Social media analytics",
+      "Healthcare and finance",
+      "Consumer electronics manufacturing",
+      "Education technology"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What is the significance of IBM’s Enterprise PL/I compiler?",
+    "options": [
+      "It supports integration with modern APIs, JSON, and multithreading",
+      "It converts PL/I directly to Python",
+      "It is used only for educational purposes",
+      "It replaces Java on z/OS"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "Which keyword is used in PL/I to define a loop structure?",
+    "options": ["FOR", "LOOP", "DO", "CYCLE"],
+    "answerIndex": 2
+  },
+  {
+    "question": "Why do enterprises continue to maintain PL/I codebases instead of replacing them?",
+    "options": [
+      "They are open source and easy to port",
+      "They run on stable and secure mainframe environments handling core transactions",
+      "They are cloud-native by default",
+      "They cannot be integrated with modern systems"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which modernization strategy allows PL/I to interact with cloud applications and new languages?",
+    "options": [
+      "Using z/OS Connect and API integration with Java and C++",
+      "Migrating to Python using automated tools",
+      "Recompiling directly into web browsers",
+      "Emulating mainframes on personal computers"
+    ],
+    "answerIndex": 0
+  }
+]

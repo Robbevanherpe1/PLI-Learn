@@ -11,8 +11,7 @@
         },
         {
           "title": "Chapter 1: Exercises",
-          "mcqPath": "history/chapters/1/mcq.json",
-          "codePath": "history/chapters/1/code.json"
+          "mcqPath": "history/chapters/1/mcq.json"
         },
         {
           "title": "Chapter 2: Use cases of PLI",
@@ -24,8 +23,7 @@
         },
         {
           "title": "Module Exam",
-          "mcqPath": "history/chapters/exam/mcq.json",
-          "codePath": "history/chapters/exam/code.json"
+          "mcqPath": "history/chapters/exam/mcq.json"
         }
       ]
     },{

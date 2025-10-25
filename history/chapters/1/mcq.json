@@ -1,18 +1,72 @@
 [
-    {
-      "question": "Which statement declares a fixed binary variable in PL/I?",
-      "options": [
-        "DCL I FIXED BINARY;",
-        "LET I = 10;",
-        "INT I;",
-        "DECLARE I AS INTEGER;"
-      ],
-      "answerIndex": 0
-    },
-    {
-      "question": "Which keyword begins a loop in PL/I?",
-      "options": ["FOR", "LOOP", "DO", "REPEAT"],
-      "answerIndex": 2
-    }
-  ]
-  
+  {
+    "question": "In what year was PL/I officially introduced by IBM as part of the System/360 project?",
+    "options": ["1958", "1964", "1971", "1983"],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which two languages most influenced the design of PL/I?",
+    "options": [
+      "FORTRAN and COBOL",
+      "ALGOL and LISP",
+      "C and Pascal",
+      "Assembly and APL"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "Which PL/I construct is used for handling exceptions and runtime errors?",
+    "options": ["CATCH", "TRY", "ON", "HANDLE"],
+    "answerIndex": 2
+  },
+  {
+    "question": "Which IBM operating system is most closely associated with modern PL/I development?",
+    "options": ["Windows NT", "Unix", "z/OS", "AIX"],
+    "answerIndex": 2
+  },
+  {
+    "question": "What does the abbreviation 'PL/I' stand for?",
+    "options": [
+      "Programming Logic Interpreter",
+      "Programming Language One",
+      "Processing Language Interface",
+      "Procedural Language for Industry"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which PL/I keyword is used to start a loop?",
+    "options": ["FOR", "LOOP", "DO", "REPEAT"],
+    "answerIndex": 2
+  },
+  {
+    "question": "Which of the following data types is NOT native to PL/I?",
+    "options": ["BIT", "CHARACTER", "FLOAT", "BOOLEAN"],
+    "answerIndex": 3
+  },
+  {
+    "question": "Which IBM subsystem allows PL/I to interact with relational databases on mainframes?",
+    "options": ["CICS", "DB2", "IMS", "VSAM"],
+    "answerIndex": 1
+  },
+  {
+    "question": "What was a key goal of PL/I’s design according to IBM’s 1960s documentation?",
+    "options": [
+      "To create a scientific-only computing language",
+      "To unify business and scientific programming in one language",
+      "To replace assembly entirely",
+      "To make programming accessible to non-engineers"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which IBM tool is used to debug PL/I programs on z/OS systems?",
+    "options": [
+      "Rational Developer",
+      "Enterprise COBOL Analyzer",
+      "PL/I Debug Tool",
+      "Mainframe Inspector"
+    ],
+    "answerIndex": 2
+  }
+]
