@@ -1,11 +1,11 @@
 [
     {
-      "question": "Write a PL/I loop that prints numbers 1 to 5.Write a PL/I loop that prints numbers 1 to 5.",
-      "answer": "DCL I FIXED BINARY;\nDO I = 1 TO 5;\n   PUT SKIP LIST(I);\nEND;"
+      "question": "work in progress",
+      "answer": "work in progress"
     },
     {
-      "question": "Write a PL/I program that prints whether a number is even or odd.",
-      "answer": "DCL N FIXED BINARY INIT(5);\nIF MOD(N,2)=0 THEN\n   PUT SKIP LIST('EVEN');\nELSE\n   PUT SKIP LIST('ODD');"
+      "question": "work in progress",
+      "answer": "work in progress"
     }
   ]
   
