@@ -140,6 +140,7 @@
         locally and then deploy or compile them on a connected z/OS system using <strong>IBM Dependency Based Build (DBB)</strong> 
         or <strong>z/OSMF</strong>.<sup>[3][4]</sup>
     </p>
+    <img src="images/zowe.png" alt="ispf screen" width="500">
 
     <p>Steps to configure VS Code for PL/I development:</p>
     <ol>
@@ -161,6 +162,7 @@
         used to create, edit, compile, and execute PL/I programs on z/OS. It operates through terminal access using 
         <code>TSO/ISPF</code> commands.<sup>[2][5]</sup>
     </p>
+    <img src="images/ispf.gif" alt="ispf screen" width="500">
 
     <p>ISPF provides:</p>
     <ul>
