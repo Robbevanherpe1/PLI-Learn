@@ -188,6 +188,15 @@
         data structure versatility, and multitasking. PL/I remains a cornerstone example of mid-century programming 
         design, bridging the gap between early machine-oriented coding and modern structured paradigms.<sup>[8][9]</sup>
     </p>
+    <iframe width="560" height="315"
+    src="https://www.youtube-nocookie.com/embed/hYZySxNa97M?start=13&end=69&controls=0"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+</iframe>
+
 
     <hr>
     <h3>References</h3>
