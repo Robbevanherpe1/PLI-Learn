@@ -97,6 +97,7 @@
         support for concurrent processing make it particularly suited for <strong>high-volume transaction environments</strong> 
         such as banking, insurance, and government data systems.<sup>[1][2][3]</sup>
     </p>
+    <img src="images/z16.jpg" alt="ispf screen" width="500">
 
     <p>
         IBM has maintained the language through continuous updates to <strong>Enterprise PL/I for z/OS</strong>, introducing 

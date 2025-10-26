@@ -121,6 +121,7 @@
         SHARE user group.<sup>[1][2]</sup> Its design philosophy aimed to combine the mathematical and numerical 
         computing power of <code>FORTRAN</code> with the data-handling and file-processing strengths of <code>COBOL</code>.
     </p>
+     <img src="images/360.jpg" alt="ispf screen" width="500">
 
     <p>
         Early compilers were developed for the IBM 7090 and System/360 mainframes, marking PL/I as one of the 
@@ -165,6 +166,7 @@
         mainframe subsystems such as <code>VSAM</code> for high-performance file access, 
         <code>IMS</code> for transaction management, and <code>DB2</code> for relational databases.<sup>[5][6]</sup>
     </p>
+    <img src="images/original.jpg" alt="ispf screen" width="500">
 
     <p>
         Using IBM’s <strong>Enterprise PL/I Compiler</strong> and <strong>PL/I Debug Tool</strong>, developers can 

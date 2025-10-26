@@ -106,6 +106,7 @@
     <div class="container" id="textinfo">
        
         <p>work in progress</p>
+         <img src="images/ispf.gif" alt="ispf screen" width="500">
     </div>
 
 </body>
