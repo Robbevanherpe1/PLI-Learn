@@ -39,6 +39,9 @@
         p {
             margin-bottom: 1em;
         }
+        #ref{
+            color: #0056b3;
+        }
 
         ul, ol {
             text-align: left;
@@ -212,7 +215,7 @@
     </p>
 
     <hr>
-    <h3>References</h3>
+    <h3 id="ref">References</h3>
     <ol>
         <li>IBM (2021). <em>Enterprise PL/I for z/OS, Version 6.1 Documentation.</em> IBM DeveloperWorks. <a href="https://www.ibm.com/docs/en/pli/latest">[Link]</a></li>
         <li>IBM Redbooks (2016). <em>Introduction to the New Mainframe: IBM Z/VSE Basics.</em> IBM Redbooks. <a href="https://books.google.com/books?id=cJWpCwAAQBAJ">[Link]</a></li>

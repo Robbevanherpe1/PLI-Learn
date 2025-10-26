@@ -30,6 +30,9 @@
             border-bottom: 2px solid #e9ecef;
             padding-bottom: 10px;
         }
+        #ref{
+            color: #0056b3;
+        }
         h1 {
             text-align: center;
             margin-bottom: 1em;
@@ -155,7 +158,7 @@
     </p>
 
     <hr>
-    <h3>References</h3>
+    <h3 id="ref">References</h3>
     <ol>
         <li>Radin, G. (1978). <em>The Early History and Characteristics of PL/I.</em> History of Programming Languages. ACM. <a href="https://dl.acm.org/doi/pdf/10.1145/800025.1198410">[PDF]</a></li>
         <li>Sammet, J.E. (1981). <em>History of IBM’s Technical Contributions to High-Level Programming Languages.</em> IBM Journal of Research and Development, 25(5), 548–564. <a href="https://ieeexplore.ieee.org/document/5390586">[Link]</a></li>
