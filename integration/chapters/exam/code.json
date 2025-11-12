@@ -1,0 +1,22 @@
+[
+  {
+    "question": "Write a PL/I program that prints 'HELLO FROM MAINFRAME' using a declared variable MSG.",
+    "answer": "HELLO: PROC OPTIONS(MAIN);\n   DCL MSG CHAR(25) INIT('HELLO FROM MAINFRAME');\n   PUT SKIP LIST(MSG);\nEND HELLO;"
+  },
+  {
+    "question": "Write a PL/I program that prints two separate lines: 'HELLO' and 'WORLD'.",
+    "answer": "HWLINES: PROC OPTIONS(MAIN);\n   PUT SKIP LIST('HELLO');\n   PUT SKIP LIST('WORLD');\nEND HWLINES;"
+  },
+  {
+    "question": "Write a PL/I program that declares a variable called NAME with value 'IBM Z' and displays it.",
+    "answer": "SHOWNAME: PROC OPTIONS(MAIN);\n   DCL NAME CHAR(10) INIT('IBM Z');\n   PUT SKIP LIST(NAME);\nEND SHOWNAME;"
+  },
+  {
+    "question": "Write a PL/I program that displays 'WELCOME TO PL/I'.",
+    "answer": "WELCOME: PROC OPTIONS(MAIN);\n   DCL MSG CHAR(20) INIT('WELCOME TO PL/I');\n   PUT SKIP LIST(MSG);\nEND WELCOME;"
+  },
+  {
+    "question": "Write a PL/I program that prints one message, then another on the next line.",
+    "answer": "TWOLINES: PROC OPTIONS(MAIN);\n   PUT SKIP LIST('FIRST MESSAGE');\n   PUT SKIP LIST('SECOND MESSAGE');\nEND TWOLINES;"
+  }
+]

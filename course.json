@@ -38,16 +38,16 @@
         },
         {
           "title": "Chapter 1: Exercises",
-          "mcqPath": "filler/chapters/1/mcq.json",
-          "codePath": "filler/chapters/1/code.json"
+          "mcqPath": "historyc/chapters/1/mcq.json",
+          "codePath": "historyc/chapters/1/code.json"
         },
         {
           "title": "Chapter 2: Theory",
-          "theoryPath": "filler/chapters/1/theory.txt"
+          "theoryPath": "historyc/chapters/2/theory.txt"
         },
         {
           "title": "Chapter 2: Exercises",
-          "mcqPath": "filler/chapters/1/mcq.json"
+          "mcqPath": "historyc/chapters/2/mcq.json"
         }
       ]
     },
@@ -91,16 +91,16 @@
         },
         {
           "title": "Chapter 1: Exercises",
-          "mcqPath": "filler/chapters/1/mcq.json",
-          "codePath": "filler/chapters/1/code.json"
+          "mcqPath": "basics/chapters/1/mcq.json",
+          "codePath": "basics/chapters/1/code.json"
         },
         {
           "title": "Chapter 2: Theory",
-          "theoryPath": "filler/chapters/1/theory.txt"
+          "theoryPath": "basics/chapters/2/theory.txt"
         },
         {
           "title": "Chapter 2: Exercises",
-          "mcqPath": "filler/chapters/1/mcq.json"
+          "mcqPath": "basics/chapters/2/mcq.json"
         }
       ]
     },
@@ -111,20 +111,20 @@
       "chapters": [
         {
           "title": "Chapter 1: Theory",
-          "theoryPath": "filler/chapters/1/theory.txt"
+          "theoryPath": "basicsc/chapters/1/theory.txt"
         },
         {
           "title": "Chapter 1: Exercises",
-          "mcqPath": "filler/chapters/1/mcq.json",
-          "codePath": "filler/chapters/1/code.json"
+          "mcqPath": "basicsc/chapters/1/mcq.json",
+          "codePath": "basicsc/chapters/1/code.json"
         },
         {
           "title": "Chapter 2: Theory",
-          "theoryPath": "filler/chapters/1/theory.txt"
+          "theoryPath": "basicsc/chapters/2/theory.txt"
         },
         {
           "title": "Chapter 2: Exercises",
-          "mcqPath": "filler/chapters/1/mcq.json"
+          "mcqPath": "basicsc/chapters/2/mcq.json"
         }
       ]
     },
@@ -135,20 +135,20 @@
       "chapters": [
         {
           "title": "Chapter 1: Theory",
-          "theoryPath": "filler/chapters/1/theory.txt"
+          "theoryPath": "integration/chapters/1/theory.txt"
         },
         {
           "title": "Chapter 1: Exercises",
-          "mcqPath": "filler/chapters/1/mcq.json",
-          "codePath": "filler/chapters/1/code.json"
+          "mcqPath": "integration/chapters/1/mcq.json",
+          "codePath": "integration/chapters/1/code.json"
         },
         {
           "title": "Chapter 2: Theory",
-          "theoryPath": "filler/chapters/1/theory.txt"
+          "theoryPath": "integration/chapters/2/theory.txt"
         },
         {
           "title": "Chapter 2: Exercises",
-          "mcqPath": "filler/chapters/1/mcq.json"
+          "mcqPath": "integration/chapters/2/mcq.json"
         }
       ]
     },
@@ -159,20 +159,20 @@
       "chapters": [
         {
           "title": "Chapter 1: Theory",
-          "theoryPath": "filler/chapters/1/theory.txt"
+          "theoryPath": "advanced/chapters/1/theory.txt"
         },
         {
           "title": "Chapter 1: Exercises",
-          "mcqPath": "filler/chapters/1/mcq.json",
-          "codePath": "filler/chapters/1/code.json"
+          "mcqPath": "advanced/chapters/1/mcq.json",
+          "codePath": "advanced/chapters/1/code.json"
         },
         {
           "title": "Chapter 2: Theory",
-          "theoryPath": "filler/chapters/1/theory.txt"
+          "theoryPath": "advanced/chapters/2/theory.txt"
         },
         {
           "title": "Chapter 2: Exercises",
-          "mcqPath": "filler/chapters/1/mcq.json"
+          "mcqPath": "advanced/chapters/2/mcq.json"
         }
       ]
     },
@@ -183,20 +183,20 @@
       "chapters": [
         {
           "title": "Chapter 1: Theory",
-          "theoryPath": "filler/chapters/1/theory.txt"
+          "theoryPath": "advancedc/chapters/1/theory.txt"
         },
         {
           "title": "Chapter 1: Exercises",
-          "mcqPath": "filler/chapters/1/mcq.json",
-          "codePath": "filler/chapters/1/code.json"
+          "mcqPath": "advancedc/chapters/1/mcq.json",
+          "codePath": "advancedc/chapters/1/code.json"
         },
         {
           "title": "Chapter 2: Theory",
-          "theoryPath": "filler/chapters/1/theory.txt"
+          "theoryPath": "advancedc/chapters/2/theory.txt"
         },
         {
           "title": "Chapter 2: Exercises",
-          "mcqPath": "filler/chapters/1/mcq.json"
+          "mcqPath": "advancedc/chapters/2/mcq.json"
         }
       ]
     },
@@ -207,20 +207,20 @@
       "chapters": [
         {
           "title": "Chapter 1: Theory",
-          "theoryPath": "filler/chapters/1/theory.txt"
+          "theoryPath": "integration2/chapters/1/theory.txt"
         },
         {
           "title": "Chapter 1: Exercises",
-          "mcqPath": "filler/chapters/1/mcq.json",
-          "codePath": "filler/chapters/1/code.json"
+          "mcqPath": "integration2/chapters/1/mcq.json",
+          "codePath": "integration2/chapters/1/code.json"
         },
         {
           "title": "Chapter 2: Theory",
-          "theoryPath": "filler/chapters/1/theory.txt"
+          "theoryPath": "integration2/chapters/2/theory.txt"
         },
         {
           "title": "Chapter 2: Exercises",
-          "mcqPath": "filler/chapters/1/mcq.json"
+          "mcqPath": "integration2/chapters/2/mcq.json"
         }
       ]
     }

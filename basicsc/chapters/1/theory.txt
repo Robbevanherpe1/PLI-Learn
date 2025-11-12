@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PL/I Variables and Loops</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #textinfo {
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.72);
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: rgb(82, 43, 73);
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            text-align: center;
+            margin-bottom: 1em;
+        }
+
+        h2 {
+            color: #0056b3;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            margin-top: 1.5em;
+        }
+
+        #ref {
+            color: #0056b3;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        ul, ol {
+            text-align: left;
+            margin: 1em 0 1em 2em;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background-color: #e9ecef;
+            color: #c7254e;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            text-align: left;
+            display: inline-block;
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            padding: 1em;
+            border-radius: 6px;
+            overflow-x: auto;
+            text-align: left;
+        }
+
+        .toc {
+            margin-bottom: 2em;
+            text-align: left;
+        }
+
+        .toc h3 {
+            color: rgb(150, 95, 47);
+        }
+
+        .toc ul {
+            list-style-type: disc;
+            margin-bottom: 0;
+        }
+
+        .toc li {
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+
+        .toc a {
+            text-decoration: underline;
+            color: rgb(47, 47, 150);
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            margin-top: 2em;
+            border: none;
+            border-top: 2px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="textinfo">
+    <h1>PL/I Variables and Loops</h1>
+
+    <div class="toc">
+        <h3>Key Topics Covered</h3>
+        <ul>
+            <li><a href="#variables">Declaring and Initializing Variables</a></li>
+            <li><a href="#datatypes">PL/I Data Types and Attributes</a></li>
+            <li><a href="#scope">Variable Scope and Storage Classes</a></li>
+            <li><a href="#loops">Loop Structures and Control</a></li>
+            <li><a href="#examples">Examples: Counting, Nested Loops, and Conditional Iteration</a></li>
+        </ul>
+    </div>
+
+    <h2 id="variables">Declaring and Initializing Variables</h2>
+    <p>
+        In PL/I, all variables must be declared before they are used. Declarations use the <strong>DCL</strong> (declare) statement.  
+        Each variable declaration specifies a name, a data type, and optionally additional attributes such as <code>INIT</code> (initial value), <code>STATIC</code>, or <code>CONTROLLED</code>.
+    </p>
+
+    <p>Example of basic variable declarations:</p>
+    <pre><code>DCL NAME CHAR(20) INIT('IBM MAINFRAME');
+DCL COUNT FIXED BINARY INIT(10);
+DCL RATE FLOAT DECIMAL(6);
+DCL FLAG BIT(1) INIT('1'B);
+</code></pre>
+
+    <ul>
+        <li><strong>CHAR(n)</strong> — defines a fixed-length character string.</li>
+        <li><strong>FIXED BINARY</strong> — integer numeric variable (whole numbers).</li>
+        <li><strong>FLOAT DECIMAL</strong> — floating-point decimal value.</li>
+        <li><strong>BIT(n)</strong> — stores binary data of a specific length.</li>
+        <li><strong>INIT(value)</strong> — assigns a starting value at runtime.</li>
+    </ul>
+
+    <h2 id="datatypes">PL/I Data Types and Attributes</h2>
+    <p>
+        PL/I supports a broad range of data types for both numeric and non-numeric processing, allowing complex scientific and business applications to coexist in one program.
+    </p>
+
+    <ul>
+        <li><strong>Character types:</strong> <code>CHAR(n)</code> and <code>VARYING CHAR(n)</code> for fixed or variable text.</li>
+        <li><strong>Numeric types:</strong> <code>FIXED</code> for exact arithmetic, <code>FLOAT</code> for approximate results.</li>
+        <li><strong>Bit strings:</strong> <code>BIT(n)</code> used for binary operations or flags.</li>
+        <li><strong>Arrays:</strong> group of elements of the same type, declared with subscripts (e.g., <code>DCL A(10) FIXED BINARY;</code>).</li>
+        <li><strong>Structures:</strong> group of mixed data types using the <code>STRUCTURE</code> attribute.</li>
+        <li><strong>Constants:</strong> declared with <code>DEFINE</code> or <code>DCL ... CONSTANT;</code>.</li>
+    </ul>
+
+    <pre><code>DCL PI FIXED DECIMAL(5,4) CONSTANT INIT(3.1416);
+DCL TEMPS(3) FIXED DECIMAL(5,2) INIT((22.5, 23.0, 21.8));
+DCL 1 EMPLOYEE,
+      2 ID FIXED BIN,
+      2 NAME CHAR(20),
+      2 SALARY FIXED DEC(7,2);
+</code></pre>
+
+    <p>
+        The above shows three different forms: a constant (<code>PI</code>), an array (<code>TEMPS</code>), and a structure (<code>EMPLOYEE</code>).
+    </p>
+
+    <h2 id="scope">Variable Scope and Storage Classes</h2>
+    <p>
+        Variable scope determines where a variable is accessible. In PL/I:
+    </p>
+    <ul>
+        <li><strong>Automatic</strong> variables (default) exist only while a procedure is active.</li>
+        <li><strong>Static</strong> variables retain their values between procedure calls (<code>DCL VAR FIXED BIN STATIC;</code>).</li>
+        <li><strong>Controlled</strong> variables are dynamically allocated and released with <code>ALLOCATE</code> and <code>FREE</code>.</li>
+    </ul>
+
+    <p>
+        Example showing different scopes:
+    </p>
+    <pre><code>SCOPEEX: PROC OPTIONS(MAIN);
+   DCL COUNTER FIXED BIN;
+   DCL STATIC_COUNT FIXED BIN STATIC INIT(0);
+
+   DO COUNTER = 1 TO 3;
+      STATIC_COUNT = STATIC_COUNT + 1;
+      PUT SKIP LIST('COUNTER =', COUNTER, 'STATIC_COUNT =', STATIC_COUNT);
+   END;
+
+END SCOPEEX;
+</code></pre>
+
+    <p>
+        Here, <code>COUNTER</code> resets each run, while <code>STATIC_COUNT</code> keeps its value if called again.
+    </p>
+
+    <h2 id="loops">Loop Structures and Control</h2>
+    <p>
+        PL/I uses the <strong>DO</strong> statement for iteration. Loops can be numeric (count-controlled), conditional, or indefinite.  
+        Each loop ends with an <code>END</code> statement, and loop control can be modified using <code>LEAVE</code> or <code>ITERATE</code>.
+    </p>
+
+    <h3>Numeric loop example:</h3>
+    <pre><code>DCL I FIXED BIN;
+DO I = 1 TO 5;
+   PUT SKIP LIST('Iteration:', I);
+END;
+</code></pre>
+
+    <h3>Conditional loop example:</h3>
+    <pre><code>DCL N FIXED BIN INIT(0);
+DO WHILE(N < 3);
+   N = N + 1;
+   PUT SKIP LIST('Current N =', N);
+END;
+</code></pre>
+
+    <h3>Using LEAVE and ITERATE:</h3>
+    <pre><code>DCL I FIXED BIN;
+DO I = 1 TO 10;
+   IF I = 3 THEN ITERATE; /* skip this iteration */
+   IF I = 8 THEN LEAVE;   /* exit loop early */
+   PUT SKIP LIST('I =', I);
+END;
+</code></pre>
+
+    <h2 id="examples">Examples: Counting, Nested Loops, and Conditional Iteration</h2>
+    <p>
+        Below is a complete program showing nested loops and formatted output.
+    </p>
+
+    <pre><code>NESTED: PROC OPTIONS(MAIN);
+   DCL I FIXED BIN;
+   DCL J FIXED BIN;
+
+   DO I = 1 TO 3;
+      DO J = 1 TO 2;
+         PUT SKIP LIST('OUTER =', I, 'INNER =', J);
+      END;
+   END;
+
+END NESTED;
+</code></pre>
+
+    <p>
+        Output:
+    </p>
+
+    <pre><code>OUTER = 1 INNER = 1
+OUTER = 1 INNER = 2
+OUTER = 2 INNER = 1
+OUTER = 2 INNER = 2
+OUTER = 3 INNER = 1
+OUTER = 3 INNER = 2
+</code></pre>
+
+    <p>
+        Nested loops are often used in array processing, matrix computations, or multi-level file operations.
+    </p>
+
+    <hr>
+    <h3 id="ref">References</h3>
+    <ol>
+        <li>IBM (2021). <em>Enterprise PL/I for z/OS, Version 6.1 Documentation.</em> IBM DeveloperWorks. <a href="https://www.ibm.com/docs/en/pli/latest">[Link]</a></li>
+        <li>IBM (2016). <em>Introduction to the New Mainframe: IBM Z/VSE Basics.</em> IBM Redbooks. <a href="https://books.google.com/books?id=cJWpCwAAQBAJ">[Link]</a></li>
+        <li>IBM (2020). <em>Using ISPF for Application Development.</em> IBM z/OS Basic Skills Handbook. <a href="https://www.ibm.com/docs/en/zos/2.5.0?topic=development-using-ispf">[Link]</a></li>
+    </ol>
+</div>
+
+</body>
+</html>

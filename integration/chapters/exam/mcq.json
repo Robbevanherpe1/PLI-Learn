@@ -1,0 +1,72 @@
+[
+  {
+    "question": "Which IBM product provides syntax highlighting and PL/I integration for Visual Studio Code?",
+    "options": [
+      "IBM Rational Developer for i",
+      "IBM Z Open Editor",
+      "IBM Cloud Pak for Applications",
+      "IBM Developer Assistant"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What is the purpose of the 'PROC OPTIONS(MAIN);' statement in a PL/I program?",
+    "options": [
+      "It declares a variable for main memory allocation.",
+      "It defines the main entry point of the program.",
+      "It specifies the mainframe system version.",
+      "It initializes system-level parameters."
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which PL/I statement is used to declare variables?",
+    "options": [
+      "SET",
+      "DEFINE",
+      "DCL",
+      "VAR"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "question": "Which of the following tools allows developers to access mainframe datasets directly from Visual Studio Code?",
+    "options": [
+      "Zowe Explorer",
+      "Rational Team Concert",
+      "Z/OSMF Web Console",
+      "IBM Cloud Shell"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What does the DD statement 'SYSLMOD' define in a PL/I compile JCL job?",
+    "options": [
+      "The input source file",
+      "The location for the compiled load module",
+      "The system print log",
+      "Temporary storage dataset"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which of the following statements about PL/I is TRUE?",
+    "options": [
+      "PL/I programs must use uppercase keywords only.",
+      "PL/I is case-insensitive and supports free-form syntax.",
+      "PL/I requires all lines to begin in column 8.",
+      "PL/I does not support string initialization."
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Where are PL/I executable modules typically stored after successful compilation on z/OS?",
+    "options": [
+      "PDS load library",
+      "DB2 database",
+      "CICS region memory",
+      "USS temporary directory"
+    ],
+    "answerIndex": 0
+  }
+]

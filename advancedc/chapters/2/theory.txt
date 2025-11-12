@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Getting Started with PL/I</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #textinfo {
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.72);
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: rgb(82, 43, 73);
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            text-align: center;
+            margin-bottom: 1em;
+        }
+
+        h2 {
+            color: #0056b3;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            margin-top: 1.5em;
+        }
+        #ref{
+            color: #0056b3;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        ul, ol {
+            text-align: left;
+            margin: 1em 0 1em 2em;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background-color: #e9ecef;
+            color: #c7254e;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            text-align: left;
+            display: inline-block;
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            padding: 1em;
+            border-radius: 6px;
+            overflow-x: auto;
+            text-align: left;
+        }
+
+        .toc {
+            margin-bottom: 2em;
+            text-align: left;
+        }
+
+        .toc h3 {
+            color: rgb(150, 95, 47);
+        }
+
+        .toc ul {
+            list-style-type: disc;
+            margin-bottom: 0;
+        }
+
+        .toc li {
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+
+        .toc a {
+            text-decoration: underline;
+            color: rgb(47, 47, 150);
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            margin-top: 2em;
+            border: none;
+            border-top: 2px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="textinfo">
+    <h1>Getting Started with PL/I</h1>
+
+    <div class="toc">
+        <h3>Key Topics Covered</h3>
+        <ul>
+            <li><a href="#basics">PL/I Program Structure</a></li>
+            <li><a href="#syntax">Basic Syntax Overview</a></li>
+            <li><a href="#example">Your First PL/I Program</a></li>
+            <li><a href="#compile">Compiling and Running on the Mainframe</a></li>
+        </ul>
+    </div>
+
+    <h2 id="basics">PL/I Program Structure</h2>
+    <p>
+    A PL/I program consists of one or more <strong>procedures</strong>. Each procedure can contain declarations,
+    executable statements, and control structures. The entry point of every PL/I program is a procedure 
+    — often named <code>HELLO</code> for a hello world program or another identifier of up to 8 characters in length.<sup>[1]</sup>
+</p>
+
+<p>Basic structure of a PL/I program:</p>
+<pre><code>HELLO: PROC OPTIONS(MAIN);
+   /* Declarations */
+   DCL MSG CHAR(30) INIT('HELLO FROM MAINFRAME');
+
+   /* Executable statements */
+   PUT SKIP LIST(MSG);
+
+END HELLO;
+</code></pre>
+
+
+    <ul>
+        <li><strong>PROC OPTIONS(MAIN);</strong> defines the main procedure — the starting point of the program.</li>
+        <li><strong>DCL</strong> declares variables and data types.</li>
+        <li><strong>PUT</strong> displays output to the console or system log.</li>
+        <li><strong>END;</strong> marks the end of the procedure.</li>
+    </ul>
+
+    <h2 id="syntax">Basic Syntax Overview</h2>
+    <p>
+        PL/I syntax is free-form and case-insensitive. Statements are terminated with semicolons.
+        Comments can be written using <code>/* comment */</code> blocks.
+    </p>
+
+    <p>Common PL/I elements include:</p>
+    <ul>
+        <li><strong>DCL</strong> — Declare variables (e.g., <code>DCL I FIXED BINARY;</code>).</li>
+        <li><strong>PUT</strong> — Display values (e.g., <code>PUT SKIP LIST('HELLO');</code>).</li>
+        <li><strong>GET</strong> — Read input from a file or terminal.</li>
+        <li><strong>DO</strong> — Looping structure similar to “for” or “while”.</li>
+        <li><strong>IF / THEN / ELSE</strong> — Conditional branching.</li>
+    </ul>
+
+    <h2 id="example">Your First PL/I Program: Hello from Mainframe</h2>
+    <p>
+        Below is a simple PL/I program that prints “HELLO FROM MAINFRAME” to the console or job output.
+    </p>
+
+    <pre><code>/* SIMPLE PL/I HELLO PROGRAM */
+HELLO: PROC OPTIONS(MAIN);
+   DCL MSG CHAR(25) INIT('HELLO FROM MAINFRAME');
+   PUT SKIP LIST(MSG);
+END HELLO;
+</code></pre>
+
+    <p><strong>Explanation:</strong></p>
+    <ul>
+        <li><code>HELLO: PROC OPTIONS(MAIN);</code> — starts the main procedure.</li>
+        <li><code>DCL MSG CHAR(25)</code> — declares a fixed-length character string.</li>
+        <li><code>PUT SKIP LIST(MSG);</code> — outputs the message followed by a line break.</li>
+        <li><code>END HELLO;</code> — ends the procedure definition.</li>
+    </ul>
+
+    <h2 id="compile">Compiling and Running on the Mainframe</h2>
+    <p>
+        Once the program is written, it can be compiled and run on IBM z/OS using a JCL job. The job will call 
+        the Enterprise PL/I compiler to create an executable load module and then link and run it when no errors are given.
+    </p>
+
+    <p>
+    The following JCL example demonstrates a complete process to compile, link, and execute a simple PL/I program named <code>HELLO</code>.  
+    Although shown in three logical sections, this is all contained within one JCL job stream.  
+    The first section compiles the PL/I source using the <strong>IBM Enterprise PL/I Compiler</strong> (<code>IBMZPLI</code>).
+</p>
+<p>
+Change(<code>USERID.COURSE.PLI</code>) on line 7
+</p>
+
+<pre><code>//PLICNT   JOB ,MSGLEVEL=(2,0),CLASS=7
+//PLI      EXEC PGM=IBMZPLI,
+//    PARM='OBJECT,OPTIONS,SOURCE',
+//    REGION=0M
+//STEPLIB  DD  DSN=IEL610.SIBMZCMP,DISP=SHR
+//         DD  DSN=CEE.SCEERUN,DISP=SHR
+//SYSIN    DD  DSN=USERID.COURSE.PLI(HELLO),DISP=SHR
+//SYSPRINT DD  SYSOUT=*
+//SYSOUT   DD  SYSOUT=*
+//SYSLIN   DD  DSN=&&LOADSET,DISP=(MOD,PASS),UNIT=SYSALLDA,
+//             SPACE=(CYL,(1,1)),DCB=(LRECL=80,BLKSIZE=3200)
+//SYSUT1   DD  DSN=&&SYSUT1,UNIT=SYSALLDA,
+//             SPACE=(1024,(200,50),,CONTIG,ROUND),DCB=BLKSIZE=1024
+</code></pre>
+
+<p>
+    After successful compilation, the next step performs the <strong>link-edit (binding)</strong> phase using the <code>IEWBLINK</code> utility.  
+    This step combines the compiled object code into an executable load module stored in the user’s load library.
+</p>
+
+<pre><code>//***************************************************/
+// IF RC < 8 THEN
+//***************************************************/
+//BIND     EXEC PGM=IEWBLINK,
+//             PARM='XREF,COMPAT=PM3',REGION=2048K
+//SYSLIB   DD  DSN=CEE.SCEELKED,DISP=SHR
+//SYSPRINT DD  SYSOUT=*
+//SYSLIN   DD  DSN=*.PLI.SYSLIN,DISP=(OLD,DELETE)
+//SYSLMOD  DD  DSN=&SYSUID..LOAD(HELLO),DISP=SHR
+//SYSDEFSD DD  DUMMY
+//SYSIN    DD  DUMMY
+// ELSE
+// ENDIF
+</code></pre>
+
+<p>
+    Finally, if no errors are detected, the last step executes the compiled <code>HELLO</code> program directly from the load library.
+</p>
+
+<pre><code>//***************************************************/
+// IF RC < 5 THEN
+//***************************************************/
+//EXECUTE  EXEC PGM=HELLO,REGION=32M
+//STEPLIB   DD DSN=&SYSUID..LOAD,DISP=SHR
+//          DD DSN=CEE.SCEERUN,DISP=SHR
+//SYSPRINT  DD SYSOUT=*
+//CEEDUMP   DD DUMMY
+//SYSUDUMP  DD DUMMY
+//SYSOUT    DD SYSOUT=*,OUTLIM=10
+//PRTDONE   DD SYSOUT=*,OUTLIM=10
+//***************************************************/
+// ELSE
+// ENDIF
+</code></pre>
+
+
+    <p>
+        When executed, the job output will display:
+    </p>
+
+    <pre><code>HELLO FROM MAINFRAME
+</code></pre>
+
+    <p>
+        This confirms that your first PL/I program compiled and ran successfully on the IBM mainframe environment.
+    </p>
+
+    <hr>
+    <h3 id="ref">References</h3>
+    <ol>
+        <li>IBM (2021). <em>Enterprise PL/I for z/OS, Version 6.1 Documentation.</em> IBM DeveloperWorks. <a href="https://www.ibm.com/docs/en/pli/latest">[Link]</a></li>
+        <li>IBM Redbooks (2016). <em>Introduction to the New Mainframe: IBM Z/VSE Basics.</em> IBM Redbooks. <a href="https://books.google.com/books?id=cJWpCwAAQBAJ">[Link]</a></li>
+        <li>IBM (2020). <em>Using ISPF for Application Development.</em> IBM z/OS Basic Skills Handbook. <a href="https://www.ibm.com/docs/en/zos/2.5.0?topic=development-using-ispf">[Link]</a></li>
+    </ol>
+</div>
+
+</body>
+</html>
