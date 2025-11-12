@@ -27,6 +27,29 @@
         }
       ]
     },{
+      "title": "CICS History",
+      "banner":"images/green.webp",
+      "description": "Learn PL/I syntax, structure, and control flow.",
+      "chapters": [
+        {
+          "title": "Chapter 1: Theory",
+          "theoryPath": "historyc/chapters/1/theory.txt"
+        },
+        {
+          "title": "Chapter 1: Exercises",
+          "mcqPath": "filler/chapters/1/mcq.json",
+          "codePath": "filler/chapters/1/code.json"
+        },
+        {
+          "title": "Chapter 2: Theory",
+          "theoryPath": "filler/chapters/1/theory.txt"
+        },
+        {
+          "title": "Chapter 2: Exercises",
+          "mcqPath": "filler/chapters/1/mcq.json"
+        }
+      ]
+    },{
       "title": "Getting Started with PL/1",
       "banner":"images/green.webp",
       "description": "Learn PL/I syntax, structure, and control flow.",
@@ -56,7 +79,7 @@
       ]
     },{
       "title": "PL/I Basics",
-      "banner":"images/green.webp",
+      "banner":"images/yellow.jpg",
       "description": "Learn PL/I basic: datatypes, loops and file handeling.",
       "chapters": [
         {
@@ -78,30 +101,7 @@
         }
       ]
     },{
-      "title": "PL/I Basics 2",
-      "banner":"images/green.webp",
-      "description": "Learn PL/I syntax, structure, and control flow.",
-      "chapters": [
-        {
-          "title": "Chapter 1: Theory",
-          "theoryPath": "filler/chapters/1/theory.txt"
-        },
-        {
-          "title": "Chapter 1: Exercises",
-          "mcqPath": "filler/chapters/1/mcq.json",
-          "codePath": "filler/chapters/1/code.json"
-        },
-        {
-          "title": "Chapter 2: Theory",
-          "theoryPath": "filler/chapters/1/theory.txt"
-        },
-        {
-          "title": "Chapter 2: Exercises",
-          "mcqPath": "filler/chapters/1/mcq.json"
-        }
-      ]
-    },{
-      "title": "PL/I Basics 2",
+      "title": "CICS Basics",
       "banner":"images/yellow.jpg",
       "description": "Learn PL/I syntax, structure, and control flow.",
       "chapters": [
@@ -124,7 +124,7 @@
         }
       ]
     },{
-      "title": "PL/I Basics 2",
+      "title": "PL/I With CICS",
       "banner":"images/yellow.jpg",
       "description": "Learn PL/I syntax, structure, and control flow.",
       "chapters": [
@@ -147,30 +147,7 @@
         }
       ]
     },{
-      "title": "PL/I Basics 2",
-      "banner":"images/yellow.jpg",
-      "description": "Learn PL/I syntax, structure, and control flow.",
-      "chapters": [
-        {
-          "title": "Chapter 1: Theory",
-          "theoryPath": "filler/chapters/1/theory.txt"
-        },
-        {
-          "title": "Chapter 1: Exercises",
-          "mcqPath": "filler/chapters/1/mcq.json",
-          "codePath": "filler/chapters/1/code.json"
-        },
-        {
-          "title": "Chapter 2: Theory",
-          "theoryPath": "filler/chapters/1/theory.txt"
-        },
-        {
-          "title": "Chapter 2: Exercises",
-          "mcqPath": "filler/chapters/1/mcq.json"
-        }
-      ]
-    },{
-      "title": "PL/I Basics 2",
+      "title": "PL/I Advanced",
       "banner":"images/red.png",
       "description": "Learn PL/I syntax, structure, and control flow.",
       "chapters": [
@@ -193,7 +170,30 @@
         }
       ]
     },{
-      "title": "PL/I Basics 2",
+      "title": "CICS Advanced",
+      "banner":"images/red.png",
+      "description": "Learn PL/I syntax, structure, and control flow.",
+      "chapters": [
+        {
+          "title": "Chapter 1: Theory",
+          "theoryPath": "filler/chapters/1/theory.txt"
+        },
+        {
+          "title": "Chapter 1: Exercises",
+          "mcqPath": "filler/chapters/1/mcq.json",
+          "codePath": "filler/chapters/1/code.json"
+        },
+        {
+          "title": "Chapter 2: Theory",
+          "theoryPath": "filler/chapters/1/theory.txt"
+        },
+        {
+          "title": "Chapter 2: Exercises",
+          "mcqPath": "filler/chapters/1/mcq.json"
+        }
+      ]
+    },{
+      "title": "PL/I With CICS Advanced",
       "banner":"images/red.png",
       "description": "Learn PL/I syntax, structure, and control flow.",
       "chapters": [

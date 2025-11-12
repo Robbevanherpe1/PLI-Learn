@@ -295,8 +295,8 @@ body.light .code-window-bar { background: #d1d5db; }
 }
 
 .code-editor-wrap pre {
-  pointer-events: none;       /* allow textarea to handle scroll */
-  overflow: auto;           /* hide mirror scrollbars */
+  pointer-events: none;       
+  overflow: auto;          
   background: #1e1e1e;
   color: #e2e8f0;
 }
@@ -306,7 +306,7 @@ body.light .code-window-bar { background: #d1d5db; }
   color: transparent;
   caret-color: transparent;
   resize: none;
-  overflow: auto;             /* native scrolling */
+  overflow: auto;            
   z-index: 2;
 }
 
