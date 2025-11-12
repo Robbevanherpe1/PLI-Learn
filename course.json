@@ -2,8 +2,8 @@
   "courses": [
     {
       "title": "PL/I History",
-      "banner":"images/green.webp",
-      "description": "Learn about PL/I history and origion of the language.",
+      "banner": "images/green.webp",
+      "description": "Discover the origins and evolution of PL/I.",
       "chapters": [
         {
           "title": "Chapter 1: History of PL1",
@@ -26,10 +26,11 @@
           "mcqPath": "history/chapters/exam/mcq.json"
         }
       ]
-    },{
+    },
+    {
       "title": "CICS History",
-      "banner":"images/green.webp",
-      "description": "Learn PL/I syntax, structure, and control flow.",
+      "banner": "images/green.webp",
+      "description": "Learn how CICS began and evolved.",
       "chapters": [
         {
           "title": "Chapter 1: Theory",
@@ -49,13 +50,14 @@
           "mcqPath": "filler/chapters/1/mcq.json"
         }
       ]
-    },{
+    },
+    {
       "title": "Getting Started with PL/1",
-      "banner":"images/green.webp",
-      "description": "Learn PL/I syntax, structure, and control flow.",
+      "banner": "images/green.webp",
+      "description": "Set up and learn PL/I basics.",
       "chapters": [
         {
-          "title": "Chapter 1: Setting up enviroment",
+          "title": "Chapter 1: Setting up environment",
           "theoryPath": "start/chapters/1/theory.txt"
         },
         {
@@ -77,10 +79,11 @@
           "codePath": "start/chapters/exam/code.json"
         }
       ]
-    },{
+    },
+    {
       "title": "PL/I Basics",
-      "banner":"images/yellow.jpg",
-      "description": "Learn PL/I basic: datatypes, loops and file handeling.",
+      "banner": "images/yellow.jpg",
+      "description": "Learn PL/I data types, loops, and files.",
       "chapters": [
         {
           "title": "Chapter 1: PL/I Variables and Loops",
@@ -100,10 +103,11 @@
           "mcqPath": "filler/chapters/1/mcq.json"
         }
       ]
-    },{
+    },
+    {
       "title": "CICS Basics",
-      "banner":"images/yellow.jpg",
-      "description": "Learn PL/I syntax, structure, and control flow.",
+      "banner": "images/yellow.jpg",
+      "description": "Understand core CICS concepts.",
       "chapters": [
         {
           "title": "Chapter 1: Theory",
@@ -123,10 +127,11 @@
           "mcqPath": "filler/chapters/1/mcq.json"
         }
       ]
-    },{
+    },
+    {
       "title": "PL/I With CICS",
-      "banner":"images/yellow.jpg",
-      "description": "Learn PL/I syntax, structure, and control flow.",
+      "banner": "images/yellow.jpg",
+      "description": "Combine PL/I with CICS for apps.",
       "chapters": [
         {
           "title": "Chapter 1: Theory",
@@ -146,10 +151,11 @@
           "mcqPath": "filler/chapters/1/mcq.json"
         }
       ]
-    },{
+    },
+    {
       "title": "PL/I Advanced",
-      "banner":"images/red.png",
-      "description": "Learn PL/I syntax, structure, and control flow.",
+      "banner": "images/red.png",
+      "description": "Explore advanced PL/I concepts.",
       "chapters": [
         {
           "title": "Chapter 1: Theory",
@@ -169,10 +175,11 @@
           "mcqPath": "filler/chapters/1/mcq.json"
         }
       ]
-    },{
+    },
+    {
       "title": "CICS Advanced",
-      "banner":"images/red.png",
-      "description": "Learn PL/I syntax, structure, and control flow.",
+      "banner": "images/red.png",
+      "description": "Learn advanced CICS operations.",
       "chapters": [
         {
           "title": "Chapter 1: Theory",
@@ -192,10 +199,11 @@
           "mcqPath": "filler/chapters/1/mcq.json"
         }
       ]
-    },{
+    },
+    {
       "title": "PL/I With CICS Advanced",
-      "banner":"images/red.png",
-      "description": "Learn PL/I syntax, structure, and control flow.",
+      "banner": "images/red.png",
+      "description": "Master PL/I and CICS integration.",
       "chapters": [
         {
           "title": "Chapter 1: Theory",
