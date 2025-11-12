@@ -55,13 +55,13 @@
         }
       ]
     },{
-      "title": "PL/I Basics 2",
+      "title": "PL/I Basics",
       "banner":"images/green.webp",
-      "description": "Learn PL/I syntax, structure, and control flow.",
+      "description": "Learn PL/I basic: datatypes, loops and file handeling.",
       "chapters": [
         {
-          "title": "Chapter 1: Theory",
-          "theoryPath": "filler/chapters/1/theory.txt"
+          "title": "Chapter 1: PL/I Variables and Loops",
+          "theoryPath": "basics/chapters/1/theory.txt"
         },
         {
           "title": "Chapter 1: Exercises",
