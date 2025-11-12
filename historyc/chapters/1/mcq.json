@@ -1,18 +1,152 @@
 [
-    {
-      "question": "work in progress",
-      "options": [
-        "work in progress",
-        "work in progress",
-        "work in progress",
-        "work in progress"
-      ],
-      "answerIndex": 0
-    },
-    {
-      "question": "work in progress",
-      "options": ["work in progress", "work in progress", "work in progress", "work in progress"],
-      "answerIndex": 2
-    }
-  ]
-  
+  {
+    "question": "In what year was IBM's Customer Information Control System (CICS) first introduced?",
+    "options": [
+      "1965, for IBM 7090 mainframes",
+      "1968, for IBM System/360 mainframes",
+      "1973, for IBM System/370 mainframes",
+      "1981, alongside IBM PC systems"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What major computing shift did CICS introduce in the late 1960s?",
+    "options": [
+      "It automated data entry for punch cards",
+      "It allowed interactive online transaction processing (OLTP)",
+      "It replaced hierarchical databases with relational ones",
+      "It eliminated the need for mainframe operating systems"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which IBM mainframe platform was CICS originally developed for?",
+    "options": [
+      "IBM System/360",
+      "IBM AS/400",
+      "IBM 1130",
+      "IBM zEnterprise"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "During the 1970s, which feature helped make CICS more reliable for enterprise use?",
+    "options": [
+      "Web-based interfaces and REST APIs",
+      "Program isolation and automatic recovery mechanisms",
+      "Support for distributed microservices",
+      "Integration with Watson AI systems"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What is Multi-Region Operation (MRO) in CICS?",
+    "options": [
+      "A feature for managing remote database access",
+      "A way to split workloads across multiple CICS regions for scalability and reliability",
+      "A debugging tool for distributed programs",
+      "An interface for terminal management"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which decade marked CICS’s transformation into a multi-language, web-enabled transaction platform?",
+    "options": [
+      "1970s",
+      "1980s",
+      "1990s",
+      "2000s"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "question": "What major IBM product release in 1998 modernized CICS for the Internet era?",
+    "options": [
+      "IBM MQSeries 2.0",
+      "CICS Transaction Server (CICS TS)",
+      "IBM z/OS Connect",
+      "CICS Web Interface 1.0"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Why was CICS considered revolutionary compared to batch processing systems?",
+    "options": [
+      "It executed transactions interactively in real time",
+      "It required less memory to process jobs",
+      "It eliminated the need for operators",
+      "It replaced file systems with relational databases"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "Which two IBM databases became tightly integrated with CICS during the 1980s?",
+    "options": [
+      "IMS and DB2",
+      "MySQL and Informix",
+      "Oracle and PostgreSQL",
+      "VSAM and Hadoop"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What made CICS a ‘de facto standard’ for enterprise transaction management by the late 1970s?",
+    "options": [
+      "Its open-source development model",
+      "Its unmatched reliability and recovery features",
+      "Its support for Windows terminals",
+      "Its integration with personal computers"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which modern IBM CICS feature allows businesses to connect mainframe programs to mobile and web applications?",
+    "options": [
+      "CICS Explorer",
+      "z/OS Connect and RESTful APIs",
+      "IMS Database Control",
+      "COBOL Runtime Compiler"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which statement best describes CICS’s evolution over time?",
+    "options": [
+      "CICS replaced mainframes entirely by the 2000s",
+      "CICS evolved from a terminal-based system into a hybrid cloud-enabled transaction platform",
+      "CICS was phased out after COBOL modernization",
+      "CICS operates only in legacy environments with no modernization"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What computing principle does CICS rely on to ensure that transactions remain reliable even in case of failure?",
+    "options": [
+      "Eventual consistency",
+      "ACID properties (Atomicity, Consistency, Isolation, Durability)",
+      "Parallel computing",
+      "Redundant clustering"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which IBM documentation and training platform provides ongoing resources for learning about CICS?",
+    "options": [
+      "IBM Watson Assistant",
+      "IBM Redbooks",
+      "IBM Quantum Lab",
+      "IBM Blockchain Academy"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What does the enduring success of CICS over five decades primarily demonstrate?",
+    "options": [
+      "The ability of enterprise systems to remain unchanged",
+      "The adaptability of mainframe technologies through modernization",
+      "The decline of mainframe computing in favor of distributed systems",
+      "The transition from COBOL to only AI-driven solutions"
+    ],
+    "answerIndex": 1
+  }
+]

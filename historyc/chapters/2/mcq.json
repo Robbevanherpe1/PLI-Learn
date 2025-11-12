@@ -1,0 +1,152 @@
+[
+  {
+    "question": "What is the primary reason IBM CICS remains important in modern enterprise systems?",
+    "options": [
+      "It replaced relational databases with blockchain-based systems",
+      "It provides unmatched reliability and ACID-compliant transaction processing",
+      "It is an open-source cloud framework",
+      "It primarily functions as a web design toolkit"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which IBM mainframe system hosts modern versions of CICS?",
+    "options": [
+      "IBM Power Systems",
+      "IBM z/OS Mainframe",
+      "IBM Cloud Pak for Data",
+      "IBM Watsonx Fabric"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What major feature allows CICS to connect legacy applications to mobile and web services?",
+    "options": [
+      "z/OS Connect and RESTful APIs",
+      "MQ Messaging and IMS DB Integration",
+      "JCL Batch Processing",
+      "CICS Macro Control Commands"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "How do organizations modernize CICS instead of replacing it?",
+    "options": [
+      "By rewriting all programs in Java",
+      "By integrating it into hybrid cloud environments using APIs and containers",
+      "By migrating all workloads off mainframes",
+      "By turning off transaction monitoring features"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which modern programming languages are supported in CICS Transaction Server V6?",
+    "options": [
+      "Java EE, Node.js, Go, and COBOL",
+      "Python only",
+      "C#, Ruby, and Rust",
+      "Fortran and Pascal"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What does CICS guarantee using the ACID properties?",
+    "options": [
+      "Fastest program execution",
+      "Scalability across distributed servers",
+      "Transaction reliability, data integrity, and consistency",
+      "Simplified cloud deployment"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "question": "What modern IBM tools are commonly used to expose CICS services as APIs?",
+    "options": [
+      "IBM API Connect and z/OS Connect",
+      "IBM Cloud Pak for Data and Watsonx",
+      "Rational Developer and SPSS",
+      "IBM WebSphere Liberty only"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "How has IBM integrated CICS into hybrid cloud environments?",
+    "options": [
+      "Through containerization with Red Hat OpenShift and orchestration via Kubernetes",
+      "By migrating CICS off z/OS into x86 servers",
+      "By creating a standalone CICS Cloud Edition",
+      "By restricting mainframe access to on-premises data centers only"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What emerging technology enables AI-driven performance monitoring and predictive maintenance in CICS?",
+    "options": [
+      "IBM Watsonx and AI Ops",
+      "IBM SPSS Modeler",
+      "IBM Tivoli Storage Manager",
+      "CICS Compiler Analyzer"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "Which statement best describes CICS’s current role in enterprise IT?",
+    "options": [
+      "It is being phased out in favor of Java microservices only",
+      "It acts as a modern hybrid transaction engine that bridges legacy and cloud systems",
+      "It now serves primarily as a legacy data archive",
+      "It runs exclusively in on-premises environments with no modernization options"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What major modernization features were introduced in IBM CICS Transaction Server V6?",
+    "options": [
+      "REST APIs, containerization, and DevOps automation pipelines",
+      "Support for FTP communication and XML-only processing",
+      "Integration with COBOL batch workflows only",
+      "Mainframe shutdown and data migration to Windows servers"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "How do tools like Jenkins and UrbanCode Deploy enhance modern CICS development?",
+    "options": [
+      "They automate API development and enable CI/CD pipelines for CICS applications",
+      "They replace z/OS environments with Linux servers",
+      "They disable legacy transaction processing",
+      "They act as middleware databases for CICS"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "Which Microsoft technology can now integrate with IBM CICS for hybrid infrastructure management?",
+    "options": [
+      "Azure Arc",
+      "Azure Quantum",
+      "Visual Studio Online",
+      "Windows Subsystem for Linux"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What is the main goal of CICS modernization within hybrid cloud systems?",
+    "options": [
+      "To make mainframes obsolete",
+      "To enhance interoperability while maintaining mainframe reliability",
+      "To migrate all workloads to distributed servers",
+      "To reduce data consistency requirements"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which of the following best summarizes the future of CICS in enterprise computing?",
+    "options": [
+      "CICS is a legacy platform being replaced by cloud-native systems",
+      "CICS continues to evolve as a bridge between mainframe stability and cloud agility",
+      "CICS is restricted to COBOL-only applications",
+      "CICS’s role is limited to offline data storage"
+    ],
+    "answerIndex": 1
+  }
+]

@@ -1,0 +1,202 @@
+[
+  {
+    "question": "In what year was IBM's Customer Information Control System (CICS) first introduced?",
+    "options": [
+      "1965, for IBM 7090 mainframes",
+      "1968, for IBM System/360 mainframes",
+      "1973, for IBM System/370 mainframes",
+      "1981, alongside IBM PC systems"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What major computing innovation did CICS introduce in the late 1960s?",
+    "options": [
+      "It automated data entry for punch cards",
+      "It enabled interactive online transaction processing (OLTP)",
+      "It replaced hierarchical databases with relational models",
+      "It created virtualized mainframe environments"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "During the 1970s, which feature helped make CICS more reliable for enterprise use?",
+    "options": [
+      "Web-based REST API access",
+      "Program isolation and automatic recovery mechanisms",
+      "Distributed microservice architecture",
+      "Machine learning integration"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What is Multi-Region Operation (MRO) in CICS?",
+    "options": [
+      "A debugging interface for distributed programs",
+      "A configuration for splitting workloads across multiple CICS regions for scalability and reliability",
+      "A subsystem for remote file access",
+      "An API gateway for external services"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which IBM databases became tightly integrated with CICS during the 1980s?",
+    "options": [
+      "IMS and DB2",
+      "Oracle and PostgreSQL",
+      "MongoDB and Informix",
+      "VSAM and Hadoop"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What major IBM release in 1998 marked CICS’s transformation into an internet-enabled platform?",
+    "options": [
+      "CICS Transaction Server (CICS TS)",
+      "CICS Web Interface",
+      "IBM MQSeries 2.0",
+      "z/OS Connect 1.0"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "Which IBM mainframe platform continues to host modern versions of CICS?",
+    "options": [
+      "IBM Power Systems",
+      "IBM z/OS Mainframe",
+      "IBM AS/400",
+      "IBM Cloud Pak for Data"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What major feature allows CICS to connect legacy applications to mobile and web services?",
+    "options": [
+      "z/OS Connect and RESTful APIs",
+      "MQ Messaging and IMS Integration",
+      "CICS Macro Control Commands",
+      "Batch Job Scheduling"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "Which principle ensures that CICS transactions are never partially completed or lost?",
+    "options": [
+      "Redundant clustering",
+      "ACID properties (Atomicity, Consistency, Isolation, Durability)",
+      "Parallel thread execution",
+      "Eventual consistency"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What is the main reason CICS continues to be critical for modern enterprises?",
+    "options": [
+      "It replaced relational databases with blockchain systems",
+      "It guarantees transaction reliability and data consistency at massive scale",
+      "It operates entirely on cloud infrastructure",
+      "It was re-written as open-source software"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "How do organizations typically modernize CICS instead of replacing it?",
+    "options": [
+      "By rewriting COBOL applications in Java",
+      "By integrating it with hybrid cloud platforms using APIs and containers",
+      "By migrating all workloads off mainframes",
+      "By reducing transaction consistency requirements"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which modern programming environments are supported in CICS Transaction Server V6?",
+    "options": [
+      "Java EE, Node.js, Go, and COBOL",
+      "C#, Python, and Rust",
+      "Ruby, Kotlin, and Perl",
+      "Fortran and Pascal"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "How has IBM integrated CICS into hybrid cloud environments?",
+    "options": [
+      "Through Red Hat OpenShift containerization and orchestration with Kubernetes",
+      "By migrating CICS fully to x86 servers",
+      "By replacing it with Watsonx microservices",
+      "By running it only on private mainframes"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What modern IBM tools are used to expose CICS business logic as APIs?",
+    "options": [
+      "IBM API Connect and z/OS Connect",
+      "CICS Explorer and Rational Developer",
+      "IBM Watson Assistant and Watsonx",
+      "IBM WebSphere Liberty only"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "Which modernization feature enables CICS applications to be managed via CI/CD pipelines?",
+    "options": [
+      "Jenkins and UrbanCode Deploy integration",
+      "CICS Batch JCL Extensions",
+      "Mainframe FTP Scheduler",
+      "Tivoli Job Monitor"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What emerging IBM technology supports AI-driven automation and predictive monitoring in CICS?",
+    "options": [
+      "IBM Watsonx and AI Ops",
+      "SPSS Modeler",
+      "IBM DataStage",
+      "CICS Compiler Analyzer"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "Which Microsoft technology can integrate with CICS for hybrid infrastructure management?",
+    "options": [
+      "Azure Arc",
+      "Azure Functions",
+      "Visual Studio Cloud",
+      "Windows Subsystem for Linux"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "Which IBM documentation and training platform is most associated with learning about CICS?",
+    "options": [
+      "IBM Redbooks",
+      "IBM Cloud Academy",
+      "IBM Quantum Learning",
+      "IBM Watson Studio"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What is the ultimate goal of modernizing IBM CICS within hybrid cloud environments?",
+    "options": [
+      "To make mainframes obsolete",
+      "To enhance interoperability while maintaining mainframe reliability",
+      "To migrate workloads entirely to cloud-native systems",
+      "To replace mainframes with container clusters"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which statement best summarizes CICS’s overall evolution and future role?",
+    "options": [
+      "CICS is a legacy system being replaced by distributed applications",
+      "CICS continues to evolve as a bridge between mainframe stability and cloud agility",
+      "CICS is now limited to COBOL batch processing only",
+      "CICS’s relevance has declined with the rise of microservices"
+    ],
+    "answerIndex": 1
+  }
+]

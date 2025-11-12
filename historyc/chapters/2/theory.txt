@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Modern Role of IBM CICS</title>
+    <style>
+        html { scroll-behavior: smooth; }
+        #textinfo { color: #333; }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.72);
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: rgb(82, 43, 73);
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            text-align: center;
+            margin-bottom: 1em;
+        }
+        h2 {
+            color: #0056b3;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            margin-top: 1.5em;
+        }
+        #ref { color: #0056b3; }
+        p { margin-bottom: 1em; line-height: 1.6; }
+        code {
+            background-color: #e9ecef;
+            color: #c7254e;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+        .toc { margin-bottom: 2em; text-align: left; }
+        .toc h3 { color: rgb(150, 95, 47); }
+        .toc ul { list-style-type: disc; margin-bottom: 0; }
+        .toc li { margin-bottom: 8px; font-size: 1em; }
+        .toc a { text-decoration: underline; color: rgb(47, 47, 150); }
+        .toc a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<div class="container" id="textinfo">
+    <h1>The Modern Role of IBM CICS</h1>
+
+    <div class="toc">
+        <h3>Key Topics Covered</h3>
+        <ul>
+            <li><a href="#importance">Importance in Modern Systems</a></li>
+            <li><a href="#applications">Applications and Industry Relevance</a></li>
+            <li><a href="#future">Modernization and the Future of CICS</a></li>
+        </ul>
+    </div>
+
+    <h2 id="importance">Importance in Modern Systems</h2>
+    <p>
+        The <strong>IBM Customer Information Control System (CICS)</strong> is one of the most enduring technologies in enterprise computing. 
+        Originally created in 1968, CICS started as a way to handle online transactions on IBM mainframes. 
+        Over the years, it has grown into a highly sophisticated platform that powers everything from banking and insurance 
+        systems to airline reservations and retail logistics. Even today, CICS handles billions of secure transactions daily 
+        across the world’s largest organizations.<sup>[1][2]</sup>
+    </p>
+
+    <p>
+        What makes CICS so valuable is its unmatched <strong>reliability, speed, and consistency</strong>.  
+        It’s built on IBM Z mainframes, systems known for handling critical workloads that simply can’t fail.  
+        CICS ensures every transaction is <strong>ACID-compliant</strong>—meaning it’s atomic, consistent, isolated, and durable.  
+        These guarantees are essential for things like transferring money, processing insurance claims, or managing 
+        government records, where data accuracy is everything.<sup>[2][5]</sup>
+    </p>
+
+    <img src="images/cics_screen.jpg" alt="CICS transaction monitor" width="500">
+
+    <p>
+        Modern CICS isn’t just a legacy system—it’s a living platform that keeps evolving.  
+        The newest versions, like <strong>CICS Transaction Server for z/OS V6</strong>, support modern technologies 
+        such as <strong>REST APIs, JSON, XML, Java EE, and Node.js</strong>.  
+        Using tools like <code>z/OS Connect</code> and <code>IBM API Connect</code>, organizations can now expose 
+        mainframe business logic as APIs that work with mobile apps, web portals, and cloud systems.<sup>[3][4][5]</sup>
+    </p>
+
+    <p>
+        Researchers and IBM engineers highlight that this evolution turns CICS into a 
+        <strong>transaction engine for hybrid cloud environments</strong>.  
+        Rather than replacing CICS, companies are modernizing it—linking decades of proven logic with the agility of modern platforms.  
+        This approach allows businesses to keep their reliable mainframe core while connecting to new digital front ends 
+        and analytics systems.<sup>[5][6]</sup>
+    </p>
+
+    <h2 id="applications">Applications and Industry Relevance</h2>
+    <p>
+        CICS plays a key role in almost every industry that depends on fast and accurate data processing.  
+        In <strong>financial services</strong>, for instance, it manages the back-end systems that power ATMs, 
+        process card payments, and handle real-time trading.  
+        <em>Brune (2018)</em> showed how legacy COBOL and CICS programs can be modernized and integrated into 
+        Java EE systems—allowing banks to extend the life of reliable applications while introducing new digital services.<sup>[7]</sup>
+    </p>
+
+    <p>
+        In <strong>healthcare</strong>, CICS runs systems that process patient information and insurance claims.  
+        It works seamlessly with IBM’s <code>DB2</code> and <code>IMS</code> databases to ensure that sensitive information 
+        is handled securely and efficiently.  
+        Government agencies use CICS to maintain large-scale systems like tax platforms and census databases, 
+        which must be available around the clock and retain accuracy over decades of data growth.<sup>[1][2]</sup>
+    </p>
+
+    <p>
+        A major focus in recent years has been integrating CICS into <strong>hybrid mainframe-cloud environments</strong>.  
+        IBM has introduced support for container platforms such as <code>Red Hat OpenShift</code>, allowing 
+        CICS applications to run in cloud-native settings while keeping their original reliability.  
+        This means organizations can deploy CICS workloads alongside microservices written in <code>Java</code>, 
+        <code>Python</code>, or <code>Go</code>—all managed under modern orchestration tools like Kubernetes.<sup>[8]</sup>
+    </p>
+
+    <p>
+        Another exciting area of innovation is <strong>AI-driven automation</strong>.  
+        With new data fabric technologies and integration into IBM Watsonx and AI Ops tools, 
+        CICS can now participate in cognitive monitoring and predictive analytics.  
+        This enables systems to detect performance issues before they affect users, 
+        automatically tune workloads, and even prevent outages.<sup>[5][8][9]</sup>
+    </p>
+
+    <h2 id="future">Modernization and the Future of CICS</h2>
+    <p>
+        CICS modernization is not about replacing old technology—it’s about giving it new life.  
+        The latest releases of <strong>IBM CICS Transaction Server</strong> introduce powerful tools for 
+        <strong>API governance, DevOps automation, and observability</strong>.  
+        Developers can now build, deploy, and monitor CICS services through pipelines using 
+        <code>Jenkins</code> or <code>UrbanCode Deploy</code>, just like modern cloud applications.<sup>[3][9]</sup>
+    </p>
+
+    <p>
+        IBM’s ongoing work with researchers and enterprise architects has made CICS part of a 
+        <strong>larger, connected ecosystem</strong>.  
+        Technologies such as <strong>Azure Arc</strong> now make it possible to manage mainframe workloads 
+        alongside cloud-based systems under one control plane.<sup>[10]</sup>  
+        This convergence of traditional and modern infrastructure shows that CICS still plays a crucial role in 
+        today’s digital transformation strategies.
+    </p>
+
+    <p>
+        In short, CICS isn’t just surviving—it’s thriving.  
+        It continues to evolve as a platform that blends decades of enterprise experience with modern innovation.  
+        With its ability to integrate APIs, support microservices, and connect to AI and analytics tools,  
+        CICS remains one of the most important technologies in enterprise computing—a bridge between 
+        rock-solid reliability and the flexibility of the future.<sup>[1][2][8]</sup>
+    </p>
+
+    <hr>
+    <h3 id="ref">References</h3>
+    <ol>
+        <li>IBM (2023). <em>IBM CICS Transaction Server for z/OS Documentation.</em> IBM Developer. <a href="https://www.ibm.com/docs/en/cics-ts/latest">[Link]</a></li>
+        <li>Ebbers, M. et al. (2016). <em>Introduction to the New Mainframe: IBM z/OS Basics.</em> IBM Redbooks. <a href="https://www.redbooks.ibm.com/abstracts/sg248042.html">[Link]</a></li>
+        <li>IBM (2024). <em>CICS Transaction Server V6.1 Enhancements.</em> IBM Research Publications. <a href="https://research.ibm.com/">[Link]</a></li>
+        <li>IBM (2022). <em>z/OS Connect Enterprise Edition Overview.</em> IBM Developer. <a href="https://www.ibm.com/docs/en/zos-connect">[Link]</a></li>
+        <li>Hechler, E., Oberhofer, M., & Schaeck, T. (2020). <em>The Operationalization of AI.</em> Springer. DOI: <a href="https://doi.org/10.1007/978-1-4842-6206-1_6">10.1007/978-1-4842-6206-1_6</a></li>
+        <li>Russo, D., Ciancarini, P., & Falasconi, T. (2018). <em>A Meta-Model for Information Systems Quality: A Mixed Study of the Financial Sector.</em> ACM Transactions on Management Information Systems. DOI: <a href="https://doi.org/10.1145/3230713">10.1145/3230713</a></li>
+        <li>Brune, P. (2018). <em>An Open Source Approach for Modernizing Message-Processing and Transactional COBOL Applications by Integration in Java EE Application Servers.</em> Springer. DOI: <a href="https://doi.org/10.1007/978-3-030-35330-8_12">10.1007/978-3-030-35330-8_12</a></li>
+        <li>Hechler, E., Weihrauch, M., & Wu, Y. (2023). <em>Data Fabric and Data Mesh Approaches with AI.</em> Springer. DOI: <a href="https://doi.org/10.1007/978-1-4842-9253-2">10.1007/978-1-4842-9253-2</a></li>
+        <li>IBM (2024). <em>Watsonx and AI Ops Integration with z/OS and CICS.</em> IBM Systems Research. <a href="https://research.ibm.com/blog">[Link]</a></li>
+        <li>Maxwell, R. (2024). <em>Azure Arc Systems Management.</em> Springer. DOI: <a href="https://doi.org/10.1007/978-1-4842-9480-2">10.1007/978-1-4842-9480-2</a></li>
+    </ol>
+</div>
+
+</body>
+</html>

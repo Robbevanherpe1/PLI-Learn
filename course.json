@@ -38,8 +38,7 @@
         },
         {
           "title": "Chapter 1: Exercises",
-          "mcqPath": "historyc/chapters/1/mcq.json",
-          "codePath": "historyc/chapters/1/code.json"
+          "mcqPath": "historyc/chapters/1/mcq.json"
         },
         {
           "title": "Chapter 2: Theory",
@@ -48,6 +47,10 @@
         {
           "title": "Chapter 2: Exercises",
           "mcqPath": "historyc/chapters/2/mcq.json"
+        },
+        {
+          "title": "Module Exam",
+          "mcqPath": "historyc/chapters/exam/mcq.json"
         }
       ]
     },
