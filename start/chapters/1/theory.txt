@@ -108,7 +108,7 @@
 <body>
 
 <div class="container" id="textinfo">
-    <h1>Setting Up and Coding in PL/I</h1>
+    <h1>Coding enviroments</h1>
 
     <div class="toc">
         <h3>Key Topics Covered</h3>
@@ -178,22 +178,13 @@
     <ol>
         <li>Log into the z/OS mainframe and open ISPF panels.</li>
         <li>Edit source code in the designated PDS (e.g., <code>USER.PLI.SOURCE(PROGRAM1)</code>).</li>
-        <li>Submit a JCL job referencing the Enterprise PL/I compiler:</li>
+        <li>Submit a JCL job referencing the Enterprise PL/I compiler</li>
     </ol>
 
-    <pre><code>//COMPILE JOB (ACCT),'PL/I COMPILE',CLASS=A,MSGCLASS=X,NOTIFY=&SYSUID
-//STEP1    EXEC PGM=IBMZPLI,PARM='LIST,XREF'
-//SYSIN    DD  DSN=USER.PLI.SOURCE(PROGRAM1),DISP=SHR
-//SYSLMOD  DD  DSN=USER.LOAD(PROGRAM1),DISP=SHR
-//SYSOUT   DD  SYSOUT=*
-//SYSPRINT DD  SYSOUT=*
-//SYSADATA DD  SYSOUT=*
-//SYSUT1   DD  UNIT=SYSDA,SPACE=(CYL,(1,1))
-</code></pre>
 
     <p>
         After successful compilation, the load module is created and can be executed through JCL or within 
-        a transaction monitor such as <code>CICS</code> or <code>IMS</code>.
+        a transaction monitor such as <strong>CICS</strong> or <strong>IMS</strong>, allowing PL/I and CICS applications to operate together.
     </p>
 
     <h2 id="compile">Compiling and Running PL/I Programs</h2>
@@ -205,7 +196,7 @@
     <p>Execution can occur through:</p>
     <ul>
         <li><strong>Batch JCL jobs</strong> – for scheduled data processing.</li>
-        <li><strong>Online systems (CICS, IMS)</strong> – for transaction-based applications.</li>
+        <li><strong>Online systems (CICS, IMS)</strong> – for transaction-based PL/I and CICS applications.</li>
         <li><strong>z/OS UNIX shell</strong> – using PL/I programs integrated with UNIX System Services.</li>
     </ul>
 

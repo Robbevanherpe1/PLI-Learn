@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Getting Started with CICS</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #textinfo {
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.72);
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: rgb(82, 43, 73);
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            text-align: center;
+            margin-bottom: 1em;
+        }
+
+        h2 {
+            color: #0056b3;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            margin-top: 1.5em;
+        }
+        #ref{
+            color: #0056b3;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        ul, ol {
+            text-align: left;
+            margin: 1em 0 1em 2em;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background-color: #e9ecef;
+            color: #c7254e;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            text-align: left;
+            display: inline-block;
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            padding: 1em;
+            border-radius: 6px;
+            overflow-x: auto;
+            text-align: left;
+        }
+
+        .toc {
+            margin-bottom: 2em;
+            text-align: left;
+        }
+
+        .toc h3 {
+            color: rgb(150, 95, 47);
+        }
+
+        .toc ul {
+            list-style-type: disc;
+            margin-bottom: 0;
+        }
+
+        .toc li {
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+
+        .toc a {
+            text-decoration: underline;
+            color: rgb(47, 47, 150);
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            margin-top: 2em;
+            border: none;
+            border-top: 2px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="textinfo">
+
+    <h1>Getting Started with CICS</h1>
+
+    <p>Welcome to Your CICS Environment Setup
+Here you will learn how to start your CICS region, 
+verify your APPLID, troubleshoot common errors, and 
+prepare everything needed before creating and running 
+transactions. </p>
+
+
+    <p>Watch the following setup guide video to configure and use ur own cics region</p>
+
+    <h2>Setup Guide Video</h2>
+    <video controls width="100%">
+        <source src="videos/VIDSETUP.mov" type="video/quicktime">
+        Your browser does not support the video tag.
+    </video>
+
+    <h2 id="setup">SETUP CICS</h2>
+    <p>Before starting, you must copy and run these 4 JCL files in the correct order</p>
+
+     RCICS.JCL($1$CATLG) 
+    <pre><code>//CXDFHGCD JOB
+//*
+//* THIS JOB DELETES AND RECREATES CICS
+//* SYSTEM DATA SETS USED ONLY BY ONE REGION
+//*
+//* - DELETE/DEFINE THE CLUSTERS FOR:
+//*   . CICS GLOBAL CATALOG: &SYSUID..CICS.DFHGCD
+//*   . CICS LOCAL CATALOG: &SYSUID..CICS.DFHLCD
+//*   . TEMPORARY STORAGE DATA SET: &SYSUID..CICS.DFHTEMP
+//*   . INTRA TRANSIENT DATA SET: &SYSUID..CICS.DFHINTRA
+//*   . SAMPLE PROGRAM FILE: &SYSUID..CICS.FILEA
+//*   . LOCAL REQUEST QUEUE DATA SET: &SYSUID..CICS.DFHLRQ
+//* - DELETE STEP ALSO DELETES
+//*   . THE TRACE AND DUMP DATASETS FOR THIS REGION
+//*
+//* - INITGCD: INITIALIZE A CICS GLOBAL CATALOG DATASET
+//* - INITLCD: INITIALIZE A CICS LOCAL CATALOG DATASET
+//* - DFTRACE: CREATE THE TRACE DATASETS FOR THIS REGION
+//* - DEFDUMP: CREATE THE DUMP DATASETS FOR THIS REGION
+//* - LDFILE:  LOAD SAMPLE DATA INTO &SYSUID..CICS.FILEA
+//*
+//DELETE  EXEC PGM=IDCAMS,REGION=1M
+//SYSPRINT  DD SYSOUT=*
+//SYSIN     DD *,SYMBOLS=EXECSYS
+  DELETE &SYSUID..CICS.DFHGCD
+  DELETE &SYSUID..CICS.DFHLCD
+  DELETE &SYSUID..CICS.DFHLRQ
+  SET MAXCC=0
+/*
+//DEFINE  EXEC PGM=IDCAMS,REGION=1M
+//SYSPRINT  DD SYSOUT=*
+//SYSIN     DD *,SYMBOLS=EXECSYS
+  /* DEFINE A CICS GLOBAL CATALOG */
+  DEFINE CLUSTER(NAME(&SYSUID..CICS.DFHGCD)-
+           INDEXED -
+           CYL(3 1)-
+           SHR(2)-
+           FREESPACE(10 10)-
+           VOLUME(ZXPC01) REUSE) -
+         DATA(NAME(&SYSUID..CICS.DFHGCD.DATA)-
+           RECORDSIZE(4089,32760)-
+           CISZ(32768)-
+           KEYS(52 0)) -
+         INDEX(NAME(&SYSUID..CICS.DFHGCD.INDEX))
+  /* DEFINE A CICS LOCAL CATALOG */
+  DEFINE CLUSTER(NAME(&SYSUID..CICS.DFHLCD)-
+           INDEXED -
+           RECORDS(200 10)-
+           SHR(2)-
+           FREESPACE(10 10)-
+           VOLUME(ZXPC01) REUSE) -
+         DATA(NAME(&SYSUID..CICS.DFHLCD.DATA)-
+           KEYS(52 0)-
+           RECORDSIZE(70 2042)-
+           CISZ(2048)) -
+         INDEX(NAME(&SYSUID..CICS.DFHLCD.INDEX))
+/*
+//INITGCD EXEC PGM=DFHRMUTL,REGION=1M
+//STEPLIB   DD DSN=DFH620.CICS.SDFHLOAD,DISP=SHR
+//SYSPRINT  DD SYSOUT=*
+//SYSUDUMP  DD SYSOUT=*
+//DFHGCD    DD DSN=&SYSUID..CICS.DFHGCD,DISP=SHR
+//SYSIN     DD *
+  SET_AUTO_START=AUTOINIT
+/*
+//INITLCD EXEC PGM=DFHCCUTL
+//STEPLIB   DD DSN=DFH620.CICS.SDFHLOAD,DISP=SHR
+//SYSPRINT  DD SYSOUT=*
+//SYSUDUMP  DD SYSOUT=*
+//DFHLCD    DD DSN=&SYSUID..CICS.DFHLCD,DISP=SHR
+//*
+</code></pre>
+
+RCICS.JCL($2$SYSIN)
+<pre><code>//CXSYSIN  JOB
+//DELETE  EXEC PGM=IDCAMS,REGION=1M
+//SYSPRINT  DD SYSOUT=*
+//SYSIN     DD *,SYMBOLS=EXECSYS
+  DELETE &SYSUID..CICS.SYSIN
+  DELETE &SYSUID..CICS.PROD.DFHLOAD
+  SET MAXCC=0
+/*
+//* CREATE USER RPL LIBRARY UNDER USERID HLQ
+//MKRPL   EXEC PGM=IEFBR14
+//DSDEF     DD DSN=&SYSUID..CICS.PROD.DFHLOAD,DISP=(NEW,CATLG),
+//             VOL=SER=ZXPC01,UNIT=3390,SPACE=(TRK,(5,5,5)),
+//             DCB=(DSORG=PO,RECFM=U,LRECL=0,BLKSIZE=32760),
+//             DSNTYPE=LIBRARY
+/*
+//* CREATE USER SYSIN LIBRARY UNDER USERID HLQ
+//MKUSIP  EXEC PGM=IEFBR14
+//DSDEF     DD DSN=&SYSUID..CICS.SYSIN,DISP=(NEW,CATLG),
+//             VOL=SER=ZXPC01,UNIT=3390,SPACE=(TRK,(5,5,1)),
+//             DCB=(DSORG=PO,RECFM=FB,LRECL=80,BLKSIZE=400)
+/*
+//* ADD THE DFH$SIP MEMBER
+//MK$SIP  EXEC PGM=IEBGENER
+//SYSPRINT DD DUMMY
+//SYSIN    DD DUMMY
+//SYSUT1   DD *
+*
+/*
+//SYSUT2   DD DSN=&SYSUID..CICS.SYSIN(DFH$SIP),DISP=SHR
+</code></pre>
+
+RCICS.JCL($3$CSD)
+<pre><code>//CXDFHCSD   JOB
+//*
+//* THE JOB DELETES AND RECREATES THE CSD FOR CICSTS62
+//* LOGSTREAMS ARE DEFINED AS DUMMY
+//*
+//DELCSD   EXEC PGM=IDCAMS,REGION=1M
+//SYSPRINT  DD SYSOUT=*
+//SYSIN     DD *,SYMBOLS=EXECSYS
+    DELETE &SYSUID..CICS.DFHCSD
+    SET    MAXCC=0
+/*
+//DEFCSD   EXEC PGM=IDCAMS,REGION=1M
+//SYSPRINT  DD SYSOUT=*
+//SYSIN     DD *,SYMBOLS=EXECSYS
+    DEFINE CLUSTER(NAME(&SYSUID..CICS.DFHCSD) -
+             IXD                           -
+             REC(6000)                     -
+             RECORDSIZE(200 2000)          -
+             FREESPACE(5 5)                -
+             VOLUME(ZXPC01) SHR(2))        -
+           DATA(NAME(&SYSUID..CICS.DFHCSD.DATA) -
+             UNIQUE                        -
+             KEYS(22 0))                   -
+           INDEX(NAME(&SYSUID..CICS.DFHCSD.INDEX) -
+             UNIQUE)
+//INITCSD  EXEC PGM=DFHCSDUP,REGION=1M,COND=(0,LT,DEFCSD)
+//STEPLIB   DD DSN=DFH620.CICS.SDFHLOAD,DISP=SHR
+//DFHCSD    DD DSN=&SYSUID..CICS.DFHCSD,DISP=SHR
+//SYSUT1    DD UNIT=SYSDA,SPACE=(1024,(100,100))
+//SYSPRINT  DD SYSOUT=*
+//SYSIN     DD *
+    INITIALIZE
+/*
+//CSDUP    EXEC PGM=DFHCSDUP,REGION=1M
+//STEPLIB   DD DSN=DFH620.CICS.SDFHLOAD,DISP=SHR
+//DFHCSD    DD DSN=&SYSUID..CICS.DFHCSD,DISP=SHR
+//SYSPRINT  DD SYSOUT=*
+//SYSDUMP   DD SYSOUT=*
+//SYSIN     DD *,SYMBOLS=EXECSYS
+*
+*   CREATE NEW LIST AND GROUPS FOR USR RESOURCE DEFINITIONS
+    ADD GROUP(USR$LOGS) LIST(USRLIST)
+    ADD GROUP(USR$TERM) LIST(USRLIST)
+    ADD GROUP(USRDBCTL) LIST(USRLIST)
+    ADD GROUP(USR$SVCS) LIST(USRLIST)
+*
+*   CREATE CICS LOGS: DFHLOG, DFHLGLOG, DFHSHUNT, DFHJ01
+    DEFINE JOURNALMODEL(DFHLGLOG) GROUP(USR$LOGS)
+           DESCRIPTION(LOG OF LOGS FOR VSAM RECOVERY PRODUCTS)
+           JOURNALNAME(DFHLGLOG)
+           TYPE(DUMMY)
+*          TYPE(MVS) STREAMNAME(&SYSUID..LOG.DFHLGLOG)
+    DEFINE JOURNALMODEL(DFHSHUNT) GROUP(USR$LOGS)
+           DESCRIPTION(SECONDARY CICS SYSTEM LOG, SHUNTED TASKS)
+           JOURNALNAME(DFHSHUNT)
+           TYPE(DUMMY)
+*          TYPE(MVS) STREAMNAME(&SYSUID..LOG.DFHSHUNT)
+    DEFINE JOURNALMODEL(DFHLOG) GROUP(USR$LOGS)
+           DESCRIPTION(PRIMARY CICS SYSTEM LOG)
+           JOURNALNAME(DFHLOG)
+           TYPE(DUMMY)
+*          TYPE(MVS) STREAMNAME(&SYSUID..LOG.DFHLOG)
+    DEFINE JOURNALMODEL(DFHJ01) GROUP(USR$LOGS)
+           DESCRIPTION(FORWARD RECOVERY LOG)
+           JOURNALNAME(DFHJ01)
+           TYPE(DUMMY)
+*          TYPE(MVS) STREAMNAME(&SYSUID..LOG.DFHJ01)
+*
+*   CREATE TERMINAL DEFINITIONS FOR HWCI & TSO USERIDS
+    DEFINE TERMINAL(HWCI) GROUP(USR$TERM) TYPETERM(DFHCONS)
+           CONSNAME(HWCI) DESCRIPTION(VIRTUAL CONSOLE HWCI)
+           USERID(&SYSUID.)
+    DEFINE TERMINAL(UISF)     GROUP(USR$TERM) TYPETERM(DFHCONS)
+           CONSNAME(&SYSUID.) DESCRIPTION(VIRTUAL CONSOLE SDSF)
+           USERID(&SYSUID.)
+    DEFINE TERMINAL(UZWE)   GROUP(USR$TERM) TYPETERM(DFHCONS)
+           CONSNAME(&SYSUID.CN) DESCRIPTION(VIRTUAL CONSOLE ZOWE)
+           USERID(&SYSUID.)
+    DEFINE TERMINAL(UZOA)   GROUP(USR$TERM) TYPETERM(DFHCONS)
+           CONSNAME(&SYSUID.88) DESCRIPTION(VIRTUAL CONSOLE ZOAU)
+           USERID(&SYSUID.)
+    COPY   TERMINAL(AUTC) GROUP(DFHTERMC) TO(USR$TERM)
+    COPY   TYPETERM(DFHCONS) GROUP(DFHTYPE) TO(USR$TERM)
+*
+*   CREATE LSRPOOL DEFINITIONS FOR CDBM GROUP DS, DFHDBFK
+    COPY   GROUP(DFHDBCTL) TO(USRDBCTL) REPLACE
+    ALTER  FI(DFHDBFK) GROUP(USRDBCTL)
+           DSNAME(DFH620.CICS.DFHDBFK)
+*
+* CMCI SMSS
+    COPY   REPLACE GROUP(DFH$WU) TO(USR$SVCS) URIMAP(DFH$WUUR)
+    COPY   REPLACE GROUP(DFH$WU) TO(USR$SVCS) TCPIPSERVICE(DFH$WUTC)
+    ALTER  TCPIPSERV(DFH$WUTC) GROUP(USR$SVCS) STATUS(OPEN) PORT(10443)
+*
+*   LIST
+/*
+</code></pre>
+
+RCICS.JCL($4$FILEA)
+<pre><code>//CXFILEA  JOB
+//*
+//* THIS JOB DELETES AND RECREATES CICS
+//* SYSTEM DATA SETS USED ONLY BY ONE REGION
+//*
+//* - DELETE/DEFINE THE CLUSTERS FOR:
+//*   . CICS GLOBAL CATALOG: &SYSUID..CICS.DFHGCD
+//*   . CICS LOCAL CATALOG: &SYSUID..CICS.DFHLCD
+//*   . TEMPORARY STORAGE DATA SET: &SYSUID..CICS.DFHTEMP
+//*   . INTRA TRANSIENT DATA SET: &SYSUID..CICS.DFHINTRA
+//*   . SAMPLE PROGRAM FILE: &SYSUID..CICS.FILEA
+//*   . LOCAL REQUEST QUEUE DATA SET: &SYSUID..CICS.DFHLRQ
+//* - DELETE STEP ALSO DELETES
+//*   . THE TRACE AND DUMP DATASETS FOR THIS REGION
+//*
+//* - INITGCD: INITIALIZE A CICS GLOBAL CATALOG DATASET
+//* - INITLCD: INITIALIZE A CICS LOCAL CATALOG DATASET
+//* - DFTRACE: CREATE THE TRACE DATASETS FOR THIS REGION
+//* - DEFDUMP: CREATE THE DUMP DATASETS FOR THIS REGION
+//* - LDFILE:  LOAD SAMPLE DATA INTO &SYSUID..CICS.FILEA
+//*
+//DELETE  EXEC PGM=IDCAMS,REGION=1M
+//SYSPRINT  DD SYSOUT=*
+//SYSIN     DD *,SYMBOLS=EXECSYS
+  DELETE &SYSUID..CICS.FILEA
+  SET MAXCC=0
+/*
+//DEFINE  EXEC PGM=IDCAMS,REGION=1M
+//SYSPRINT  DD SYSOUT=*
+//SYSIN     DD *,SYMBOLS=EXECSYS
+  /* DEFINE A FILEA DATASET */
+  DEFINE CLUSTER(NAME(&SYSUID..CICS.FILEA)-
+           REC(80)-
+           VOLUME(ZXPC01) INDEXED) -
+         DATA(NAME(&SYSUID..CICS.FILEA.DATA)-
+           RECSZ(80 80)-
+           UNIQUE -
+           KEYS(6 1)) -
+         INDEX(NAME(&SYSUID..CICS.FILEA.INDEX)-
+           UNIQUE -
+           SHR(2 3))
+/*
+//*
+//* LOAD VSAM DATA FILE
+//*
+//LDFILE  EXEC PGM=DFH$LDSP
+//STEPLIB   DD DSN=DFH620.CICS.SDFHLOAD,DISP=SHR
+//FILEA     DD DISP=SHR,DSN=&SYSUID..CICS.FILEA
+//SYSOUT    DD SYSOUT=*
+//SYSIN     DD DISP=SHR,DSN=DFH620.CICS.SDFHSAMP(DFH$FAIN)
+
+</code></pre>
+
+
+
+    <h2>SDSF setup CICS region</h2>
+    <p>Use following commands in sdsf to see if cic region starts succesfully</p>
+    <ul>
+        <li>OWNER z##### (use your Z-userid)</li>
+        <li>TSO SUBMIT <code>JCL(MYCICS)</code></li>
+        <li>Find job: <strong>CXZ#####</strong> and use <code>?</code></li>
+    </ul>
+
+    <p>Check the <strong>JESMSGLG</strong> for CICS message <code>DFHSI1517</code>:</p>
+
+<pre><code>12.12.12 JOB09999 +DFHSI1517 CXZxxxxx Control is being given to CICS.
+</code></pre>
+
+    <p>The name after DFHSI1517 is your CICS region APPLID.</p>
+
+    <p>If you get <strong>ABEND U1800</strong>, reply to the forum post linked below with:</p>
+
+<pre><code>I have the same issue with my permissions my APPLID is CXZ12345(your id)
+</code></pre>
+
+    <p>Should be fixed in minutes.</p>
+
+    <p>Reference:  
+    https://ibmzxplore.influitive.com/forum/t/cics2-abend-u1800/19802</p>
+
+
+    <h2>IMPORTANT CICS COMMANDS</h2>
+
+     <p>how to logon in session: <code>LOGON APPLID=CXZ.....</code></p>
+    <ul>
+        <li>Get Zowe port: <code>CEMT INQUIRE TCPIPSERVICE</code></li>
+        <li>Shutdown CICS region: <code>CEMT PERFORM SHUTDOWN</code></li>
+        <li>Close CICS session: <code>CESF</code></li>
+        <li>Inspect transaction definition:<br>
+            <code>CEDA DISPLAY TRANSACTION(CEDA) GROUP(DFHSPI)</code><br>
+            then press <strong>V</strong>
+        </li>
+        <li>List programs in library:  
+            <code>CEMT INQUIRE LIBRARY</code> (press TAB then ENTER)
+        </li>
+    </ul>
+
+    <h2>CODE CHALLENGE Robbe CICS Example</h2>
+
+    <p>U need to copy these to ur own datasets</p>
+
+The JCL for running PL1
+<pre><code>//DFHPLICL  JOB FB3,,REGION=0M,CLASS=7
+//*
+// EXPORT SYMLIST=(*)
+// SET MEMBER='CICSPLI'
+//*
+//CICSPROG EXEC DFHZITPL
+//PLI.SYSIN  DD DISP=SHR,DSN=ZXP.PUBLIC.SOURCE(&MEMBER.)
+//*LI.SYSPRINT DD DUMMY
+//LKED.SYSLMOD DD DISP=SHR,DSN=&SYSUID..CICS.PROD.DFHLOAD
+//LKED.SYSIN DD *,SYMBOLS=EXECSYS
+  NAME &MEMBER.(R)
+/*
+</code></pre>
+
+The PLI program u want to run.
+<pre><code>PLICICS: PROC OPTIONS(MAIN);
+ DCL MSGTXT  CHAR(12) INIT('Hello World!');
+ DCL MSGLEN  FIXED DEC(7);
+
+   MSGLEN = LENGTH(MSGTXT);
+
+   EXEC CICS SEND TEXT FROM(MSGTXT) LENGTH(MSGLEN);
+
+   RETURN;
+
+ END PLICICS;
+</code></pre>
+
+    <h2>MAKING TRANSACTION</h2>
+
+    <p><strong>Step 1: Run the JCL above first</strong></p>
+
+    <p><strong>Step 2: Define the Program</strong></p>
+<pre><code>CEDA DEFINE PROGRAM(progname)
+     -> GROUP: ZXPRDO
+     -> LANGUAGE: PLI
+</code></pre>
+<p>Should display: DEFINE: SUCESSFUL</p>
+
+    <p><strong>Step 3: Define the Transaction</strong></p>
+<pre><code>CEDA DEFINE TRANSACTION(ZHW0)
+     -> PROGRAM: progname
+     -> GROUP: ZXPRDO
+</code></pre>
+    <p>Should display: DEFINE: SUCESSFUL</p>
+
+    <p><strong>Step 4: Install the Group</strong></p>
+<pre><code>CEDA INSTALL GROUP(ZXPRDO)
+</code></pre>
+    <p>Should display: INSTALL: SUCESSFUL</p>
+
+    <p><strong>Run the transaction:</strong></p>
+
+<pre><code>ZHW0
+</code></pre>
+<p><strong>Step 5*: only when u updated ur module /code u need to reload it </strong></p>
+<pre><code>CEMT SET NEWCOPY PROGRAM(progname)
+</code></pre>
+
+    <p>Should display: RESPONSE: NORMAL</p>
+
+    <hr>
+
+</div>
+
+</body>
+</html>
