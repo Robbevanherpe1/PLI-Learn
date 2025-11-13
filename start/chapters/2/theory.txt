@@ -120,6 +120,13 @@
         </ul>
     </div>
 
+
+    <h2>Video to help u get started with PLI</h2>
+    <video controls width="100%">
+        <source src="videos/PLI.mov" type="video/quicktime">
+        Your browser does not support the video tag.
+    </video>
+
     <h2 id="basics">PL/I Program Structure</h2>
     <p>
     A PL/I program consists of one or more <strong>procedures</strong>. Each procedure can contain declarations,

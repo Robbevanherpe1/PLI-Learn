@@ -120,6 +120,12 @@
         </ul>
     </div>
 
+    <h2>Quick introduction to ispf/zowe</h2>
+    <video controls width="100%">
+        <source src="videos/ISPFZOWE.mov" type="video/quicktime">
+        Your browser does not support the video tag.
+    </video>
+
     <h2 id="environment">Development Environment Setup</h2>
     <p>
         To develop PL/I applications efficiently, modern environments integrate IBM mainframe development with desktop tools 
