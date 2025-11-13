@@ -119,6 +119,8 @@ transactions. </p>
 
 
     <p>Watch the following setup guide video to configure and use ur own cics region</p>
+    <p><strong>IMPORTANT: remember to always shut down cics after use command can be found below </strong></p>
+    
 
     <h2>Setup Guide Video</h2>
     <video controls width="100%">
