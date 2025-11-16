@@ -35,7 +35,8 @@
             padding-bottom: 10px;
             margin-top: 1.5em;
         }
-        #ref{
+
+        #ref {
             color: #0056b3;
         }
 
@@ -52,22 +53,26 @@
             margin-bottom: 8px;
         }
 
-        code {
+        p code,
+        li code {
             background-color: #e9ecef;
             color: #c7254e;
             padding: 2px 6px;
             border-radius: 4px;
             font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-            text-align: left;
-            display: inline-block;
         }
 
         pre {
-            background-color: #f8f9fa;
             padding: 1em;
             border-radius: 6px;
             overflow-x: auto;
             text-align: left;
+            margin-bottom: 1em;
+        }
+
+        pre code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            background: none;
         }
 
         .toc {
@@ -132,7 +137,7 @@ transactions. </p>
     <p>Before starting, you must copy and run these 4 JCL files in the correct order</p>
 
      RCICS.JCL($1$CATLG) 
-    <pre><code>//CXDFHGCD JOB
+    <pre><code class="language-pli">//CXDFHGCD JOB
 //*
 //* THIS JOB DELETES AND RECREATES CICS
 //* SYSTEM DATA SETS USED ONLY BY ONE REGION
@@ -206,7 +211,7 @@ transactions. </p>
 </code></pre>
 
 RCICS.JCL($2$SYSIN)
-<pre><code>//CXSYSIN  JOB
+<pre><code class="language-pli">//CXSYSIN  JOB
 //DELETE  EXEC PGM=IDCAMS,REGION=1M
 //SYSPRINT  DD SYSOUT=*
 //SYSIN     DD *,SYMBOLS=EXECSYS
@@ -238,7 +243,7 @@ RCICS.JCL($2$SYSIN)
 </code></pre>
 
 RCICS.JCL($3$CSD)
-<pre><code>//CXDFHCSD   JOB
+<pre><code class="language-pli">//CXDFHCSD   JOB
 //*
 //* THE JOB DELETES AND RECREATES THE CSD FOR CICSTS62
 //* LOGSTREAMS ARE DEFINED AS DUMMY
@@ -337,7 +342,7 @@ RCICS.JCL($3$CSD)
 </code></pre>
 
 RCICS.JCL($4$FILEA)
-<pre><code>//CXFILEA  JOB
+<pre><code class="language-pli">//CXFILEA  JOB
 //*
 //* THIS JOB DELETES AND RECREATES CICS
 //* SYSTEM DATA SETS USED ONLY BY ONE REGION
@@ -402,14 +407,14 @@ RCICS.JCL($4$FILEA)
 
     <p>Check the <strong>JESMSGLG</strong> for CICS message <code>DFHSI1517</code>:</p>
 
-<pre><code>12.12.12 JOB09999 +DFHSI1517 CXZxxxxx Control is being given to CICS.
+<pre><code class="language-pli">12.12.12 JOB09999 +DFHSI1517 CXZxxxxx Control is being given to CICS.
 </code></pre>
 
     <p>The name after DFHSI1517 is your CICS region APPLID.</p>
 
     <p>If you get <strong>ABEND U1800</strong>, reply to the forum post linked below with:</p>
 
-<pre><code>I have the same issue with my permissions my APPLID is CXZ12345(your id)
+<pre><code class="language-pli">I have the same issue with my permissions my APPLID is CXZ12345(your id)
 </code></pre>
 
     <p>Should be fixed in minutes.</p>
@@ -439,7 +444,7 @@ RCICS.JCL($4$FILEA)
     <p>U need to copy these to ur own datasets</p>
 
 The JCL for running PL1
-<pre><code>//DFHPLICL  JOB FB3,,REGION=0M,CLASS=7
+<pre><code class="language-pli">//DFHPLICL  JOB FB3,,REGION=0M,CLASS=7
 //*
 // EXPORT SYMLIST=(*)
 // SET MEMBER='CICSPLI'
@@ -454,7 +459,7 @@ The JCL for running PL1
 </code></pre>
 
 The PLI program u want to run.
-<pre><code>PLICICS: PROC OPTIONS(MAIN);
+<pre><code class="language-pli">PLICICS: PROC OPTIONS(MAIN);
  DCL MSGTXT  CHAR(12) INIT('Hello World!');
  DCL MSGLEN  FIXED DEC(7);
 
@@ -472,30 +477,30 @@ The PLI program u want to run.
     <p><strong>Step 1: Run the JCL above first</strong></p>
 
     <p><strong>Step 2: Define the Program</strong></p>
-<pre><code>CEDA DEFINE PROGRAM(progname)
+<pre><code class="language-pli">CEDA DEFINE PROGRAM(progname)
      -> GROUP: ZXPRDO
      -> LANGUAGE: PLI
 </code></pre>
 <p>Should display: DEFINE: SUCESSFUL</p>
 
     <p><strong>Step 3: Define the Transaction</strong></p>
-<pre><code>CEDA DEFINE TRANSACTION(ZHW0)
+<pre><code class="language-pli">CEDA DEFINE TRANSACTION(ZHW0)
      -> PROGRAM: progname
      -> GROUP: ZXPRDO
 </code></pre>
     <p>Should display: DEFINE: SUCESSFUL</p>
 
     <p><strong>Step 4: Install the Group</strong></p>
-<pre><code>CEDA INSTALL GROUP(ZXPRDO)
+<pre><code class="language-pli">CEDA INSTALL GROUP(ZXPRDO)
 </code></pre>
     <p>Should display: INSTALL: SUCESSFUL</p>
 
     <p><strong>Run the transaction:</strong></p>
 
-<pre><code>ZHW0
+<pre><code class="language-pli">ZHW0
 </code></pre>
 <p><strong>Step 5*: only when u updated ur module /code u need to reload it </strong></p>
-<pre><code>CEMT SET NEWCOPY PROGRAM(progname)
+<pre><code class="language-pli">CEMT SET NEWCOPY PROGRAM(progname)
 </code></pre>
 
     <p>Should display: RESPONSE: NORMAL</p>
