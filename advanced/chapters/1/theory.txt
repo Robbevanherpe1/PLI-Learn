@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PL/I Variables and Loops</title>
+    <title>Advanced PL/I Language Concepts</title>
     <style>
         html {
             scroll-behavior: smooth;
@@ -53,22 +53,26 @@
             margin-bottom: 8px;
         }
 
-        code {
+        p code,
+        li code {
             background-color: #e9ecef;
             color: #c7254e;
             padding: 2px 6px;
             border-radius: 4px;
             font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-            text-align: left;
-            display: inline-block;
         }
 
         pre {
-            background-color: #f8f9fa;
             padding: 1em;
             border-radius: 6px;
             overflow-x: auto;
             text-align: left;
+            margin-bottom: 1em;
+        }
+
+        pre code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            background: none;
         }
 
         .toc {
@@ -105,161 +109,314 @@
             border-top: 2px solid #eee;
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
 </head>
 <body>
 
 <div class="container" id="textinfo">
-    <h1>PL/I Variables and Loops</h1>
+    <h1>Advanced PL/I Language Concepts</h1>
 
     <div class="toc">
         <h3>Key Topics Covered</h3>
         <ul>
-            <li><a href="#variables">Declaring and Initializing Variables</a></li>
-            <li><a href="#datatypes">PL/I Data Types and Attributes</a></li>
-            <li><a href="#scope">Variable Scope and Storage Classes</a></li>
-            <li><a href="#loops">Loop Structures and Control</a></li>
-            <li><a href="#examples">Examples: Counting, Nested Loops, and Conditional Iteration</a></li>
+            <li><a href="#decl">Advanced Declarations and Attributes</a></li>
+            <li><a href="#pointers">Pointers, Based Variables, and Dynamic Storage</a></li>
+            <li><a href="#structures">Structures, Unions, and Arrays of Structures</a></li>
+            <li><a href="#conditions">Condition Handling and ON-Units</a></li>
+            <li><a href="#procedures">Procedures, Parameter Transmission, and Function Procedures</a></li>
+            <li><a href="#example">Integrated Example: Dynamic List With Condition Handling</a></li>
         </ul>
     </div>
 
-    <h2 id="variables">Declaring and Initializing Variables</h2>
+    <h2 id="decl">Advanced Declarations and Attributes</h2>
     <p>
-        In PL/I, all variables must be declared before they are used. Declarations use the <strong>DCL</strong> (declare) statement.  
-        Each variable declaration specifies a name, a data type, and optionally additional attributes such as <code>INIT</code> (initial value), <code>STATIC</code>, or <code>CONTROLLED</code>.
+        PL/I provides a rich declaration language. Beyond basic scalar variables, declarations combine a data type with
+        attributes that determine precision, storage discipline, alignment, variability, and dimensionality.
+        Declarations are introduced with the <strong>DCL</strong> statement.
     </p>
 
-    <p>Example of basic variable declarations:</p>
-    <pre><code>DCL NAME CHAR(20) INIT('IBM MAINFRAME');
-DCL COUNT FIXED BINARY INIT(10);
-DCL RATE FLOAT DECIMAL(6);
-DCL FLAG BIT(1) INIT('1'B);
+    <p>Examples of declarations with advanced attributes:</p>
+    <pre><code class="language-pli">DCL COUNTER      FIXED BIN(31);
+DCL TOTAL        FIXED DECIMAL(15,2);
+DCL TEXT         CHAR(100) VARYING;
+DCL P            POINTER;
+DCL BUFFER       CHAR(4096) ALIGNED;
+DCL FLAG_FIELD   BIT(16) UNALIGNED;
+DCL TABLE        FIXED BIN(15) DIMENSION(1:100);
 </code></pre>
 
     <ul>
-        <li><strong>CHAR(n)</strong> — defines a fixed-length character string.</li>
-        <li><strong>FIXED BINARY</strong> — integer numeric variable (whole numbers).</li>
-        <li><strong>FLOAT DECIMAL</strong> — floating-point decimal value.</li>
-        <li><strong>BIT(n)</strong> — stores binary data of a specific length.</li>
-        <li><strong>INIT(value)</strong> — assigns a starting value at runtime.</li>
+        <li><strong>FIXED BIN(p)</strong> specifies an exact binary integer with precision <code>p</code> bits.</li>
+        <li><strong>FIXED DECIMAL(p,q)</strong> specifies an exact decimal number with <code>p</code> digits, of which <code>q</code> are fractional.</li>
+        <li><strong>CHAR(n) VARYING</strong> designates a variable-length character string with maximum length <code>n</code>.</li>
+        <li><strong>POINTER</strong> is an implementation-defined type that can hold the address of a based variable.</li>
+        <li><strong>ALIGNED</strong> requests alignment on a natural boundary appropriate to the implementation.</li>
+        <li><strong>UNALIGNED</strong> permits storage at arbitrary bit positions, often used with <code>BIT</code> strings or packed structures.</li>
+        <li><strong>DIMENSION(l:u)</strong> declares an array with subscript bounds from <code>l</code> to <code>u</code>.</li>
     </ul>
 
-    <h2 id="datatypes">PL/I Data Types and Attributes</h2>
     <p>
-        PL/I supports a broad range of data types for both numeric and non-numeric processing, allowing complex scientific and business applications to coexist in one program.
+        Many attributes can be combined. For example, a dynamically allocated array of decimal values can be declared as a
+        based variable with a separate pointer that is supplied by the allocator.
     </p>
 
+    <h2 id="pointers">Pointers, Based Variables, and Dynamic Storage</h2>
+    <p>
+        A central mechanism for advanced PL/I programming is the combination of <strong>POINTER</strong> values,
+        <strong>BASED</strong> variables, and dynamic storage control using <code>ALLOCATE</code> and <code>FREE</code>.
+        A based variable has no storage of its own; instead, its location is determined by the associated pointer value.
+    </p>
+
+    <pre><code class="language-pli">DCL NODE_PTR POINTER;
+DCL 1 NODE BASED(NODE_PTR),
+      2 VALUE FIXED BIN(31),
+      2 NEXT  POINTER;
+
+ALLOCATE NODE;
+VALUE = 10;
+NEXT = NULL();
+</code></pre>
+
     <ul>
-        <li><strong>Character types:</strong> <code>CHAR(n)</code> and <code>VARYING CHAR(n)</code> for fixed or variable text.</li>
-        <li><strong>Numeric types:</strong> <code>FIXED</code> for exact arithmetic, <code>FLOAT</code> for approximate results.</li>
-        <li><strong>Bit strings:</strong> <code>BIT(n)</code> used for binary operations or flags.</li>
-        <li><strong>Arrays:</strong> group of elements of the same type, declared with subscripts (e.g., <code>DCL A(10) FIXED BINARY;</code>).</li>
-        <li><strong>Structures:</strong> group of mixed data types using the <code>STRUCTURE</code> attribute.</li>
-        <li><strong>Constants:</strong> declared with <code>DEFINE</code> or <code>DCL ... CONSTANT;</code>.</li>
+        <li><strong>BASED(pointer)</strong> associates a variable or structure with a pointer variable.</li>
+        <li><strong>ALLOCATE</strong> requests dynamic storage for the based variable, optionally for an array extent.</li>
+        <li><strong>FREE</strong> releases the storage previously obtained for the based variable.</li>
     </ul>
 
-    <pre><code>DCL PI FIXED DECIMAL(5,4) CONSTANT INIT(3.1416);
-DCL TEMPS(3) FIXED DECIMAL(5,2) INIT((22.5, 23.0, 21.8));
-DCL 1 EMPLOYEE,
-      2 ID FIXED BIN,
-      2 NAME CHAR(20),
-      2 SALARY FIXED DEC(7,2);
+    <p>Example of a dynamically sized array:</p>
+    <pre><code class="language-pli">DCL V_PTR POINTER;
+DCL V(*)  FIXED BIN(31) BASED(V_PTR);
+
+ALLOCATE V(1:100) SET(V_PTR);
+V(1) = 1;
+V(100) = 100;
+FREE V;
 </code></pre>
 
     <p>
-        The above shows three different forms: a constant (<code>PI</code>), an array (<code>TEMPS</code>), and a structure (<code>EMPLOYEE</code>).
+        The <code>SET</code> option associates the storage returned by <code>ALLOCATE</code> with the pointer. Correct
+        management of dynamically allocated storage is essential to avoid leaks and dangling references.
     </p>
 
-    <h2 id="scope">Variable Scope and Storage Classes</h2>
+    <h2 id="structures">Structures, Unions, and Arrays of Structures</h2>
     <p>
-        Variable scope determines where a variable is accessible. In PL/I:
+        PL/I structures allow the programmer to define logically related groups of components, potentially with mixed
+        types. Structures are introduced with level numbers, and unions can be declared to allow overlapping storage.
     </p>
+
+    <pre><code class="language-pli">DCL 1 EMPLOYEE,
+      2 ID        FIXED BIN(31),
+      2 NAME      CHAR(30) VARYING,
+      2 SALARY    FIXED DECIMAL(9,2),
+      2 ACTIVE    BIT(1),
+      2 PADDING   BIT(7) UNALIGNED;
+
+DCL 1 RECORD UNION,
+      2 AS_INT    FIXED BIN(31),
+      2 AS_FLAGS  BIT(32);
+</code></pre>
+
     <ul>
-        <li><strong>Automatic</strong> variables (default) exist only while a procedure is active.</li>
-        <li><strong>Static</strong> variables retain their values between procedure calls (<code>DCL VAR FIXED BIN STATIC;</code>).</li>
-        <li><strong>Controlled</strong> variables are dynamically allocated and released with <code>ALLOCATE</code> and <code>FREE</code>.</li>
+        <li>Level numbers <code>1, 2, ...</code> express hierarchical structure.</li>
+        <li>A <strong>UNION</strong> overlays its components in the same storage, enabling alternative interpretations.</li>
+        <li>Structures may themselves be <strong>BASED</strong>, and arrays of structures are common in table-oriented code.</li>
     </ul>
 
-    <p>
-        Example showing different scopes:
-    </p>
-    <pre><code>SCOPEEX: PROC OPTIONS(MAIN);
-   DCL COUNTER FIXED BIN;
-   DCL STATIC_COUNT FIXED BIN STATIC INIT(0);
+    <p>Array of structures with dynamic allocation:</p>
+    <pre><code class="language-pli">DCL EMP_PTR   POINTER;
+DCL 1 EMP_TAB(*) BASED(EMP_PTR),
+      2 ID      FIXED BIN(31),
+      2 NAME    CHAR(30) VARYING,
+      2 SALARY  FIXED DECIMAL(9,2);
 
-   DO COUNTER = 1 TO 3;
-      STATIC_COUNT = STATIC_COUNT + 1;
-      PUT SKIP LIST('COUNTER =', COUNTER, 'STATIC_COUNT =', STATIC_COUNT);
+ALLOCATE EMP_TAB(1:50) SET(EMP_PTR);
+EMP_TAB(1).ID = 1;
+EMP_TAB(1).NAME = 'SMITH';
+EMP_TAB(1).SALARY = 50000.00;
+FREE EMP_TAB;
+</code></pre>
+
+    <h2 id="conditions">Condition Handling and ON-Units</h2>
+    <p>
+        PL/I integrates condition handling into the language. A <strong>condition</strong> represents an exceptional
+        or unusual situation, such as division by zero, end-of-file, or a user-defined event. An <strong>ON-unit</strong>
+        is a block of code associated with a condition that is executed when the condition is raised.
+    </p>
+
+    <p>Built-in conditions include <code>ZERODIVIDE</code>, <code>ENDFILE</code>, <code>ERROR</code>, <code>SIZE</code>, and others.</p>
+
+    <pre><code class="language-pli">COND_EXAMPLE: PROC OPTIONS(MAIN);
+   DCL X FIXED DECIMAL(9,2) INIT(10);
+   DCL Y FIXED DECIMAL(9,2) INIT(0);
+   DCL R FIXED DECIMAL(9,2);
+
+   ON ZERODIVIDE BEGIN;
+      PUT SKIP LIST('Division by zero detected');
+      R = 0;
+      RETURN;
    END;
 
-END SCOPEEX;
+   R = X / Y;
+   PUT SKIP LIST('Result =', R);
+END COND_EXAMPLE;
 </code></pre>
 
     <p>
-        Here, <code>COUNTER</code> resets each run, while <code>STATIC_COUNT</code> keeps its value if called again.
+        User-defined conditions are declared with the <code>CONDITION</code> attribute and may be raised using
+        <code>SIGNAL</code>. An ON-unit for a user-defined condition has the same structure as for a built-in condition.
     </p>
 
-    <h2 id="loops">Loop Structures and Control</h2>
+    <pre><code class="language-pli">DCL OVERFLOW CONDITION;
+
+ON OVERFLOW BEGIN;
+   PUT SKIP LIST('User-defined overflow condition');
+END;
+
+SIGNAL OVERFLOW;
+</code></pre>
+
     <p>
-        PL/I uses the <strong>DO</strong> statement for iteration. Loops can be numeric (count-controlled), conditional, or indefinite.  
-        Each loop ends with an <code>END</code> statement, and loop control can be modified using <code>LEAVE</code> or <code>ITERATE</code>.
+        More advanced patterns use <code>RESIGNAL</code> to propagate a condition after partial handling, enabling
+        layered error handling in large systems.
     </p>
 
-    <h3>Numeric loop example:</h3>
-    <pre><code>DCL I FIXED BIN;
-DO I = 1 TO 5;
-   PUT SKIP LIST('Iteration:', I);
-END;
-</code></pre>
-
-    <h3>Conditional loop example:</h3>
-    <pre><code>DCL N FIXED BIN INIT(0);
-DO WHILE(N < 3);
-   N = N + 1;
-   PUT SKIP LIST('Current N =', N);
-END;
-</code></pre>
-
-    <h3>Using LEAVE and ITERATE:</h3>
-    <pre><code>DCL I FIXED BIN;
-DO I = 1 TO 10;
-   IF I = 3 THEN ITERATE; /* skip this iteration */
-   IF I = 8 THEN LEAVE;   /* exit loop early */
-   PUT SKIP LIST('I =', I);
-END;
-</code></pre>
-
-    <h2 id="examples">Examples: Counting, Nested Loops, and Conditional Iteration</h2>
+    <h2 id="procedures">Procedures, Parameter Transmission, and Function Procedures</h2>
     <p>
-        Below is a complete program showing nested loops and formatted output.
+        A PL/I program is organized as a set of procedures. Parameters are transmitted primarily by reference, but
+        may be declared with the <strong>VALUE</strong> attribute to request transmission by value. A procedure that
+        returns a value is a function procedure and uses the <code>RETURNS</code> attribute.
     </p>
 
-    <pre><code>NESTED: PROC OPTIONS(MAIN);
-   DCL I FIXED BIN;
-   DCL J FIXED BIN;
+    <p>Example of a function procedure:</p>
+    <pre><code class="language-pli">ADD: PROC (X, Y) RETURNS(FIXED BIN(31));
+   DCL X FIXED BIN(31);
+   DCL Y FIXED BIN(31);
+   RETURN (X + Y);
+END ADD;
+</code></pre>
 
-   DO I = 1 TO 3;
-      DO J = 1 TO 2;
-         PUT SKIP LIST('OUTER =', I, 'INNER =', J);
+    <p>Caller:</p>
+    <pre><code class="language-pli">USE_ADD: PROC OPTIONS(MAIN);
+   DCL A FIXED BIN(31) INIT(3);
+   DCL B FIXED BIN(31) INIT(4);
+   DCL S FIXED BIN(31);
+
+   S = ADD(A, B);
+   PUT SKIP LIST('Sum =', S);
+END USE_ADD;
+</code></pre>
+
+    <p>
+        When the <strong>VALUE</strong> attribute is supplied on a parameter declaration in the procedure header,
+        the callee receives its own copy of the argument.
+    </p>
+
+    <pre><code class="language-pli">INC_BY_VAL: PROC (X) RETURNS(FIXED BIN(31));
+   DCL X FIXED BIN(31) VALUE;
+   X = X + 1;
+   RETURN (X);
+END INC_BY_VAL;
+</code></pre>
+
+    <p>
+        Internal procedures, declared within an outer procedure, may access the outer procedure's variables. This
+        supports modular design while preserving lexical scoping.
+    </p>
+
+    <h2 id="example">Integrated Example: Dynamic List With Condition Handling</h2>
+    <p>
+        The following program illustrates several advanced concepts together: pointers, based structures, dynamic
+        allocation of a singly linked list, and condition handling for a simple error condition.
+    </p>
+
+    <pre><code class="language-pli">LIST_EXAMPLE: PROC OPTIONS(MAIN);
+   DCL LIST_HEAD POINTER;
+   DCL 1 NODE BASED(LIST_HEAD),
+         2 VALUE FIXED BIN(31),
+         2 NEXT  POINTER;
+
+   DCL CUR_PTR POINTER;
+   DCL NOT_FOUND CONDITION;
+
+   LIST_HEAD = NULL();
+   CALL INSERT_FRONT(LIST_HEAD, 10);
+   CALL INSERT_FRONT(LIST_HEAD, 20);
+   CALL INSERT_FRONT(LIST_HEAD, 30);
+
+   ON NOT_FOUND BEGIN;
+      PUT SKIP LIST('Requested value not found in list');
+   END;
+
+   CALL SEARCH_AND_PRINT(LIST_HEAD, 20);
+   CALL SEARCH_AND_PRINT(LIST_HEAD, 99);
+   CALL FREE_LIST(LIST_HEAD);
+
+LIST_EXAMPLE_END:
+   RETURN;
+
+INSERT_FRONT: PROC (HEAD, V);
+   DCL HEAD POINTER;
+   DCL V    FIXED BIN(31);
+
+   DCL NEW_PTR POINTER;
+   DCL 1 NEW_NODE BASED(NEW_PTR),
+         2 VALUE FIXED BIN(31),
+         2 NEXT  POINTER;
+
+   ALLOCATE NEW_NODE SET(NEW_PTR);
+   NEW_NODE.VALUE = V;
+   NEW_NODE.NEXT = HEAD;
+   HEAD = NEW_PTR;
+END INSERT_FRONT;
+
+SEARCH_AND_PRINT: PROC (HEAD, TARGET);
+   DCL HEAD   POINTER;
+   DCL TARGET FIXED BIN(31);
+
+   DCL CUR_PTR POINTER;
+   DCL 1 CUR_NODE BASED(CUR_PTR),
+         2 VALUE FIXED BIN(31),
+         2 NEXT  POINTER;
+
+   CUR_PTR = HEAD;
+
+   DO WHILE(CUR_PTR ^= NULL());
+      IF CUR_NODE.VALUE = TARGET THEN DO;
+         PUT SKIP LIST('Found value', TARGET);
+         RETURN;
       END;
+      CUR_PTR = CUR_NODE.NEXT;
    END;
 
-END NESTED;
+   SIGNAL NOT_FOUND;
+END SEARCH_AND_PRINT;
+
+FREE_LIST: PROC (HEAD);
+   DCL HEAD POINTER;
+
+   DCL CUR_PTR POINTER;
+   DCL NEXT_PTR POINTER;
+   DCL 1 CUR_NODE BASED(CUR_PTR),
+         2 VALUE FIXED BIN(31),
+         2 NEXT  POINTER;
+
+   CUR_PTR = HEAD;
+
+   DO WHILE(CUR_PTR ^= NULL());
+      NEXT_PTR = CUR_NODE.NEXT;
+      FREE CUR_NODE;
+      CUR_PTR = NEXT_PTR;
+   END;
+
+   HEAD = NULL();
+END FREE_LIST;
+
+END LIST_EXAMPLE;
 </code></pre>
 
     <p>
-        Output:
-    </p>
-
-    <pre><code>OUTER = 1 INNER = 1
-OUTER = 1 INNER = 2
-OUTER = 2 INNER = 1
-OUTER = 2 INNER = 2
-OUTER = 3 INNER = 1
-OUTER = 3 INNER = 2
-</code></pre>
-
-    <p>
-        Nested loops are often used in array processing, matrix computations, or multi-level file operations.
+        This program demonstrates how PL/I supports a modular, strongly typed style for implementing dynamic data
+        structures and local error handling, while retaining efficient low-level control over storage.
     </p>
 
     <hr>
@@ -270,6 +427,24 @@ OUTER = 3 INNER = 2
         <li>IBM (2020). <em>Using ISPF for Application Development.</em> IBM z/OS Basic Skills Handbook. <a href="https://www.ibm.com/docs/en/zos/2.5.0?topic=development-using-ispf">[Link]</a></li>
     </ol>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>
+hljs.registerLanguage("pli", function(hljs) {
+  var KEYWORDS = "proc procedure options main dcl declare fixed bin decimal char varying pointer based allocate free signal condition on returns value union null set do end return call skip list put while init aligned unaligned dimension";
+  return {
+    name: "PL/I",
+    case_insensitive: true,
+    keywords: KEYWORDS,
+    contains: [
+      hljs.QUOTE_STRING_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      hljs.NUMBER_MODE
+    ]
+  };
+});
+hljs.highlightAll();
+</script>
 
 </body>
 </html>
