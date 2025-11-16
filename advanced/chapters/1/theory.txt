@@ -109,7 +109,6 @@
             border-top: 2px solid #eee;
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
 </head>
 <body>
 
@@ -427,24 +426,6 @@ END LIST_EXAMPLE;
         <li>IBM (2020). <em>Using ISPF for Application Development.</em> IBM z/OS Basic Skills Handbook. <a href="https://www.ibm.com/docs/en/zos/2.5.0?topic=development-using-ispf">[Link]</a></li>
     </ol>
 </div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-<script>
-hljs.registerLanguage("pli", function(hljs) {
-  var KEYWORDS = "proc procedure options main dcl declare fixed bin decimal char varying pointer based allocate free signal condition on returns value union null set do end return call skip list put while init aligned unaligned dimension";
-  return {
-    name: "PL/I",
-    case_insensitive: true,
-    keywords: KEYWORDS,
-    contains: [
-      hljs.QUOTE_STRING_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
-      hljs.NUMBER_MODE
-    ]
-  };
-});
-hljs.highlightAll();
-</script>
 
 </body>
 </html>

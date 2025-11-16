@@ -53,22 +53,26 @@
             margin-bottom: 8px;
         }
 
-        code {
+        p code,
+        li code {
             background-color: #e9ecef;
             color: #c7254e;
             padding: 2px 6px;
             border-radius: 4px;
             font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-            text-align: left;
-            display: inline-block;
         }
 
         pre {
-            background-color: #f8f9fa;
             padding: 1em;
             border-radius: 6px;
             overflow-x: auto;
             text-align: left;
+            margin-bottom: 1em;
+        }
+
+        pre code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            background: none;
         }
 
         .toc {
@@ -129,7 +133,7 @@
     </p>
 
     <p>Example of basic variable declarations:</p>
-    <pre><code>DCL NAME CHAR(20) INIT('IBM MAINFRAME');
+    <pre><code class="language-pli">DCL NAME CHAR(20) INIT('IBM MAINFRAME');
 DCL COUNT FIXED BINARY INIT(10);
 DCL RATE FLOAT DECIMAL(6);
 DCL FLAG BIT(1) INIT('1'B);
@@ -157,7 +161,7 @@ DCL FLAG BIT(1) INIT('1'B);
         <li><strong>Constants:</strong> declared with <code>DEFINE</code> or <code>DCL ... CONSTANT;</code>.</li>
     </ul>
 
-    <pre><code>DCL PI FIXED DECIMAL(5,4) CONSTANT INIT(3.1416);
+    <pre><code class="language-pli">DCL PI FIXED DECIMAL(5,4) CONSTANT INIT(3.1416);
 DCL TEMPS(3) FIXED DECIMAL(5,2) INIT((22.5, 23.0, 21.8));
 DCL 1 EMPLOYEE,
       2 ID FIXED BIN,
@@ -182,7 +186,7 @@ DCL 1 EMPLOYEE,
     <p>
         Example showing different scopes:
     </p>
-    <pre><code>SCOPEEX: PROC OPTIONS(MAIN);
+    <pre><code class="language-pli">SCOPEEX: PROC OPTIONS(MAIN);
    DCL COUNTER FIXED BIN;
    DCL STATIC_COUNT FIXED BIN STATIC INIT(0);
 
@@ -192,7 +196,7 @@ DCL 1 EMPLOYEE,
    END;
 
 END SCOPEEX;
-</code></pre>
+</code class="language-pli"></pre>
 
     <p>
         Here, <code>COUNTER</code> resets each run, while <code>STATIC_COUNT</code> keeps its value if called again.
@@ -205,14 +209,14 @@ END SCOPEEX;
     </p>
 
     <h3>Numeric loop example:</h3>
-    <pre><code>DCL I FIXED BIN;
+    <pre><code class="language-pli">DCL I FIXED BIN;
 DO I = 1 TO 5;
    PUT SKIP LIST('Iteration:', I);
 END;
 </code></pre>
 
     <h3>Conditional loop example:</h3>
-    <pre><code>DCL N FIXED BIN INIT(0);
+    <pre><code class="language-pli">DCL N FIXED BIN INIT(0);
 DO WHILE(N < 3);
    N = N + 1;
    PUT SKIP LIST('Current N =', N);
@@ -220,7 +224,7 @@ END;
 </code></pre>
 
     <h3>Using LEAVE and ITERATE:</h3>
-    <pre><code>DCL I FIXED BIN;
+    <pre><code class="language-pli">DCL I FIXED BIN;
 DO I = 1 TO 10;
    IF I = 3 THEN ITERATE; /* skip this iteration */
    IF I = 8 THEN LEAVE;   /* exit loop early */
@@ -233,7 +237,7 @@ END;
         Below is a complete program showing nested loops and formatted output.
     </p>
 
-    <pre><code>NESTED: PROC OPTIONS(MAIN);
+    <pre><code class="language-pli">NESTED: PROC OPTIONS(MAIN);
    DCL I FIXED BIN;
    DCL J FIXED BIN;
 
@@ -250,7 +254,7 @@ END NESTED;
         Output:
     </p>
 
-    <pre><code>OUTER = 1 INNER = 1
+    <pre><code class="language-pli">OUTER = 1 INNER = 1
 OUTER = 1 INNER = 2
 OUTER = 2 INNER = 1
 OUTER = 2 INNER = 2
