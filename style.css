@@ -35,6 +35,29 @@ body {
   padding: 15px 25px;
   box-shadow: 0 2px 6px var(--shadow);
 }
+
+.course-view {
+  display: flex;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #1e1e1e;
+  padding: 20px;
+}
+
+.content-area {
+  margin-left: 260px;
+  padding: 20px;
+  flex: 1;
+  overflow-y: auto;
+}
+
 .logo {
   font-size: 1.4em;
   color: var(--accent);
